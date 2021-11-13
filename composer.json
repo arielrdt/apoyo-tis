@@ -1,0 +1,15 @@
+{
+    "name": "ariel/apoyo-a-empresa-tis",
+    "autoload": {
+        "psr-4": {
+            "Ariel\\ApoyoAEmpresaTis\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Ariel",
+            "email": "arieldelgadillo444@gmail.com"
+        }
+    ],
+    "require": {}
+}
