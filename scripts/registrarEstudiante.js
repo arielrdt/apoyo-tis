@@ -48,10 +48,10 @@ const subirDatos=()=>{
     let datosFormulario=new FormData(formulario);
     let validoParaSubir=true;
     espacioMensaje.innerHTML="";
-    console.log("validoParaSubir");
+
     if(datosFormulario.get('nombreEstudiante')=='')
     {validoParaSubir=false;
-    console.log("validoParaSubir");
+    console.log(validoParaSubir);
     espacioMensaje.innerHTML+='<p class=mensaje-rojo>*Llenar todos los campos</p>';
     }
 
@@ -95,9 +95,9 @@ const subirDatos=()=>{
     {validoParaSubir=false; 
     espacioMensaje.innerHTML+='<p class=mensaje-rojo>*El codigo SIS debe tener 9 caracteres</p>' }    
 
-    // if(!validarCorreo(datosFormulario.get('correoEstudiante')))
-    // {validoParaSubir=false; 
-    // espacioMensaje.innerHTML+='<p class=mensaje-rojo>*Debe ingresar su correo institucional</p>' }    
+    if(!validarCorreo(datosFormulario.get('correoEstudiante')))
+    {validoParaSubir=false; 
+    espacioMensaje.innerHTML+='<p class=mensaje-rojo>*Debe ingresar su correo institucional</p>' }    
     
     if(!validarCarrera(datosFormulario.get('carrera')))
     {validoParaSubir=false; 
@@ -132,9 +132,4 @@ const subirDatos=()=>{
 formulario.addEventListener('submit',(e)=>{
 subirDatos();
 e.preventDefault();                        });
-    
-    
-    
-    
-    
-    
+        
