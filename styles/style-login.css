@@ -10,12 +10,17 @@
 
 .header {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     /* background-color: silver; */
     height: 100px;
     width: 100%;
     font-size: 25px;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+.header h1 {
+    font-family: 'Fjalla One', sans-serif;
+    margin-left: 40px;
 }
 
 .main {
