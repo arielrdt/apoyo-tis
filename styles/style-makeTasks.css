@@ -1,0 +1,12 @@
+.options{
+    display: flex;
+    flex-direction: column;
+}
+.options a{
+    margin-bottom: 40px;
+    border: 1px rgb(88, 88, 88) solid;
+    background-color: rgb(180, 180, 180);
+    text-decoration: none;
+    color: black;
+
+}
