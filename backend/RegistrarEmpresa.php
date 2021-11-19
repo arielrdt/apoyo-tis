@@ -1,77 +1,52 @@
 <?php
 include("conexionBD.php");
+session_start(); 
+$codigoEstudiante=$_SESSION['CODIGO_SIS'];
 $nombre_corto=$_POST['nombreCortoEmpresa'];
 $nombre_largo=$_POST['nombreLargoEmpresa'];
 $sociedad=$_POST['sociedad'];
-$direacion=$_POST['direccionEmpresa'];
+$direccion=$_POST['direccionEmpresa'];
 $telefono=$_POST['telefonoEmpresa'];
 $correo=$_POST['correoEmpresa'];
-$fecha_inicio=date("Y-m-d");
-$codigo="1234asd";
+$fecha=date("Y-m-d");
 
-function estudianteCreoEmpresa($conexionBD,$semestre_anio){
-$consultaSQL='SELECT * FROM INVITACION_PUBLICA WHERE SEMESTRE_ANIO="'.$semestre_anio.'"';
-$resultadoConsulta=mysqli_query($conexionBD,$consultaSQL);
-$filaResultado=mysqli_fetch_array($resultadoConsulta);
-return (true);
+function generarCodigo(){return(rand(10,15)."".rand(1,9)."".rand(3,8)."".rand(33,39)."".rand(2,9));}
+
+function crearEmpresa($conexionBD,$nombre_corto,$nombre_largo,$sociedad,$fecha,$telefono,$direccion,$correo,$codigoEstudiante){
+    $codigoUnion=generarCodigo();    
+    $query="INSERT INTO grupo_empresa(
+        NOMBRE_CORTO,	
+        NOMBRE_LARGO,	
+        TIPO_SOCIEDAD,
+        FECHA_CREACION,
+        TELEFONO,
+        DIRECCION,	
+        CORREO_ELECTRONICO,	
+        CODIGO_UNION)
+      VALUES 
+     ('$nombre_corto',
+     '$nombre_largo',
+     '$sociedad',
+     '$fecha',
+     '$telefono',
+     '$direccion',
+     '$correo',
+     '$codigoUnion')";
+     $result=mysqli_query($conexionBD,$query);
 }
 
-function CamposNoLlenos($titulo_documento,$fecha_limite,$carnet_identidad_docente,$semestre_anio,$descripcion){
-return($titulo_documento==='' || $fecha_limite==='' ||  
-$descripcion==='' || $semestre_anio==='');}
-
-function ejecutarConsultaSubirDatos($conexionBD,$fecha_inicio,$fecha_limite,$titulo_documento,$semestre_anio,$descripcion){
-    $query="INSERT INTO invitacion_publica
-    (FECHA_INICIO ,
-    FECHA_LIMITE ,
-
-    COD_CLASE ,
-    FECHA_PUBLICACION ,
-    SEMSTRE_ANIO ,
-
-    HORA_LIMITE ,
-    TITULO_DOCUMENTO ,
-    SEMESTRE_ANIO ,
-    DESCRIPCION) 
-    VALUES 
-    ('$fecha_inicio' ,
-     '$fecha_limite' ,
-    NULL ,
-    NULL ,
-    NULL ,
-    NULL ,
-    '$titulo_documento',
-    '$semestre_anio',
-    '$descripcion')";
-    $result=mysqli_query($conexionBD,$query);
+function actualizarDatosEstudiante($conexionBD,$codigoEstudiante,$nombre_corto,$nombre_largo)
+{
+$consulta="UPDATE ESTUDIANTE SET NOMBRE_CORTO='$nombre_corto',NOMBRE_LARGO='$nombre_largo' WHERE CODIGO_SIS='$codigoEstudiante'";
+$resultadoConsulta=mysqli_query($conexionBD,$consulta);
 }
 
-function subirDatos($conexionBD,$fecha_inicio,$fecha_limite,$titulo_documento,$semestre_anio,$descripcion,$codigo,$carnet_identidad_docente){
-    if(NoExisteUnaInviEnMismoSemestre($conexionBD,$semestre_anio)){
-        if(CamposNoLlenos($titulo_documento,$fecha_limite,$carnet_identidad_docente,$semestre_anio,$descripcion))
-         {echo json_encode('Debes llenar todos los campos');}
-        else{
+function subirDatos($conexionBD,$nombre_corto,$nombre_largo,$sociedad,$fecha,$telefono,$direccion,$correo,$codigoEstudiante){
+      crearEmpresa($conexionBD,$nombre_corto,$nombre_largo,$sociedad,$fecha,$telefono,$direccion,$correo,$codigoEstudiante);
+      actualizarDatosEstudiante($conexionBD,$codigoEstudiante,$nombre_corto,$nombre_largo);
+      echo json_encode("Empresa creada con éxito");}
 
-        $nomreOriginalArchivo=basename($_FILES['file']['name']);
-        $extension=strtolower(pathinfo($nomreOriginalArchivo,PATHINFO_EXTENSION));
-        $nombreNuevoArchivo=$semestre_anio.'.'.$extension;
-        $rutaFinal='../archivos/inv_publicas/'.$nombreNuevoArchivo;
-      
-        if($nomreOriginalArchivo!=''){
-            if($extension=="pdf")
-            {
-             move_uploaded_file($_FILES["file"]["tmp_name"],$rutaFinal);
-             ejecutarConsultaSubirDatos($conexionBD,$fecha_inicio,$fecha_limite,$titulo_documento,$semestre_anio,$descripcion);
-             echo json_encode("La convocatoria ha sido publicada exitosamente");
-            }
-           else
-           {echo json_encode("el documento debe estar en formato pdf");}
-        }
-           else{echo json_encode("debe adjuntar un documento");}
-        }
-    }
-    else{echo json_encode("ya se publico una invitacion publica para el semestre ingresado");}
-}
-subirDatos($conexionBD,$fecha_inicio,$fecha_limite,$titulo_documento,$semestre_anio,$descripcion,$codigo,$carnet_identidad_docente);
+
+subirDatos($conexionBD,$nombre_corto,$nombre_largo,$sociedad,$fecha,$telefono,$direccion,$correo,$codigoEstudiante);
 
 ?>

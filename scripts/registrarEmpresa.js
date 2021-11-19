@@ -1,7 +1,4 @@
 let formulario=document.getElementById('formulario');
-let espacioMensaje=document.getElementById('espacio-mensaje');
-
-
 // const validarNombre=(nombreEmpresa)=>{
 //     let patron = new RegExp("^[a-z||A-Z|][a-zA-Z_.,:;]+$");
 //     return !!patron.test(nombreEmpresa);}
@@ -21,7 +18,6 @@ let espacioMensaje=document.getElementById('espacio-mensaje');
 // const validarTelefono=(telefonoEmpresa)=>{
 //     let patron = new RegExp("^[0-9]+$ ?");
 //     return !!patron.test(telefonoEmpresa);}
-
 const subirDatos=()=>{
     let datosFormulario=new FormData(formulario);
     let validoParaSubir=true;
@@ -58,24 +54,15 @@ const subirDatos=()=>{
     if(validoParaSubir){
     fetch('../backend/RegistrarEmpresa.php',{
             method:'POST',
-            body:datosFormulario
-             }
-             )
+            body:datosFormulario})
                 .then(res=>res.json())
-                .then(data=>{
-                    console.log(data);
-           if(data=="El pliego ha sido publicado exitosamente"){espacioMensaje.innerHTML+='<p class=mensaje-verde>*'+data+'</p>';}
-            else{espacioMensaje.innerHTML+='<p class=mensaje-rojo>*'+data+'</p>';}
-        })
-
-    }
+                .then(data=>{console.log(data);})
+                         }
  }
 
     
 
-formulario.addEventListener('submit',(e)=>{
-subirDatos();
-e.preventDefault();                        });
+formulario.addEventListener('submit',(e)=>{subirDatos(); e.preventDefault(); });
     
     
     

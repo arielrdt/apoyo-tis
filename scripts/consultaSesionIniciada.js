@@ -6,7 +6,3 @@ fetch('./backend/existeSesionActiva.php',{method:'GET'})
     if(!mensaje){botonSesion.innerHTML='<a class="itemNav" href="./public/login.html">iniciar sesion</a>';}
      else{botonSesion.innerHTML='<a class="itemNav" href="./public/cerrarSesion.html">cerrar sesion</a>';}
                })
-
-
-
-
