@@ -7,12 +7,12 @@ $query="INSERT INTO docente
 (NUMERO_CARNET_IDENTIDAD_DOCENTE,NOMBRE
 ,APELLIDO_PATERNO,APELLIDO_MATERNO
 ,TELEFONO,CORREO_ELECTRONICO,CONTRASENA_DOCENTE)
-VALUES('9955344',
-'David Alejandro',
-       'Escalera',
-        'Fernadez',
+VALUES('33552255',
+'Docente2',
+       'ap2',
+        'apm2',
         '65656565',
-        'docente@gmail.com',
+        'docente2@gmail.com',
         '$cifrado')";
        $result=mysqli_query($conexionBD,$query);
        echo json_encode($result);
