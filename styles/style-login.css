@@ -16,11 +16,12 @@
     height: 100px;
     width: 100%;
     font-size: 25px;
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: #427d86;
 }
 .header h1 {
     font-family: 'Fjalla One', sans-serif;
     margin-left: 40px;
+    color: rgb(255, 255, 255);
 }
 
 .main {

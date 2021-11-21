@@ -1,3 +1,3 @@
 fetch('../backend/cerrarSesion.php')
 
-window.location.href ='./index.html';
+window.location.href ='./paginaPrincipal.html';

@@ -12,6 +12,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet"> 
+        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
     <title>Login</title>
 </head>
 <body>
@@ -49,9 +51,17 @@
             </form>
         </section>
     </main>
-    <footer class="footer">
+  <!--Footer-->
+<div id="footer-placeholder">
 
-    </footer>
+</div>
+
+<script>
+$(function(){
+  $("#footer-placeholder").load("footer.html");
+});
+</script>
+<!--end of Footer-->
 
     <script src="../scripts/login.js"></script>
 </body>
