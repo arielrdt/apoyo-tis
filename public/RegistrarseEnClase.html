@@ -17,6 +17,19 @@
 <body>
     
     <header>
+<!--Navigation bar-->
+<div id="nav-placeholder">
+
+</div>
+
+<script>
+$(function(){
+  $("#nav-placeholder").load("navbar.html");
+});
+</script>
+<!--end of Navigation bar-->
+    
+<!-- 
         <nav class="navBar">
           <h1>MasterTis</h1>
              <ul>
@@ -26,9 +39,11 @@
             <!-- <a class="itemNav" href="./listaConvocatorias.html"> Lista de Convocatorias</a> -->
             <!-- <a class="itemNav" href="./RegistrarseEnClase.html">Registrarse</a> -->
             <!-- <a class="itemNav" href="./crearGrupoEmpresa.html">Crear Grupo-Empresa</a> -->
-            <a class="itemNav" href="./login.html">iniciar sesion</a>
+           <!-- <a class="itemNav" href="./login.html">iniciar sesion</a>
              </ul>
-          </nav>
+          </nav>-->
+
+
       </header>
 
       <div class="div-formulario">
@@ -36,27 +51,36 @@
         <h1>REGISTRAR CUENTA DE ESTUDIANTE</h1> 
           <h2>Nombre</h2>
           <input class="input-titulo" name="nombreEstudiante" type="text">
+          <div id="espacio-mensajen"> </div>
+
           <h2>Apellido Paterno</h2>
           <input class="input-titulo" name="apellidoPaternoEstudiante" type="text">
+          <div id="espacio-mensajep"> </div>
 
           <h2>Apellido Materno</h2>
           <input class="input-titulo" name="apellidoMaternoEstudiante" type="text">
+          <div id="espacio-mensajem"> </div>
 
           <h2>Carnet de identidad</h2>
           <input class="input-titulo" name="carnetEstudiante" type="text">
+          <div id="espacio-mensajec"> </div>
 
           <h2>Codigo sis</h2>
           <input class="input-titulo" name="codigoSisEstudiante" type="text">
+          <div id="espacio-mensajecs"> </div>
 
           <h2>Correo electronico</h2>
           <input class="input-titulo" name="correoEstudiante" type="text">
+          <div id="espacio-mensajece"> </div>
 
           <h2>Carrera</h2>
           <p>Ing.</p><input class="input-titulo" name="carrera" type="text">
+          <div id="espacio-mensajeca"> </div>
 
           <h2>Contraseña</h2>
           <input class="input-titulo" name="contrasenaEstudiante" type="password">
-         
+          <div id="espacio-mensajecontra"> </div>
+
           <h2>Codigo de la clase</h2>
           <input class="input-titulo" name="codigoClase" type="text">
          <hr>

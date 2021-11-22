@@ -60,6 +60,7 @@ $(function(){
        
         <h2>Título</h2>
         <input class="input-titulo" name="titulo" type="text" placeholder="Intoduzca el título">
+          <div id="espacio-mensajet"> </div>
 
         <h2>Seleccione el semestre</h2>
         <div class="input-semestre">
@@ -69,14 +70,16 @@ $(function(){
           <input type="checkbox" name="semestre2" id="opcion2" onclick="mensaje(2)">
           <span id="2doSemestre"></span>
         </div>
- 
+            <div id="espacio-mensajes"> </div>
+
         <h2>Descripcion del Pliego</h2>
         <textarea class="input-description" name="descripcion" cols="30" rows="10"></textarea>
+        <div id="espacio-mensajed"> </div>
 
         <h2>Adjunte el documento del Pliego(pdf)</h2>
         <input class="input-file" type="file" name="file" >
         <hr>
-        <div id="espacio-mensaje"> </div>
+            <div id="espacio-mensaje"> </div>
         <hr>
 
         <button type="submit" name="botonFormulario">Publicar Pliego de Especificaciones</button>

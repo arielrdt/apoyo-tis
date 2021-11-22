@@ -60,23 +60,27 @@ $(function(){
       <h1 class="formulario-publicar">PUBLICAR CONVOCATORIA</h1>
       <form id="formulario" class="formulario">
         
-        <h2>Título</h2>
+        <h2>Título de la Convocatoria</h2>
         <input class="input-titulo" name="titulo" type="text" placeholder="Intoduzca el título">
+         <div id="espacio-mensajet">    </div>
 
-        <h2>Fecha Limite de respuestas</h2>
+        <h2>Fecha Limite de presentación de propuesta</h2>
         <input class="input-date-fin" type="date" name="fechaFin">
-<!-- 
+         <div id="espacio-mensajef">    </div>
+
         <h2>Seleccione el semestre</h2>
         <div class="input-semestre">
           <input type="checkbox" name="semestre1" id="opcion1" onclick="mensaje(1)">
           <span id="1erSemestre"></span>
-           <br><br>S 
+           <br><br>
           <input type="checkbox" name="semestre2" id="opcion2" onclick="mensaje(2)">
           <span id="2doSemestre"></span>
-        </div> -->
- 
+        </div> 
+          <div id="espacio-mensajes">    </div>
+
         <h2>Descripcion de la convocatoria</h2>
         <textarea class="input-description" name="descripcion" cols="30" rows="10"></textarea>
+         <div id="espacio-mensajed">    </div>
 
         <h2>Adjunte el documento de la convocatoria(pdf)</h2>
         <input class="input-file" type="file" name="file" >

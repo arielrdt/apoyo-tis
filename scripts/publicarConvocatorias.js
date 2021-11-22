@@ -3,6 +3,10 @@ let semestre1=document.getElementById('1erSemestre');
 let semestre2=document.getElementById('2doSemestre');
 let anio=(new Date).getFullYear();
 let espacioMensaje=document.getElementById('espacio-mensaje');
+let espacioMensajeT=document.getElementById('espacio-mensajet');
+let espacioMensajeF=document.getElementById('espacio-mensajef');
+let espacioMensajeS=document.getElementById('espacio-mensajes');
+let espacioMensajeD=document.getElementById('espacio-mensajed');
 
 const asignarSemestresAnio=()=>{
 semestre1.innerHTML="1-"+anio;
@@ -62,45 +66,42 @@ let validoParaSubir=true;
 
 if(datosFormulario.get('titulo')=='')
 {validoParaSubir=false;
-espacioMensaje.innerHTML+='<p class=mensaje-rojo>*Llenar todos los campos</p>';
+espacioMensajeT.innerHTML+='<p class=mensaje-rojo>*Llenar todos los campos</p>';
 }
 
 if(datosFormulario.get('descripcion')=='')
 {validoParaSubir=false;
-espacioMensaje.innerHTML+='<p class=mensaje-rojo>*Debe incluir una descripción</p>';
+espacioMensajeD.innerHTML+='<p class=mensaje-rojo>*Debe incluir una descripción</p>';
 }
 
 if(!validarTitulo(datosFormulario.get('titulo')))
 {validoParaSubir=false; 
-espacioMensaje.innerHTML+='<p class=mensaje-rojo>*El titulo no puede contener caracteres especiales, ni numeros</p>' }    
+espacioMensajeT.innerHTML+='<p class=mensaje-rojo>*El titulo no puede contener caracteres especiales, ni numeros</p>' }    
 
 if(!validarDescripcion(datosFormulario.get('descripcion')))
 {validoParaSubir=false;
- espacioMensaje.innerHTML+='<p class=mensaje-rojo>*La decripcion no puede contener caracteres especiales</p>';}
+ espacioMensajeD.innerHTML+='<p class=mensaje-rojo>*La decripcion no puede contener caracteres especiales</p>';}
    
 if(!validarTamanioTitulo(datosFormulario.get('titulo')))
 {validoParaSubir=false;
- espacioMensaje.innerHTML+='<p class=mensaje-rojo>*El titulo debe contener entre 5 y 35 caracteres</p>';}
+ espacioMensajeT.innerHTML+='<p class=mensaje-rojo>*El titulo debe contener entre 5 y 35 caracteres</p>';}
 
 if(!validarTamanioDescripcion(datosFormulario.get('descripcion')))
 {validoParaSubir=false;    
- espacioMensaje.innerHTML+='<p class=mensaje-rojo>*La descripcion debe contener entre 100 y 500 caracteres</p>';}
+ espacioMensajeD.innerHTML+='<p class=mensaje-rojo>*La descripcion debe contener entre 100 y 500 caracteres</p>';}
 
  if(!validarFechaLimite(datosFormulario.get('fechaFin'))){
     validoParaSubir=false;    
-    espacioMensaje.innerHTML+='<p class=mensaje-rojo>*Debe incluir una fecha límite</p>';}
-
-
-
+    espacioMensajeF.innerHTML+='<p class=mensaje-rojo>*Debe incluir una fecha límite</p>';}
 
 if(validarMinimaFechaLimite(datosFormulario.get('fechaFin'))){
     console.log('asdasdasdas')
     validoParaSubir=false;    
-    espacioMensaje.innerHTML+='<p class=mensaje-rojo>*La fecha limite debe ser mayor a la actual </p>';}
+    espacioMensajFe.innerHTML+='<p class=mensaje-rojo>*La fecha limite debe ser mayor a la actual </p>';}
 
 if(!semestreValido(datosFormulario.get('semestre1'),datosFormulario.get('semestre2'))){
   validoParaSubir=false;    
-   espacioMensaje.innerHTML+='<p class=mensaje-rojo>*Debe seleccionar un semestre </p>';}
+   espacioMensajeS.innerHTML+='<p class=mensaje-rojo>*Debe seleccionar un semestre </p>';}
 
 
 if(validoParaSubir){
