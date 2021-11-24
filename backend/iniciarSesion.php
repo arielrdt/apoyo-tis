@@ -70,6 +70,9 @@ function iniciarSesionEstudiante($correoElectronico,$conexionBD){
     $_SESSION['CARRERA']=$filaResultado['CARRERA'];
     $_SESSION['CORREO_ELECTRONICO']=$filaResultado['CORREO_ELECTRONICO'];
     $_SESSION['ROL']=$filaResultado['ROL'];
+    if(isset($filaResultado['NOMBRE_CORTO'])){
+    $_SESSION['EMPRESA']=$filaResultado['NOMBRE_CORTO'];
+                                             }
     $_SESSION['ROL_CURSO']='Estudiante';
 }
   

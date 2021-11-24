@@ -11,8 +11,6 @@ if(isset($filaResultado['CODIGO_UNION']))
 else
 {echo json_encode("none");}
 
-
-
 }
 estudianteCreoEmpresa($conexionBD,$codigoEstudiante);
 

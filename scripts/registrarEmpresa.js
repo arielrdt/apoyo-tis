@@ -56,7 +56,11 @@ const subirDatos=()=>{
             method:'POST',
             body:datosFormulario})
                 .then(res=>res.json())
-                .then(data=>{console.log(data);})
+                .then(data=>{
+                     if(data){console.log("registro de empresa exitoso");}
+                    else{console.log("nombre de empresa repetido, porfavor elija otro");}
+ 
+                })
                          }
  }
 
