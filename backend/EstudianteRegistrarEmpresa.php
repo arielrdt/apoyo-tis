@@ -37,14 +37,25 @@ function crearEmpresa($conexionBD,$nombre_corto,$nombre_largo,$sociedad,$fecha,$
 
 function actualizarDatosEstudiante($conexionBD,$codigoEstudiante,$nombre_corto,$nombre_largo)
 {
-$consulta="UPDATE ESTUDIANTE SET NOMBRE_CORTO='$nombre_corto',NOMBRE_LARGO='$nombre_largo' WHERE CODIGO_SIS='$codigoEstudiante'";
+$consulta="UPDATE ESTUDIANTE SET NOMBRE_CORTO='$nombre_corto',NOMBRE_LARGO='$nombre_largo',ROL='representante legal' WHERE CODIGO_SIS='$codigoEstudiante'";
 $resultadoConsulta=mysqli_query($conexionBD,$consulta);
 }
 
+function empresaNoRepetida($conexionBD,$nombre_corto){
+  $consulta="SELECT NOMBRE_CORTO FROM GRUPO_EMPRESA WHERE NOMBRE_CORTO='$nombre_corto'";
+  $ejecucionConsulta=mysqli_query($conexionBD,$consulta);
+  $resultado=mysqli_fetch_array($ejecucionConsulta);
+  return(!isset($resultado['NOMBRE_CORTO']));
+}
+
+
 function subirDatos($conexionBD,$nombre_corto,$nombre_largo,$sociedad,$fecha,$telefono,$direccion,$correo,$codigoEstudiante){
-      crearEmpresa($conexionBD,$nombre_corto,$nombre_largo,$sociedad,$fecha,$telefono,$direccion,$correo,$codigoEstudiante);
-      actualizarDatosEstudiante($conexionBD,$codigoEstudiante,$nombre_corto,$nombre_largo);
-      echo json_encode("Empresa creada con éxito");}
+      if(empresaNoRepetida($conexionBD,$nombre_corto)){
+        crearEmpresa($conexionBD,$nombre_corto,$nombre_largo,$sociedad,$fecha,$telefono,$direccion,$correo,$codigoEstudiante);
+        actualizarDatosEstudiante($conexionBD,$codigoEstudiante,$nombre_corto,$nombre_largo);
+        echo json_encode(true);}
+       else{echo json_encode(false);}
+}
 
 
 subirDatos($conexionBD,$nombre_corto,$nombre_largo,$sociedad,$fecha,$telefono,$direccion,$correo,$codigoEstudiante);
