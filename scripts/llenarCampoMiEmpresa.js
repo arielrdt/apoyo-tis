@@ -6,7 +6,7 @@ const crearEmpresa=()=>{
             let validoParaSubir=true;
             if(validoParaSubir)
             {
-            fetch('../backend/RegistrarEmpresa.php',{method:'POST', body:datosFormulario})
+            fetch('../backend/EstudianteRegistrarEmpresa.php',{method:'POST', body:datosFormulario})
                     .then(res=>res.json())
                     .then(data=>{console.log(data);})
             }

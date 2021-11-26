@@ -2,7 +2,13 @@
 include("conexionBD.php");
 session_start(); 
 $codigoEstudiante=$_SESSION['CODIGO_SIS'];
-$nombreCortoEmpresa=$_SESSION['EMPRESA'];
+if(isset($_SESSION['EMPRESA'])){
+    $nombreCortoEmpresa=$_SESSION['EMPRESA'];
+}
+else{
+$nombreCortoEmpresa=null;
+}
+
 
 function EstudianteInscrito($conexionBD,$codigoEstudiante){
     $consultaSQL="SELECT * FROM ESTUDIANTE as e,GRUPO_EMPRESA as g WHERE  e.NOMBRE_CORTO=g.NOMBRE_CORTO and CODIGO_SIS='$codigoEstudiante'";
@@ -34,8 +40,9 @@ return($htmlMiembros);
 
 
 function obtenerDatosEmpresaEstudiante($conexionBD,$codigoEstudiante,$nombreCortoEmpresa){
-    if(EstudianteInscrito($conexionBD,$codigoEstudiante))
+    if(EstudianteInscrito($conexionBD,$codigoEstudiante) && $nombreCortoEmpresa!=null )
     {
+
     $htmlDatosEmpresa='<h2>MI EMPRESA</h2> <br><br>';
     $consultaSQL= $consultaSQL="SELECT * 
                                 FROM ESTUDIANTE as e,GRUPO_EMPRESA as g 
@@ -49,6 +56,7 @@ function obtenerDatosEmpresaEstudiante($conexionBD,$codigoEstudiante,$nombreCort
                         <h4>Teléfono: <span>'.$filaTabla['TELEFONO'].'<span></h4><br><br>'; 
     $htmlDatosEmpresa.=obtenerTablaMiembros($conexionBD,$nombreCortoEmpresa);
     echo json_encode ($htmlDatosEmpresa);
+
     }
     else{echo json_encode(false);}
 
