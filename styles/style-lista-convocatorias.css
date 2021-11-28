@@ -8,10 +8,11 @@
     font-weight: bold;
 }
 .cards {
+    
     display: flex;
     justify-content: center;
     flex-direction: column;
-    width: 70%;
+    width: 140%;
     margin: 40px 0px;   
 }
 hr{
