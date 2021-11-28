@@ -22,7 +22,11 @@ function hayEspacio($codigo,$conexionBD){
     return($resultado['NUM_INTEGRANTES']<5 && $resultado['NUM_INTEGRANTES']>0 );
 }
 
-function agregarEstudianteEmpresa($codigo,$conexionBD){
+function agregarEmpresaALaSesionDelEstudiante($nombre_corto){
+    $_SESSION['EMPRESA']=$nombre_corto;
+  }
+
+function agregarEstudianteEmpresa($codigo,$conexionBD,$codigo_sis){
 if(ExisteEmpresa($codigo,$conexionBD)){
     if (hayEspacio($codigo,$conexionBD)){
         $consulta="SELECT * FROM GRUPO_EMPRESA WHERE CODIGO_UNION='$codigo'";
@@ -30,10 +34,12 @@ if(ExisteEmpresa($codigo,$conexionBD)){
         $resultado=mysqli_fetch_array($ejecucionConsulta);
         $nuevoNombreC=$resultado['NOMBRE_CORTO'];
         $nuevoNombreL=$resultado['NOMBRE_LARGO'];
-
+        
         $consultaActualizacion="UPDATE ESTUDIANTE 
-        SET NOMBRE_CORTO='$nombre_corto',NOMBRE_LARGO='$nombre_largo',ROL='estudiante' 
-        WHERE CODIGO_SIS='$codigoEstudiante'";
+        SET NOMBRE_CORTO='$nuevoNombreC',NOMBRE_LARGO='$nuevoNombreL',ROL='estudiante' 
+        WHERE CODIGO_SIS='$codigo_sis'";
+        
+        agregarEmpresaALaSesionDelEstudiante($nuevoNombreC);
         
         echo json_encode("registro exitoso");
     }
@@ -42,6 +48,6 @@ if(ExisteEmpresa($codigo,$conexionBD)){
 else {echo json_encode("el codigo introducido no pertenece a ningun grupo-empresa");}
 }
 
-agregarEstudianteEmpresa($codigo,$conexionBD);
+agregarEstudianteEmpresa($codigo,$conexionBD,$codigo_sis);
 
 ?>
