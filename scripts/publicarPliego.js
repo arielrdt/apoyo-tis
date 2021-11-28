@@ -36,9 +36,7 @@ const validarDescripcion=(descripcion)=>{
 
 const validarTamanioTitulo=(titulo)=>{return (titulo.length>4 && titulo.length<36);}
 
-const validarTamanioDescripcion=(descripcion)=>{return (descripcion.length>99 && descripcion.length<501);}
-
-
+const validarTamanioDescripcion=(descripcion)=>{return (descripcion.length<501);}
 
 const subirDatos=()=>{
 

@@ -1,13 +1,5 @@
 let formulario=document.getElementById('formulario');
 let espacioMensaje=document.getElementById('espacio-mensaje');
-let espacioMensajeN=document.getElementById('espacio-mensajen');
-let espacioMensajeP=document.getElementById('espacio-mensajep');
-let espacioMensajeM=document.getElementById('espacio-mensajem');
-let espacioMensajeC=document.getElementById('espacio-mensajec');
-let espacioMensajeCS=document.getElementById('espacio-mensajecs');
-let espacioMensajeCE=document.getElementById('espacio-mensajece');
-let espacioMensajeCA=document.getElementById('espacio-mensajeca');
-let espacioMensajeCONTRA=document.getElementById('espacio-mensajecontra');
 
 
 const validarNombre=(nombreEstudiante)=>{
@@ -60,36 +52,36 @@ const subirDatos=()=>{
     if(datosFormulario.get('nombreEstudiante')=='')
     {validoParaSubir=false;
     console.log(validoParaSubir);
-    espacioMensajeN.innerHTML+='<p class=mensaje-rojo>*Llenar todos los campos</p>';
+    espacioMensaje.innerHTML+='<p class=mensaje-rojo>*Llenar todos los campos</p>';
     }
 
     if(!validarNombre(datosFormulario.get('nombreEstudiante')))
     {validoParaSubir=false; 
-    espacioMensajeN.innerHTML+='<p class=mensaje-rojo>*El nombre no puede contener caracteres especiales, ni numeros</p>' }    
+    espacioMensaje.innerHTML+='<p class=mensaje-rojo>*El nombre no puede contener caracteres especiales, ni numeros</p>' }    
 
     if(!validarTamanioNombre(datosFormulario.get('nombreEstudiante')))
     {validoParaSubir=false; 
-    espacioMensajeN.innerHTML+='<p class=mensaje-rojo>*El nombre no puede tener mas de 20 caracteres</p>' }  
+    espacioMensaje.innerHTML+='<p class=mensaje-rojo>*El nombre no puede tener mas de 20 caracteres</p>' }  
 
     if(!validarApellidoP(datosFormulario.get('apellidoPaternoEstudiante')))
     {validoParaSubir=false; 
-    espacioMensajeP.innerHTML+='<p class=mensaje-rojo>*El apellido paterno no puede contener caracteres especiales, ni numeros</p>' }    
+    espacioMensaje.innerHTML+='<p class=mensaje-rojo>*El apellido paterno no puede contener caracteres especiales, ni numeros</p>' }    
 
     if(!validarTamanioApellidoP(datosFormulario.get('apellidoPaternoEstudiante')))
     {validoParaSubir=false; 
-    espacioMensajeP.innerHTML+='<p class=mensaje-rojo>*El apellido paterno no puede tener mas de 15 caracteres</p>' }    
+    espacioMensaje.innerHTML+='<p class=mensaje-rojo>*El apellido paterno no puede tener mas de 15 caracteres</p>' }    
 
     if(!validarApellidoM(datosFormulario.get('apellidoMaternoEstudiante')))
     {validoParaSubir=false; 
-    espacioMensajeM.innerHTML+='<p class=mensaje-rojo>*El apellido materno no puede contener caracteres especiales, ni numeros</p>' }    
+    espacioMensaje.innerHTML+='<p class=mensaje-rojo>*El apellido materno no puede contener caracteres especiales, ni numeros</p>' }    
 
     if(!validarTamanioApellidoM(datosFormulario.get('apellidoMaternoEstudiante')))
     {validoParaSubir=false; 
-    espacioMensajeM.innerHTML+='<p class=mensaje-rojo>*El apellido materno no puede tener mas de 15 caracteres</p>' }    
+    espacioMensaje.innerHTML+='<p class=mensaje-rojo>*El apellido materno no puede tener mas de 15 caracteres</p>' }    
 
     if(!validarCarnet(datosFormulario.get('carnetEstudiante')))
     {validoParaSubir=false; 
-    espacioMensajeC.innerHTML+='<p class=mensaje-rojo>*El carnet solo puede contener numeros</p>' }    
+    espacioMensaje.innerHTML+='<p class=mensaje-rojo>*El carnet solo puede contener numeros</p>' }    
 
     /*if(!validarTamanioCarnet(datosFormulario.get('carnetEstudiante')))
     {validoParaSubir=false; 
@@ -97,27 +89,27 @@ const subirDatos=()=>{
 
     if(!validarCodSis(datosFormulario.get('codigoSisEstudiante')))
     {validoParaSubir=false; 
-    espacioMensajeCS.innerHTML+='<p class=mensaje-rojo>*El codigo SIS solo puede contener numeros</p>' }    
+    espacioMensaje.innerHTML+='<p class=mensaje-rojo>*El codigo SIS solo puede contener numeros</p>' }    
 
     if(!validarTamanioCodSis(datosFormulario.get('codigoSisEstudiante')))
     {validoParaSubir=false; 
-    espacioMensajeCS.innerHTML+='<p class=mensaje-rojo>*El codigo SIS debe tener 9 caracteres</p>' }    
+    espacioMensaje.innerHTML+='<p class=mensaje-rojo>*El codigo SIS debe tener 9 caracteres</p>' }    
 
-    if(!validarCorreo(datosFormulario.get('correoEstudiante')))
-    {validoParaSubir=false; 
-    espacioMensajeCE.innerHTML+='<p class=mensaje-rojo>*Debe ingresar su correo institucional</p>' }    
+    // if(!validarCorreo(datosFormulario.get('correoEstudiante')))
+    // {validoParaSubir=false; 
+    // espacioMensaje.innerHTML+='<p class=mensaje-rojo>*Debe ingresar su correo institucional</p>' }    
     
     if(!validarCarrera(datosFormulario.get('carrera')))
     {validoParaSubir=false; 
-    espacioMensajeCA.innerHTML+='<p class=mensaje-rojo>*La carrera no puede contener caracteres especiales, ni numeros</p>' }    
+    espacioMensaje.innerHTML+='<p class=mensaje-rojo>*La carrera no puede contener caracteres especiales, ni numeros</p>' }    
 
     if(!validarTamanioCarrera(datosFormulario.get('carrera')))
     {validoParaSubir=false; 
-    espacioMensajeCA.innerHTML+='<p class=mensaje-rojo>*La carrera debe tener entre 5 y 24 caracteres</p>' } 
+    espacioMensaje.innerHTML+='<p class=mensaje-rojo>*La carrera debe tener entre 5 y 24 caracteres</p>' } 
     
     /*if(!validarContrasenia(datosFormulario.get('contrasenaEstudiante')))
     {validoParaSubir=false; 
-    espacioMensajeCONTRA.innerHTML+='<p class=mensaje-rojo>*La contraseña debe contener: Letras minúsculas (a-z), letras mayúsculas (A-Z) y números (0-9</p>' }
+    espacioMensaje.innerHTML+='<p class=mensaje-rojo>*La contraseña debe contener: Letras minúsculas (a-z), letras mayúsculas (A-Z) y números (0-9</p>' }
 */
     if(validoParaSubir){
     fetch('../backend/RegistrarEstudiante.php',{
