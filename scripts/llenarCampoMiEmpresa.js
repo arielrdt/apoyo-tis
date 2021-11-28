@@ -23,7 +23,7 @@ fetch('../backend/consultarEstudianteCreoEmpresa.php',{method:'GET'})
         }
 
         else{
-        campoMiEmpresa.innerHTML='<h2>ya creo una empresa</h2><br><br> <h2>Codigo de la empresa:</h2>'+respuesta+'<br><br>'; 
+        campoMiEmpresa.innerHTML='<h2>ya creo una empresa o pertenece a una</h2><br><br> <h2>Codigo de la empresa:</h2>'+respuesta+'<br><br>'; 
             }
 })
 }
