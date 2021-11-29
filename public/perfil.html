@@ -1,12 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <style>
+    .container {
+      height: 200px;
+      position: relative;
+    }
+    
+    .center {
+      margin: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+    }
+</style>
+
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/style-header.css">
     <link rel="stylesheet" href="../styles/style-lista-convocatorias.css">
     <link rel="stylesheet" href="../styles/style-sidebar.css">
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+        <link rel="stylesheet" href="../styles/style-navbar.css">
     <!-- Google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,18 +36,42 @@
 </head>
 <body>
     <header>
-        <nav class="navBar">
+       <!--  <nav class="navBar">
           <h1>MasterTis</h1>
              <ul>
               <a class="itemNav" href="../index.html">volver a la pagina principal</a>
               <a class="itemNav" href="cerrarSesion.html">cerrar sesion</a>
              </ul>
-          </nav>
+          </nav>-->
+
+            <!--Navigation bar-->
+<div id="nav-placeholder">
+
+</div>
+
+<script>
+$(function(){
+  $("#nav-placeholder").load("navbar.html");
+});
+</script>
+<!--end of Navigation bar-->
+
+<!--Navigation bar-->
+<div id="sidebd-placeholder">
+
+</div>
+
+<script>
+$(function(){
+  $("#sidebd-placeholder").load("sidebarDocente.html");
+});
+</script>
+<!--end of Navigation bar-->
     </header>
     <main>
-        <div class="sidebar">
+        <!--<div class="sidebar">
             <!-- <h2 class="sidebar-title">Navegación</h2> -->
-            <ul class="sidebar-list">
+            <!--<ul class="sidebar-list">
               <li>
                 <img src="https://img.icons8.com/ios/50/000000/name--v1.png"/>
                 <a href="./perfil.html" class="sidebar-item">Perfil</a>
@@ -43,7 +86,7 @@
               </li>
               <li>
                 <!-- <img src="https://img.icons8.com/ios/50/000000/plus-2-math.png"/> -->
-                <img src="https://img.icons8.com/ios/100/000000/add--v2.png"/>
+               <!-- <img src="https://img.icons8.com/ios/100/000000/add--v2.png"/>
                 <a href="./tareas.html" class="sidebar-item">Unirse a grupo empresa</a>
               </li>
               <li>
@@ -51,10 +94,14 @@
                 <a href="./tareas.html" class="sidebar-item">Ver grupo empresas</a>
               </li>
               <!-- <li><a href="#">unirse a un grupo empresa</a></li> -->
-            </ul>
-        </div>
+           <!-- </ul>
+        </div>-->
+        <div class="container">
+          <div class="center">
         <div id="datos-perfil">
         </div>
+      </div>
+    </div>
     </main>    
     
 <script src="../scripts/recuperarDatosPerfil.js"></script>
