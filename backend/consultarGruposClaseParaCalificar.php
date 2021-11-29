@@ -30,7 +30,29 @@ $htmlTablaIntegrantes.='<tr>
 
 <td><input class="input" name="observacion" type="text"></td>
 <td><input class="input" name="notaParticipacion" type="text"></td>
-<td><button type="submit" name="botonFormulario">registrar</button></td>
+<td><button type="button"  data-toggle="modal" data-target="#myModal" name="botonFormulario">registrar</button>
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Registro Semanal Grupal</h4>
+      </div>
+      <div class="modal-body">
+        <p>Grupo:</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</td>
+
 </form>
 </tr>'; 
 

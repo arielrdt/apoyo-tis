@@ -1,57 +1,31 @@
 .contenedor-tarjeta{
-    padding:10px;
+    width: 100%;
     display: flex;
-    justify-content: center;
-
-}
-
-.tarjeta-grupo{
-width: 100%;
-margin: 20px;
-border-radius: 6px;
-overflow: hidden;
-background-color: rgba(46, 114, 82, 0.527);
-}
-
-.tarjeta-grupo:hover{
-box-shadow: 5px 5px 20px rgba(0,0,0,0.4);
-transform: translateY(-3%);
-}
-
-.tabla-miembros{
-background-color: white;
-text-align: left;
-width: 100%;
-margin-left: auto;
-margin-right: auto;
- border-collapse: collapse;
-    margin: 20px 0;
-    font-size: 0.9em;
-    font-family: sans-serif;
-    min-width: 50px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-
-}
-.tabla-miembros td {
-border:solid 1px black;
-padding: 12px 15px;
-
-}
-
-.GFG {
-    background-color: rgba(46, 114, 103, 0.527);
-    color: rgb(255, 255, 255);
-    padding: 5px 10px;
-    text-align: center;
-    display: inline-block;
-    margin: 10px 30px;
-    cursor: pointer;
-}
-
-
-
-
-
-
-
-
+    flex-direction:column;
+    
+    }
+    .tarjeta-grupo{
+    width: 100%;
+    margin: 20px;
+    border-radius: 6px;
+    overflow: hidden;
+    background-color: rgba(46, 114, 82, 0.527);
+    }
+    
+    .tarjeta-grupo:hover{
+    box-shadow: 5px 5px 20px rgba(0,0,0,0.4);
+    transform: translateY(-3%);
+    }
+    
+    .tabla-miembros{
+    background-color: white;
+    text-align: left;
+    width: 100%;
+    }
+    .tabla-miembros td {
+    border:solid 1px black;
+    
+    }
+    
+    
+    
