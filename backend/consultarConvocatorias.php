@@ -46,7 +46,7 @@ $salida.='
     if(isset($filaPliego['SEMSTRE_ANIO'])){
     $salida.='
     <div class="main-section-post-info-content-pliego">
-        <h3>Pligo de especificaciones</h3>
+        <h3>Pliego de especificaciones</h3>
         <div class="card-title">
             <h4> Título: '.$filaPliego['TITULO_DOCUMENTO'].'</h4>
         </div>

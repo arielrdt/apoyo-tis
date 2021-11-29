@@ -39,7 +39,7 @@ return($htmlTablaIntegrantes);
 }
 
 function obtenerDatosGrupos($conexionBD,$carnetDocente,$fechaActual){
-$htmlGrupos='<div class="contenedor-tarjeta">';
+
 $consultaSQL="SELECT * 
               from estudiante,grupo_empresa,clase 
               where estudiante.NOMBRE_CORTO=grupo_empresa.NOMBRE_CORTO 
@@ -47,12 +47,13 @@ $consultaSQL="SELECT *
               and NUMERO_CARNET_IDENTIDAD_DOCENTE='$carnetDocente'";
 $ejecucionConsulta=mysqli_query($conexionBD,$consultaSQL);
    $i=0;
+$htmlGrupos='</h1><div class="contenedor-tarjeta">';   
 while($filaTabla=mysqli_fetch_array($ejecucionConsulta)){
 
     $htmlGrupos.='<div class="tarjeta-grupo">
                     <h3>'.$filaTabla['NOMBRE_CORTO'].'</h3>
                     <span>'.$filaTabla['NOMBRE_LARGO'].'</span> 
-                    <button id="boton-abrir-modal">editar Informacion</button>
+                    
                     <div id="ventana-modal">
                     <div class="contenido-modal">'.obtenerDatosIntegrantes($filaTabla,$i).'</div>  
                     </div>
@@ -62,7 +63,7 @@ while($filaTabla=mysqli_fetch_array($ejecucionConsulta)){
 $htmlGrupos.='</div>';
 
 
-$htmlSalida='<div> la fecha de hoy es: '.$fechaActual.'</div>'.$htmlGrupos;
+$htmlSalida='<h1>Asignar calificación semanal</h1> <div> la fecha de hoy es: '.$fechaActual.'</div>'.$htmlGrupos;
 echo json_encode($htmlSalida);
 }
 obtenerDatosGrupos($conexionBD,$carnetDocente,$fechaActual);

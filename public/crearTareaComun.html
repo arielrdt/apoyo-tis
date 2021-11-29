@@ -4,9 +4,57 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+    <link rel="stylesheet" href="../styles/style-header.css">
+    <link rel="stylesheet" href="../styles/style-sidebar.css">
+    <link rel="stylesheet" href="../styles/style-crearTareaComun.css">
     
-</body>
+    
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Shippori+Antique&display=swap" rel="stylesheet">
+    <title>Crear Clase</title>
+</head>
+    <body>
+        <header>
+            <nav class="navBar">
+                <h1>APOYO A LA EMPRESA TIS</h1>
+                <ul>              
+                <a class="itemNav" href="../index.html">Pagina principal</a>
+                <a class="itemNav" href="cerrarSesion.html">cerrar sesion</a>
+                </ul>
+            </nav>
+        </header>
+        <div class="flex-body">
+        <div class="sidebar">
+            <h1 class="sidebar-title">Navegación</h1>
+            <ul class="sidebar-list">
+            <li><a href="./crearClase.html" class="sidebar-item">crear una clase para el semestre actual</a></li> 
+            <div class="subir-editar">
+               <li><a href="./formularioConvocatorias.html" class="sidebar-item">subir invitacion publica</a></li>
+               <li><a href="./formularioPliego.html" class="sidebar-item">subir pliego especificaciones</a></li>
+               <li><a href="./crearTarea.html" class="sidebar-item">crear tarea</a></li>
+            </div>
+            <li><a href="./perfil.html" class="sidebar-item">ver mi perfil</a></li>   
+            </ul>
+        </div>
+            <div class="div-formulario">
+                <h1>Formulario para Crear Tarea</h1>
+                <form id="formulario" class="formulario">  
+                    <h2>Titulo de la Tarea</h2>
+                    <input type ="text" name="titulo" id="titulo" placeholder="Ingrese el titulo">
+                    <h2>Detalle de la Tarea</h2>
+                    <input type ="text" name="detalle" id="detalle" placeholder="Ingrese el detalle">
+                    <h2>Fecha de Publicacion</h2>
+                    <input type ="date" name="fechaPublicacion" id="fechaPublicacion">
+                    <h2>Fecha Limite</h2>
+                    <input type ="date" name="fechaLimite" id="fechaLimite">
+                    <h2>Hora Limite</h2>
+                    <input type="time" name="horaLimite" id="horaLimite">
+                    <input type="submit" value="Crear Clase">
+                </form>
+            </div>
+        </div>
+    </body>
 </html>

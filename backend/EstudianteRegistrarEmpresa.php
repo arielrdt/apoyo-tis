@@ -39,6 +39,7 @@ function actualizarDatosEstudiante($conexionBD,$codigoEstudiante,$nombre_corto,$
 {
 $consulta="UPDATE ESTUDIANTE SET NOMBRE_CORTO='$nombre_corto',NOMBRE_LARGO='$nombre_largo',ROL='representante legal' WHERE CODIGO_SIS='$codigoEstudiante'";
 $resultadoConsulta=mysqli_query($conexionBD,$consulta);
+
 }
 
 function empresaNoRepetida($conexionBD,$nombre_corto){
@@ -48,11 +49,16 @@ function empresaNoRepetida($conexionBD,$nombre_corto){
   return(!isset($resultado['NOMBRE_CORTO']));
 }
 
+function agregarEmpresaALaSesionDelEstudiante($nombre_corto){
+  $_SESSION['EMPRESA']=$nombre_corto;
+}
+
 
 function subirDatos($conexionBD,$nombre_corto,$nombre_largo,$sociedad,$fecha,$telefono,$direccion,$correo,$codigoEstudiante){
       if(empresaNoRepetida($conexionBD,$nombre_corto)){
         crearEmpresa($conexionBD,$nombre_corto,$nombre_largo,$sociedad,$fecha,$telefono,$direccion,$correo,$codigoEstudiante);
         actualizarDatosEstudiante($conexionBD,$codigoEstudiante,$nombre_corto,$nombre_largo);
+        agregarEmpresaALaSesionDelEstudiante($nombre_corto);
         echo json_encode(true);}
        else{echo json_encode(false);}
 }

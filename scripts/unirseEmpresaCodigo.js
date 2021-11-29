@@ -1,8 +1,7 @@
 const formularioUnionEmpresa=document.getElementById('formularioUnionEmpresa');
 
 const UnirseAUnaEmpresa=()=>{
-    const formulario=document.getElementById('formularioUnionEmpresa');
-    const datosFormulario=new FormData(formulario);
+    const datosFormulario=new FormData(formularioUnionEmpresa);
     fetch('../backend/RegistrarEstudianteEnEmpresa.php',{
         method:'POST',
         body:datosFormulario}).then(res=>res.json())

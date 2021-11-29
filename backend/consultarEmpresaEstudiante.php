@@ -53,7 +53,9 @@ function obtenerDatosEmpresaEstudiante($conexionBD,$codigoEstudiante,$nombreCort
     $htmlDatosEmpresa.='<h4>Nombre Corto: <span>'.$filaTabla['NOMBRE_CORTO'].'<span></h4>
                         <h4>Nombre Largo: <span>'.$filaTabla['NOMBRE_LARGO'].'<span></h4>
                         <h4>Dirección: <span>'.$filaTabla['DIRECCION'].'<span></h4>
-                        <h4>Teléfono: <span>'.$filaTabla['TELEFONO'].'<span></h4><br><br>'; 
+                        <h4>Teléfono: <span>'.$filaTabla['TELEFONO'].'<span></h4>
+                        <h4>codigo de unión: <span>'.$filaTabla['CODIGO_UNION'].'<span></h4><br><br>
+                        '; 
     $htmlDatosEmpresa.=obtenerTablaMiembros($conexionBD,$nombreCortoEmpresa);
     echo json_encode ($htmlDatosEmpresa);
 
