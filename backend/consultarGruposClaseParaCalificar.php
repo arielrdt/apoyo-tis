@@ -63,7 +63,7 @@ while($filaTabla=mysqli_fetch_array($ejecucionConsulta)){
 $htmlGrupos.='</div>';
 
 
-$htmlSalida='<h1>Asignar calificación semanal</h1> <div> la fecha de hoy es: '.$fechaActual.'</div>'.$htmlGrupos;
+$htmlSalida='<h1 style="padding:10px; display: flex; justify-content: center;">Asignar calificación semanal</h1> <div style="padding:10px; display: flex; justify-content: center;"> La fecha de hoy es: '.$fechaActual.'</div>'.$htmlGrupos;
 echo json_encode($htmlSalida);
 }
 obtenerDatosGrupos($conexionBD,$carnetDocente,$fechaActual);
