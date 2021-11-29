@@ -4,37 +4,126 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles/style-header.css">
     <link rel="stylesheet" href="../styles/style-sidebar.css">
-        <link rel="stylesheet" href="../styles/style-navbar.css">
+    <link rel="stylesheet" href="../styles/style-navbar.css">
+        <link rel="stylesheet" href="../styles/style-paginaprincipal.css">
 
-    <!-- Google fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet">
     <title>TIS</title>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
 </head>
-<body>  
-    <header>
-        <nav class="navBar">
-            <ul>
-            <h1>MasterTis</h1>
-            
-              <a class="itemNav" href="./index.html">Pagina principal</a>
-              <a class="itemNav" href="./public/login.html">iniciar sesion</a>
-            </ul>
-        </nav>
-      </header>
-   <div id="side-bar"></div>
-  <div>
-    <p class="texto-inicio">
+<body> 
+<header> 
+    <!--Navigation bar-->
+<div id="nav-placeholder">
 
-    </p>
-   <img src="" alt="" class="imagen-inicio">
+</div>
 
-  </div>
+<script>
+$(function(){
+  $("#nav-placeholder").load("navbar.html");
+});
+</script>
+<!--end of Navigation bar-->
+</header> 
+
   
 
+   <div id="side-bar"></div>
+
+  <div class="container" >
+    <h1>Plan Global</h1>
+  </div><hr> 
+
+  <div class="container" >
+  <img src="https://i.postimg.cc/MGMCLfnW/image-2021-11-18-195536.png">
+  </div>
+<a href="https://drive.google.com/u/3/uc?id=18CE-1OlVa7RAV6D4rNudx5jizUrAWBwZ&export=download">
+Presiona para descargar el PDF</a>
+
+<div class="container" >
+
+    <h1>Docentes</h1>
+  </div><hr> 
+
+ <div class="container" >
+<figure class="item">
+    <img class="circular-img" src="https://i.postimg.cc/D0qqChkv/linux-avatar.jpg"/>
+    <figcaption class="caption">Flores Villarroel Corina</figcaption>
+</figure>
+<figure class="item">
+    <img class="circular-img" src="https://i.postimg.cc/D0qqChkv/linux-avatar.jpg"/>
+    <figcaption class="caption">Blanco Coca Leticia</figcaption>
+</figure>
+<figure class="item">
+    <img class="circular-img" src="https://i.postimg.cc/D0qqChkv/linux-avatar.jpg"/>
+    <figcaption class="caption">Escalera Fernandez David</figcaption>
+</figure>
+<figure class="item">
+    <img class="circular-img" src="https://i.postimg.cc/D0qqChkv/linux-avatar.jpg"/>
+    <figcaption class="caption">Flores Villarroel Corina</figcaption>
+</figure>   <img src="" alt="" class="imagen-inicio">
+</div>
+  <div class="container" >
+    <h1>Horarios</h1>
+
+
+  </div><hr> 
+  <table style="margin: 0px auto;" class="styled-table">
+    <thead>
+        <tr>
+            <th>SisMat</th>
+            <th>Materia</th>
+            <th>Grupo</th>
+            <th>Horario</th>
+            <th>Docente</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>2010024</td>
+            <td>Taller de Ingenieria de Software</td>
+            <td>1</td>
+            <td>LU 945-1115 / MA 945-1145</td>
+            <td>Flores Villarroel Corina</td>
+        </tr>
+        <tr>
+            <td>2010024</td>
+            <td>Taller de Ingenieria de Software</td>
+            <td>2</td>
+            <td>MA 815-945 / MI 815-945</td>
+            <td>Blanco Coca Leticia</td>
+        </tr>
+        <tr>
+            <td>2010024</td>
+            <td>Taller de Ingenieria de Software</td>
+            <td>3</td>
+            <td>LU 645-815 / JU 645-815</td>
+            <td>Escalera Fernandez David</td>
+        </tr>
+        <tr>
+            <td>2010024</td>
+            <td>Taller de Ingenieria de Software</td>
+            <td>4</td>
+            <td>MA 1415-1545 / VI 1545-1715</td>
+            <td>Flores Villarroel Corina</td>
+        </tr>
+    </tbody>
+</table>
+<a href="https://drive.google.com/u/3/uc?id=1ZSEcPBj9GBqNldZAghG-2U-LmMcXQlJm&export=download">
+Presiona para descargar el PDF</a>
+  
 </body>
+<!--Footer-->
+<div id="footer-placeholder">
+
+</div>
+
+<script>
+$(function(){
+  $("#footer-placeholder").load("footer.html");
+});
+</script>
+<!--end of Footer-->
 </html>
