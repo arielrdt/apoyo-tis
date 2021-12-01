@@ -48,14 +48,33 @@
           <li><a href="./perfil.html" class="sidebar-item">ver mi perfil</a></li>   
          </ul>
       </div>
-     
-  <div id="espacio-botones-seleccion-grupo">
-
-  </div>
-    
+      <!-- flexbox vertical -->
+<div id="espacio-listado-alumnos">
+<!-- si es final del semestre entonces podra subir las notas finale, sino le dira que no puede -->
 </div>
-<script src="../scripts/recuperarGruposParaCalificar.js"></script> 
- <script src="../scripts/verificarSesionDocente.js"></script>
+
+<div id="modal-notas-finales" hidden="true">
+    <div class="contenido-modal">
+       <div class="cabecera-modal"><h3>Registrar nota final</h3></div>
+           <form id="formulario-modal">
+              <p>Código sis del alumno:</p>
+              <input type="text" name="codigoSis" id="codigoSis">
+              <p>Nombre del alumno:</p>
+              <input type="text" name="nombreAlumno" id="nombre">
+              <p>nota final</p>
+              <input type="text" name="nota" id="nota">
+              <br>
+              <button type="submit" >Registrar nota</button>
+              <button type="button" id="boton-cancelar">Cancelar</button>
+           </form>
+    </div>
+</div>
+
+</div>
+<script src="../scripts/recuperarAlumnosNotasFinales.js"></script>
+<script src="../scripts/asignarNotasFinales.js"></script>
+<script src="../scripts/verificarSesionDocente.js"></script>
+
 
 </body>
 </html>

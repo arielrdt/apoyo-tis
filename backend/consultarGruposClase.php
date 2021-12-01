@@ -2,6 +2,7 @@
 include("conexionBD.php");
 session_start(); 
 $carnetDocente=$_SESSION['NUMERO_CARNET_IDENTIDAD_DOCENTE'];
+$semestre=$_SESSION['SEMESTRE'];
 
 function obtenerDatosIntegrantes($datosUnIntegrante){
 $htmlTablaIntegrantes='<table class="tabla-miembros">
