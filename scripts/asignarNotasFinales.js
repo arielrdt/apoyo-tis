@@ -21,10 +21,10 @@ abrirModal();
 }
 
 const notaValida=(numero)=>{
-    let patron = new RegExp("^[0-9]");
+    let patron = new RegExp("^[0-100]");
     return !!patron.test(numero);}
 
-    
+
 const agregarFuncionBotones=()=>{
 const botonCancelar=document.getElementById('boton-cancelar');
 botonCancelar.addEventListener("click",()=>{cerrarModal();});
