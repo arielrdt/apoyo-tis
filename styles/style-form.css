@@ -13,7 +13,7 @@
 .formulario {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
     /* align-items: center; */
     padding: 30px;
     height: 1000px;

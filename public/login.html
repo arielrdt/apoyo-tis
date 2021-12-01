@@ -5,17 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/style-login.css">
+    <link rel="stylesheet" href="../styles/style-navbar.css">
+
     <!-- Google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet"> 
-    <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Shippori+Antique&display=swap" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
     <title>Login</title>
 </head>
-<body>
-    <header class="header">
-        <h1>MasterTis</h1>
+<body class="Site">
+    <header>
+         <!--Navigation bar-->
+<div id="nav-placeholder">
+
+</div>
+
+<script>
+$(function(){
+  $("#nav-placeholder").load("navbar.html");
+});
+</script>
+<!--end of Navigation bar-->
         <!-- <nav class="navBar"> -->
             <!-- <h1>APOYO A LA EMPRESA TIS</h1>
                <ul>
@@ -48,10 +63,18 @@
             </form>
         </section>
     </main>
-    <footer class="footer">
+  <!--Footer-->
+<div id="footer-placeholder">
 
-    </footer>
+</div>
+<!-- >
+<script>
+$(function(){
+  $("#footer-placeholder").load("footer.html");
+});
+</script>-->
 
     <script src="../scripts/login.js"></script>
 </body>
+
 </html>

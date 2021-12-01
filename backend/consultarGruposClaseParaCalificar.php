@@ -13,12 +13,12 @@ function obtenerDatosIntegrantes($datosUnIntegrante,$i){
 $htmlTablaIntegrantes='<table class="tabla-miembros">
 <tr>
 <td>Integrante</td>
-<td>rol</td>
-<td>codigo sis</td>
-<td>asistencia</td>
-<td>observación</td>
-<td>nota participación</td>
-<td>registrar evaluación</td>
+<td>Rol</td>
+<td>Codigo sis</td>
+<!--<td>Asistencia</td>
+<td>Observación</td>
+<td>Nota participación</td>-->
+<td>Registrar evaluación</td>
 </tr>';
 
 $htmlTablaIntegrantes.='<tr>
@@ -26,11 +26,11 @@ $htmlTablaIntegrantes.='<tr>
 <td>'.$datosUnIntegrante['NOMBRE'].' '.$datosUnIntegrante['APELLIDO_PATERNO'].' '.$datosUnIntegrante['APELLIDO_PATERNO'].'</td> 
 <td><span>'.$datosUnIntegrante['ROL'].'</span></td>
 <td><input class="input" name="codigoSis" type="text" value="'.$datosUnIntegrante['CODIGO_SIS'].'"></td>
-<td><input class="input" name="asistencia" type="text"></td>
+<!--<td><input class="input" name="asistencia" type="text"></td>
 
 <td><input class="input" name="observacion" type="text"></td>
-<td><input class="input" name="notaParticipacion" type="text"></td>
-<td><button type="submit" name="botonFormulario">registrar</button></td>
+<td><input class="input" name="notaParticipacion" type="text"></td>-->
+<td><button class="GFG" type="submit" name="botonFormulario">Registrar</button></td>
 </form>
 </tr>'; 
 
@@ -63,7 +63,7 @@ while($filaTabla=mysqli_fetch_array($ejecucionConsulta)){
 $htmlGrupos.='</div>';
 
 
-$htmlSalida='<h1>Asignar calificación semanal</h1> <div> la fecha de hoy es: '.$fechaActual.'</div>'.$htmlGrupos;
+$htmlSalida='<h1 style="padding:10px; display: flex; justify-content: center;">Asignar calificación semanal</h1> <div style="padding:10px; display: flex; justify-content: center;"> La fecha de hoy es: '.$fechaActual.'</div>'.$htmlGrupos;
 echo json_encode($htmlSalida);
 }
 obtenerDatosGrupos($conexionBD,$carnetDocente,$fechaActual);

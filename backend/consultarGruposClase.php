@@ -8,16 +8,16 @@ function obtenerDatosIntegrantes($datosUnIntegrante){
 $htmlTablaIntegrantes='<table class="tabla-miembros">
 <tr>
 <td>Integrante</td>
-<td>rol</td>
-<td>editar rol</td>
-<td>eliminar del grupo</td>
+<td>Rol</td>
+<td>Editar rol</td>
+<td>Eliminar del grupo</td>
 </tr>';
 
 $htmlTablaIntegrantes.='<tr>
 <td>'.$datosUnIntegrante['NOMBRE'].' '.$datosUnIntegrante['APELLIDO_PATERNO'].' '.$datosUnIntegrante['APELLIDO_PATERNO'].'</td> 
 <td><span>'.$datosUnIntegrante['ROL'].'</span></td>
-<td><button>editar</button></td>
-<td><button>eliminar</button></td>
+<td><button class="GFG">Editar</button></td>
+<td><button class="GFG">Eliminar</button></td>
 </tr>'; 
 
 $htmlTablaIntegrantes.='</table>';
@@ -36,7 +36,7 @@ $consultaSQL="SELECT *
 
 $ejecucionConsulta=mysqli_query($conexionBD,$consultaSQL);
 
-$htmlGrupos='<h1>Revisar grupo-empresas</h1><div class="contenedor-tarjeta">';
+$htmlGrupos='<h1 style="padding:10px; display: flex; justify-content: center;">Revisar grupo-empresas</h1><div class="contenedor-tarjeta">';
 while($filaTabla=mysqli_fetch_array($ejecucionConsulta)){
 
     $htmlGrupos.='<div class="tarjeta-grupo">
