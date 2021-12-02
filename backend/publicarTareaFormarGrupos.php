@@ -22,7 +22,7 @@ function crearTareaFormarGrupos($conexionBD,$detalle,$fechaLimite,$horaLimite,$f
      '$fechaLimite',
      '$horaLimite',
      '$codClase',
-     'Crear grupos',
+     'Crear grupos', 
      '$detalle',
        '0',
       'Formacion Grupos'

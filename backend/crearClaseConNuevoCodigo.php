@@ -30,6 +30,7 @@ function crearClase($semestre,$conexionBD,$docente,$letra1,$letra2){
     '$docente'
     )";
     $result=mysqli_query($conexionBD,$query);
+    $_SESSION['CODIGO_SIS']=$nuevoCodigo;
     echo json_encode("clase creada con exito");
 }
 crearClase($semestre,$conexionBD,$docente,$letra1,$letra2);
