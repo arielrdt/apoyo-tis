@@ -19,7 +19,7 @@ function hayEspacio($codigo,$conexionBD){
     AND CODIGO_UNION='$codigo'";
     $ejecucionConsulta=mysqli_query($conexionBD,$consultaSQL);
     $resultado=mysqli_fetch_array($ejecucionConsulta);
-    return($resultado['NUM_INTEGRANTES']<5 && $resultado['NUM_INTEGRANTES']>0 );
+    return($resultado['NUM_INTEGRANTES']<5 && $resultado['NUM_INTEGRANTES']>=0 );
 }
 
 
@@ -31,15 +31,14 @@ if(ExisteEmpresa($codigo,$conexionBD)){
         $resultado=mysqli_fetch_array($ejecucionConsulta);
         $nuevoNombreC=$resultado['NOMBRE_CORTO'];
         $nuevoNombreL=$resultado['NOMBRE_LARGO'];
-        
+        $nuevoRol='estudiante';
         $consultaActualizacion="UPDATE ESTUDIANTE 
-        SET NOMBRE_CORTO='$nuevoNombreC',NOMBRE_LARGO='$nuevoNombreL'
+        SET NOMBRE_CORTO='$nuevoNombreC',NOMBRE_LARGO='$nuevoNombreL',ROL='$nuevoRol'
         WHERE CODIGO_SIS='$codigo_sis'";
         $ejecuconsultaActualizacion=mysqli_query($conexionBD,$consultaActualizacion);
         $_SESSION['EMPRESA']=$nuevoNombreC;
-        
-
-        echo json_encode("registro exitoso".$codigo_sis.$_SESSION['EMPRESA']);
+    
+        echo json_encode("registro exitoso");
     }
     else {echo json_encode("el grupo esta lleno");}
 }

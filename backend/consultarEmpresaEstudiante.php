@@ -27,7 +27,7 @@ $consultaSQL= $consultaSQL="SELECT distinct *
 $ejecucionConsulta=mysqli_query($conexionBD,$consultaSQL);
 while($filaTabla=mysqli_fetch_array($ejecucionConsulta)){
     $htmlMiembros.='<tr>   
-                   <td>'.$filaTabla['NOMBRE'].' '.$filaTabla['APELLIDO_PATERNO'].' '.$filaTabla['APELLIDO_PATERNO'].'</td> 
+                   <td>'.$filaTabla['NOMBRE'].' '.$filaTabla['APELLIDO_PATERNO'].' '.$filaTabla['APELLIDO_MATERNO'].'</td> 
                    <td>'.$filaTabla['ROL'].'</td>
                    </tr>';
                 }

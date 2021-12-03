@@ -23,7 +23,7 @@ $htmlTablaIntegrantes='<table class="tabla-miembros">
 
 $htmlTablaIntegrantes.='<tr>
 <form id="formulario-evaluacion-estudiante'.$i.'">
-<td>'.$datosUnIntegrante['NOMBRE'].' '.$datosUnIntegrante['APELLIDO_PATERNO'].' '.$datosUnIntegrante['APELLIDO_PATERNO'].'</td> 
+<td>'.$datosUnIntegrante['NOMBRE'].' '.$datosUnIntegrante['APELLIDO_PATERNO'].' '.$datosUnIntegrante['APELLIDO_MATERNO'].'</td> 
 <td><span>'.$datosUnIntegrante['ROL'].'</span></td>
 <td><input class="input" name="codigoSis" type="text" value="'.$datosUnIntegrante['CODIGO_SIS'].'"></td>
 <!--<td><input class="input" name="asistencia" type="text"></td>

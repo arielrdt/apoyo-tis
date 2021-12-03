@@ -1,5 +1,5 @@
 let formularioCrearEmpresaDocente=document.getElementById('formularioCrearEmpresaDocente');
-
+let espacioMensaje=document.getElementById('mensaje');
 const subirDatosNuevaEmpresa=()=>{
     let datosFormulario=new FormData(formularioCrearEmpresaDocente);
     let validoParaSubir=true;
@@ -9,11 +9,7 @@ const subirDatosNuevaEmpresa=()=>{
             method:'POST',
             body:datosFormulario})
                 .then(res=>res.json())
-                .then(data=>{
-                     if(data){console.log("registro de empresa exitoso");}
-                    else{console.log("nombre de empresa repetido, porfavor elija otro");}
- 
-                })
+                .then(data=>{espacioMensaje.innerHTML=data;})
                          }
  }
 

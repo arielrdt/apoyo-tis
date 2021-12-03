@@ -14,7 +14,7 @@ $htmlTablaIntegrantes='<table class="tabla-miembros">
 </tr>';
 
 $htmlTablaIntegrantes.='<tr>
-<td>'.$datosUnIntegrante['NOMBRE'].' '.$datosUnIntegrante['APELLIDO_PATERNO'].' '.$datosUnIntegrante['APELLIDO_PATERNO'].'</td> 
+<td>'.$datosUnIntegrante['NOMBRE'].' '.$datosUnIntegrante['APELLIDO_PATERNO'].' '.$datosUnIntegrante['APELLIDO_MATERNO'].'</td> 
 <td><span>'.$datosUnIntegrante['ROL'].'</span></td>
 <td><button class="GFG">Editar</button></td>
 <td><button class="GFG">Eliminar</button></td>
