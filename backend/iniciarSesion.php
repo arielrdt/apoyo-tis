@@ -79,7 +79,7 @@ function iniciarSesionEstudiante($correoElectronico,$conexionBD,$semestre){
     if(isset($filaResultado['NOMBRE_CORTO'])){
     $_SESSION['EMPRESA']=$filaResultado['NOMBRE_CORTO'];
                                              }
-    $_SESSION['ROL_CURSO']='Estudiante';
+    $_SESSION['ROL_CURSO']='estudiante';
 }
   
 function iniciarSesionDocente($correoElectronico,$conexionBD,$semestre){
