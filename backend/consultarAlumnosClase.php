@@ -5,8 +5,8 @@ $carnetDocente=$_SESSION['NUMERO_CARNET_IDENTIDAD_DOCENTE'];
 $semestre=$_SESSION['SEMESTRE'];
 
 function obtenerAlumnos($conexionBD,$carnetDocente,$semestre){
-$listaAlumnos='<h3>LISTA DE ALUMNOS</h3><table>
-<tr>  
+$listaAlumnos='<h3>LISTA DE ALUMNOS</h3><table class="tabla-estudiantes">
+<tr class="titulo">  
 <td>Nombre del alumno</td>
 <td>Codigo SIS</td>
 <td>Calificación</td>
