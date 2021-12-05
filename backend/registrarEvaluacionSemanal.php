@@ -15,7 +15,7 @@ $consultaAsistencia="INSERT INTO ASISTENCIA(FECHA_ASISTENCIA,CODIGO_SIS,TIPO_ASI
 values('$fechaActual','$codigoSis','$asistencia')";
 $ejecucionConsultaAsistencia=mysqli_query($conexionBD,$consultaAsistencia);
 
-$consultaParticipacion="INSERT INTO PARTICIPACION(FECHA_PARTICIPACION,CANTIDAD_PARTICIPACIONES,CODIGO_SIS) 
+$consultaParticipacion="INSERT INTO PARTICIPACION(FECHA_PARTICIPACION,NOTA_PARTICIPACION,CODIGO_SIS) 
 values('$fechaActual','$notaParticipacion','$codigoSis')";
 $ejecucionConsultaParticipacion=mysqli_query($conexionBD,$consultaParticipacion);
 
