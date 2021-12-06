@@ -1,70 +1,53 @@
 <?php
 include("conexionBD.php");
-session_start(); 
+session_start();
 $carnetDocente=$_SESSION['NUMERO_CARNET_IDENTIDAD_DOCENTE'];
+$semestre=$_SESSION['SEMESTRE'];
 $fechaActual=date("Y-m-d");
 
-// function yaSeEvaluo($nombreGrupo,$fecha){
-// //si ya se evaluo a todos los integrantes no mostrar en la lista
-// }
+function obtenerAlumnos($conexionBD,$carnetDocente,$semestre, $fechaActual){
+$listaAlumnos='<h1 style="padding:10px; display: flex; justify-content: center;">Asignar calificación semanal</h1> <div style="padding:10px; display: flex; justify-content: center;"> La fecha de hoy es: '.$fechaActual.'</div>
+<table class="tabla-estudiantes">
+<tr class="titulo">  
+<td>Nombre del alumno</td>
+<td>Codigo SIS</td>
+<td>Grupo-Empresa</td>
+<td>Presente</td>
+<td>Retraso</td>
+<td>Falta</td>
+<td>Nota</td>
+<td>Opcion</td>
 
-
-function obtenerDatosIntegrantes($datosUnIntegrante,$i){
-$htmlTablaIntegrantes='<table class="tabla-miembros">
-<tr>
-<td>Integrante</td>
-<td>Rol</td>
-<td>Codigo sis</td>
-<!--<td>Asistencia</td>
-<td>Observación</td>
-<td>Nota participación</td>-->
-<td>Registrar evaluación</td>
-</tr>';
-
-$htmlTablaIntegrantes.='<tr>
-<form id="formulario-evaluacion-estudiante'.$i.'">
-<td>'.$datosUnIntegrante['NOMBRE'].' '.$datosUnIntegrante['APELLIDO_PATERNO'].' '.$datosUnIntegrante['APELLIDO_MATERNO'].'</td> 
-<td><span>'.$datosUnIntegrante['ROL'].'</span></td>
-<td><input class="input" name="codigoSis" type="text" value="'.$datosUnIntegrante['CODIGO_SIS'].'"></td>
-<!--<td><input class="input" name="asistencia" type="text"></td>
-
-<td><input class="input" name="observacion" type="text"></td>
-<td><input class="input" name="notaParticipacion" type="text"></td>-->
-<td><button class="GFG" type="submit" name="botonFormulario">Registrar</button></td>
-</form>
-</tr>'; 
-
-$htmlTablaIntegrantes.='</table>';
-return($htmlTablaIntegrantes);
-}
-
-function obtenerDatosGrupos($conexionBD,$carnetDocente,$fechaActual){
-
+</tr>
+';
 $consultaSQL="SELECT * 
               from estudiante,grupo_empresa,clase 
-              where estudiante.NOMBRE_CORTO=grupo_empresa.NOMBRE_CORTO 
-              and estudiante.COD_CLASE=clase.COD_CLASE
+              where estudiante.COD_CLASE=clase.COD_CLASE
+              and clase.SEMESTRE='$semestre'
+              and estudiante.NOMBRE_CORTO=grupo_empresa.NOMBRE_CORTO
               and NUMERO_CARNET_IDENTIDAD_DOCENTE='$carnetDocente'";
+
 $ejecucionConsulta=mysqli_query($conexionBD,$consultaSQL);
-   $i=0;
-$htmlGrupos='</h1><div class="contenedor-tarjeta">';   
 while($filaTabla=mysqli_fetch_array($ejecucionConsulta)){
+$listaAlumnos.='
+<tr>  
+<td>'.$filaTabla['NOMBRE'].' '.$filaTabla['APELLIDO_PATERNO'].' '.$filaTabla['APELLIDO_MATERNO'].'</td>
+<td>'.$filaTabla['CODIGO_SIS'].'</td>
 
-    $htmlGrupos.='<div class="tarjeta-grupo">
-                    <h3>'.$filaTabla['NOMBRE_CORTO'].'</h3>
-                    <span>'.$filaTabla['NOMBRE_LARGO'].'</span> 
-                    
-                    <div id="ventana-modal">
-                    <div class="contenido-modal">'.obtenerDatosIntegrantes($filaTabla,$i).'</div>  
-                    </div>
-                </div>';
-                $i++;
+<td>'.$filaTabla['NOMBRE_LARGO'].'</td>
+<td><input class="input" name="asistenciaPresente" type="checkbox"></td>
+<td><input class="input" name="asistenciaRetraso" type="checkbox"></td>
+<td><input class="input" name="asistenciaFalta" type="checkbox"></td>
+<td><input class="input" name="notaParticipacion" type="number"></td>'
+;
+$listaAlumnos.='
+<td><button onclick="cargarDatos('.$filaTabla['CODIGO_SIS'].','.'`'.$filaTabla['NOMBRE'].' '.$filaTabla['APELLIDO_PATERNO'].' '.$filaTabla['APELLIDO_MATERNO'].'`'.')">Registrar</button></td>
+</tr>';
 }
-$htmlGrupos.='</div>';
+$listaAlumnos.='</table>';
 
-
-$htmlSalida='<h1 style="padding:10px; display: flex; justify-content: center;">Asignar calificación semanal</h1> <div style="padding:10px; display: flex; justify-content: center;"> La fecha de hoy es: '.$fechaActual.'</div>'.$htmlGrupos;
-echo json_encode($htmlSalida);
+echo json_encode($listaAlumnos);
 }
-obtenerDatosGrupos($conexionBD,$carnetDocente,$fechaActual);
+obtenerAlumnos($conexionBD,$carnetDocente,$semestre,$fechaActual);
+
 ?>

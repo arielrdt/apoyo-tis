@@ -2,7 +2,7 @@ const recuperarGruposClaseParaCalificar=()=>{
     fetch('../backend/consultarGruposClaseParaCalificar.php',{method:'GET'})
     .then(res=>res.json())
     .then(data=>{
-    const seccionGrupos=document.getElementById('espacio-botones-seleccion-grupo');
+    const seccionGrupos=document.getElementById('espacio-listado-alumno');
     seccionGrupos.innerHTML=data;
     agregarFormularioAlGrupo();
     
@@ -10,7 +10,7 @@ const recuperarGruposClaseParaCalificar=()=>{
     } 
 recuperarGruposClaseParaCalificar();
 
-
+/*
 const agregarFormularioAlGrupo=()=>{
     const formularioRegistrarEvaluacion=document.getElementById('formulario-evaluacion-estudiante0');
 
@@ -27,21 +27,5 @@ const agregarFormularioAlGrupo=()=>{
      }
     
      formularioRegistrarEvaluacion.addEventListener('submit',(e)=>{subirEvaluacionEstudiante(); e.preventDefault(); });
-    
-    
-
-
-
-}
-
-
-
-
-
-
-
-
-
-
-
-    
+    }
+*/
