@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../styles/style-form.css">
+  <link rel="stylesheet" href="../styles/style-sidebar.css">
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+  <link rel="stylesheet" href="../styles/style-navbar.css">
+  <link rel="stylesheet" href="../styles/style-infoClases.css">
+  <!-- Google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Shippori+Antique&display=swap" rel="stylesheet">
+   <title>Crear Grupo-Empresa</title>
+</head>
+<body>
+    <header>
+        <!--Navigation bar-->
+        <div id="nav-placeholder">
+        </div>
+
+        <script>
+        $(function(){
+            $("#nav-placeholder").load("navbar.html");
+        });
+        </script>
+        <!--end of Navigation bar-->
+        
+        <!--Navigation bar-->
+        <div id="sidebd-placeholder">
+        </div>
+        
+        <script>
+        $(function(){
+            $("#sidebd-placeholder").load("sidebarDocente.html");
+        });
+        </script>
+    </header>
+
+    <main class="main">
+        <h2 class="main-title">Clases</h2>
+        <section class="main-section">
+            <a class="main-clase-card" href="./infoClases.html">
+                <img src="https://i.postimg.cc/D0qqChkv/linux-avatar.jpg" alt="">
+                <p class="main-card-name">Flores Villaroel Corina</p>
+            </a>
+            <a class="main-clase-card" href="./infoClases.html">
+                <img src="https://i.postimg.cc/D0qqChkv/linux-avatar.jpg" alt="">
+                <p class="main-card-name">Blanco Coca Leticia</p>
+            </a>
+            <a class="main-clase-card" href="./infoClases.html">
+                <img src="https://i.postimg.cc/D0qqChkv/linux-avatar.jpg" alt="">
+                <p class="main-card-name">Escalera Fernandez David</p>
+            </a>
+            <a class="main-clase-card" href="./infoClases.html">
+                <img src="https://i.postimg.cc/D0qqChkv/linux-avatar.jpg" alt="">
+                <p class="main-card-name">Flores Villarroel Corina</p>
+            </a>
+        </section>
+    </main>
+
+    <footer>
+        <div id="footer-placeholder">
+
+        </div>
+        
+        <script>
+        $(function(){
+          $("#footer-placeholder").load("footer.html");
+        });
+        </script>
+    </footer>
+</body>
+</html>
