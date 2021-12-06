@@ -23,8 +23,9 @@ else{
 
 
 const validarTitulo=(titulo)=>{
-    let patron = new RegExp("^[a-zA-Zñáéíóú ]+$ ?");
-    return !!patron.test(titulo);}
+    let patron = new RegExp("^[a-z||A-Z||0-9][a-zA-Z_.,:;\t\h\r\n\<br />]+$"); 
+    // return !!patron.test(titulo);
+        return true}
 
 
 const validarDescripcion=(descripcion)=>{
