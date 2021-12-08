@@ -1,12 +1,12 @@
+
 .contenido-modal{
   width:300px;
   padding: 10px 20px;
   border:1px black solid;
+  background-color: rgb(214, 200, 200);
   position: fixed;
   left: 35%;
   top: 46%;
-   
-
 }
 #espacio-listado-alumnos{
   padding: 10px 20px;
