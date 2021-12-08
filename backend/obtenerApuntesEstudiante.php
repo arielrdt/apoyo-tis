@@ -12,13 +12,12 @@ $htmlApuntes='<div class="apuntes">';
 
 if($rolEstudiante=='documentador'){
     $htmlApuntes.='<div class="boton-crear-apunte">
-    <a href="./crearApunte">subir un nuevo apunte</a>
+    <a href="./crearApunte.html">subir un nuevo apunte</a>
     </div>';}
 
 $consulta="SELECT estudiante.CODIGO_SIS,apunte.fecha_apunte,apunte.seVio,apunte.veremos 
 from apunte,estudiante
 where estudiante.CODIGO_SIS=apunte.CODIGO_SIS
-and estudiante.CODIGO_SIS='$cod_estudiante'
 and estudiante.COD_CLASE='$clase'
 and estudiante.NOMBRE_CORTO='$grupo_empresa'";
 
