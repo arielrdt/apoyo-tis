@@ -4,10 +4,10 @@ const generarCodigoAleatorio=()=>{
     .then(res=>res.json())
     .then(mensaje=>console.log(mensaje))
 }
-
+ 
 const llenarCampoCodigo=()=>{
 //comprobar si puede generar un codigo para este semestre, sino recuperar el ya existente
-fetch('../backend/consultarCodigoClase.php',{method:'GET'})
+fetch('../backend/consultarSiSeCreoUnaClase.php',{method:'GET'})
 .then(res=>res.json())
 .then(respuesta=>{
           if(respuesta!=null){

@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../styles/style-navbar.css">
   <link rel="stylesheet" href="../styles/style-lista-convocatorias.css">
   <link rel="stylesheet" href="../styles/style-sidebar.css">
   <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-
+      <link rel="stylesheet" href="../styles/style-navbar.css">
   <!-- Google fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Shippori+Antique&display=swap" rel="stylesheet">
-  <title>Document</title>
+  <title>crear apuntes</title>
 </head>
 <body>
   <header>
@@ -39,70 +39,53 @@ $("#nav-placeholder").load("navbar.html");
 </script>
 <!--end of Navigation bar-->
 </header>
-
-   <div class="flex-body"> 
-
-    <div class="sidebar">
-      <ul class="sidebar-list">
-        <li>
+    <div class="flex-body"> 
+      <div class="sidebar">
+        <!-- <h2 class="sidebar-title">Navegación</h2> -->
+        <ul class="sidebar-list">
+          <li>
             <img src="https://img.icons8.com/ios/50/000000/name--v1.png"/>
             <a href="./perfil.html" class="sidebar-item">Perfil</a>
-        </li>
-        <li>
+          </li>
+          <li>
             <img src="https://img.icons8.com/ios/100/000000/file-2.png"/>
             <a href="./listaConvocatorias.html" class="sidebar-item">Convocatorias</a>
-        </li>
-        <li>
+          </li>
+          <li>
             <img src="https://img.icons8.com/ios/100/000000/task.png"/>
             <a href="./tareas.html" class="sidebar-item">Tareas</a>
-        </li>
+          </li>
 
-        <li>
-           <img src="https://img.icons8.com/ios/100/000000/collaborating-in-circle.png"/>
-           <a href="./empresaEstudiante.html" class="sidebar-item">Mi empresa</a>
-        </li>
-        <li>
+          <li>
+            <img src="https://img.icons8.com/ios/100/000000/collaborating-in-circle.png"/>
+            <a href="./empresaEstudiante.html" class="sidebar-item">Mi empresa</a>
+         </li>
+         <li>
           <img src="https://img.icons8.com/ios/100/000000/collaborating-in-circle.png"/>
           <a href="./estudianteRevisaApuntesClase.html" class="sidebar-item">Apuntes</a>
        </li>
-      </ul>
-    </div>
-   
-    <div id="datos-Miempresa">
-    </div>
-
-    <div id="modal-cambio-rol" hidden="true" >
-      <div class="contenido-modal">
-         <div class="cabecera-modal"><h3>Cambiar rol</h3></div>
-             <form id="formulario-cambio-rol">
-                <p>Código sis del alumno:</p>
-                <input type="text" name="codigoSis" id="codigoSis" readonly>
-                <p>Nombre del alumno:</p>
-                <input type="text" name="nombreAlumno" id="nombre" readonly>
-                <p>nuevo rol:</p>
-                  <select name="nuevoRol" >
-                    <option value="estudiante">estudiante</option>
-                    <option value="documentador">documentador</option>
-                  </select>
-                <br>
-                <div id="mensaje"></div>
-                <br>
-                <button type="submit" >Registrar nota</button>
-                <button type="button" id="boton-cerrar-cambio-rol">Cancelar</button>
-             </form>
+    
+        </ul>
       </div>
-  </div>
+         <div class="div-formulario">
+           <h1 class="formulario-publicar">CREAR APUNTE</h1>
+            <form id="formulario-apuntes" class="formulario">
+             <h2>En clase se vio:</h2>
+             <textarea class="input-description" name="sevio" cols="30" rows="3"></textarea>
+             <h2>La proxima clase se vera:</h2>
+             <textarea class="input-description" name="veremos" cols="30" rows="3"></textarea>
+            <br>     
+            <button type="submit" name="botonFormulario">guardarApunte</button>
+           </form>
+
+           <div id="espacio-mensaje-apunte"></div>
+           <br><br>
+         </div>
+
+</div> 
+<script src="../scripts/subirApunte.js"></script>
+<script src="../scripts/verificarSesionEstudiante.js"></script>
 
 
-
-
-
-
-  </div>
-
-  <script src="../scripts/estudianteCambiarRolMiembroGrupo.js"></script>
-  <script src="../scripts/consultarEstudiantePerteneceAEmpresa.js"></script>
-
-  <script src="../scripts/verificarSesionEstudiante.js"></script>
 </body>
 </html>
