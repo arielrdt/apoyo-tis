@@ -1,0 +1,49 @@
+.main {
+    font-family: 'Shippori Antique', sans-serif;
+    /* height: 100vh; */
+    min-height: 100vh;
+    /* height: auto; */
+    display: flex;
+    flex-direction: column;
+    padding: 0px 50px;
+}
+.main-title {
+    font-size: 35px;
+    align-self: center;
+}
+.main-section {
+    width: 100%;
+    display: flex;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    flex-direction: column;
+}
+.main-section h3 {
+    font-size: 25px;
+}
+.main-section-list {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    align-items: center;
+}
+.student-content {
+    height: 70px;
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #e0e0e0;
+}
+.student-content-img {
+    border-radius: 50%;
+    width: 40px;
+    margin-right: 30px;
+}
+.student-content-photo-and-name {
+    display: flex;
+    align-items: center;
+}
+.student-content-rol {
+    color: crimson;
+}
