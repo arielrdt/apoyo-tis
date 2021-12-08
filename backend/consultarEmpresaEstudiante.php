@@ -19,7 +19,7 @@ function EstudianteInscrito($conexionBD,$codigoEstudiante){
 
 function obtenerTablaMiembros($conexionBD,$nombreCortoEmpresa){
 $htmlMiembros='<table class="tabla-miembros">
-<tr><td>Integrante</td><td>rol</td></tr>';
+<tr><td>Integrante</td><td>rol</td><td>opcion</td></tr>';
 $consultaSQL= $consultaSQL="SELECT distinct * 
                             FROM ESTUDIANTE as e,GRUPO_EMPRESA as g 
                             WHERE e.NOMBRE_CORTO=g.NOMBRE_CORTO 
@@ -29,9 +29,9 @@ while($filaTabla=mysqli_fetch_array($ejecucionConsulta)){
     $htmlMiembros.='<tr>   
                    <td>'.$filaTabla['NOMBRE'].' '.$filaTabla['APELLIDO_PATERNO'].' '.$filaTabla['APELLIDO_MATERNO'].'</td> 
                    <td>'.$filaTabla['ROL'].'</td>
+                   <td><button onclick="cargarDatos('.$filaTabla['CODIGO_SIS'].','.'`'.$filaTabla['NOMBRE'].' '.$filaTabla['APELLIDO_PATERNO'].' '.$filaTabla['APELLIDO_MATERNO'].'`'.')">asignar nota final</button></td>
                    </tr>';
                 }
-
 
 $htmlMiembros.='</table>';
 

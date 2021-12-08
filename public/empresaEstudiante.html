@@ -70,9 +70,39 @@ $(function(){
    
     <div id="datos-Miempresa">
     </div>
+
+    <div id="modal-cambio-rol" >
+      <div class="contenido-modal">
+         <div class="cabecera-modal"><h3>Cambiar rol</h3></div>
+             <form id="formulario-modal">
+                <p>Código sis del alumno:</p>
+                <input type="text" name="codigoSis" id="codigoSis" readonly>
+                <p>Nombre del alumno:</p>
+                <input type="text" name="nombreAlumno" id="nombre" readonly>
+                <p>nuevo rol:</p>
+                  <select name="nuevoRol" >
+                    <option value="estudiante">estudiante</option>
+                    <option value="documentador">documentador</option>
+                  </select>
+                <br>
+                <div id="mensaje"></div>
+                <br>
+                <button type="submit" >Registrar nota</button>
+                <button type="button" id="boton-cancelar">Cancelar</button>
+             </form>
+      </div>
   </div>
 
+
+
+
+
+
+  </div>
+
+  
   <script src="../scripts/consultarEstudiantePerteneceAEmpresa.js"></script>
+  <script src="../scripts/estudianteCambiarRolMiembroGrupo.js"></script>
   <script src="../scripts/verificarSesionEstudiante.js"></script>
 </body>
 </html>
