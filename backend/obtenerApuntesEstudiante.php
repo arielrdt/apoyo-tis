@@ -26,10 +26,10 @@ $ejecucionConsulta=mysqli_query($conexionBD,$consulta);
 while($filaTabla=mysqli_fetch_array($ejecucionConsulta))
 { 
 $htmlApuntes.='<div class="contenido-apunte">
-<h3>Fecha:'.$filaTabla['fecha_apunte'].'</h3>
-<h5>Esta semana se vio:</h5>
+<h2>Fecha:'.$filaTabla['fecha_apunte'].'</h2>
+<h3>Esta semana se vio:</h3>
 <span>'.$filaTabla['seVio'].'</span>
-<h5>para la proxima semana:</h5>
+<h3>para la proxima semana:</h3>
 <span>'.$filaTabla['veremos'].'</span>
 </div>';
 }  
