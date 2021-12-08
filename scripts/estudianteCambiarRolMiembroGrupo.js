@@ -1,19 +1,21 @@
-let formularioModalRol=document.getElementById('formulario-modal-rol');
+let formularioModalRol=document.getElementById('formulario-cambio-rol');
 let datosFormularioRol=new FormData(formularioModalRol);
-const ventanaModal=document.getElementById("modal-cambiar-rol");
-const campoCodigoSis=document.getElementById("codigoSis");
+const ventanaModal=document.getElementById("modal-cambio-rol");
+const campoCodigoSis=document.getElementById("codigoSis");//////
+const campoNombre=document.getElementById("nombre"); ///////
 
-function abrirModalCambiarRol(codigo_sis){ //cargar datos
+function cargarDatosRol(codigo_sis,nombre){ //cargar datos
     campoCodigoSis.value=codigo_sis;
-    abrirModal();
+    campoNombre.value=nombre;
+    abrirModalSetRol();
 }
-
 
 const abrirModalSetRol=()=>{ventanaModal.hidden=false;}
 
 
 const cerrarModalSetRol=()=>{
 campoCodigoSis.value="";
+campoNombre.value="";
 ventanaModal.hidden=true;
 }
 
@@ -29,8 +31,8 @@ actualizarRolAlumno();
 }
 
 const actualizarRolAlumno=()=>{
-formularioModal=document.getElementById('formulario-modal');
-datosFormularioModal=new FormData(formularioModal);
+    formularioModalRol=document.getElementById('formulario-cambio-rol');
+    datosFormularioRol=new FormData(formularioModalRol);
 fetch('../backend/cambiarRolAlumno.php',{
     method:'POST',
     body:datosFormularioRol})
