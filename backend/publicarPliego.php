@@ -55,15 +55,15 @@ function subirDatos($conexionBD,$fecha_publicacion,$titulo_documento,$semestre_a
         $nomreOriginalArchivo=basename($_FILES['file']['name']);
         $extension=strtolower(pathinfo($nomreOriginalArchivo,PATHINFO_EXTENSION));
         $nombreNuevoArchivo=$semestre_anio.'.'.$extension;
-        $rutaFinal='../archivos/pliegos_especificaciones/'.$nombreNuevoArchivo;
-        
-           
 
+        
         if($nomreOriginalArchivo!=''){
             if($extension=="pdf"){
-                move_uploaded_file($_FILES["file"]["tmp_name"],$rutaFinal);
+                
                 ejecutarConsultaSubirDatos($conexionBD,$titulo_documento,$semestre_anio,$descripcion,$fecha_publicacion);
-                echo json_encode("el pliego ha sido publicado exitosamente");
+                echo json_encode($nombreNuevoArchivo);
+                //echo json_encode("el pliego ha sido publicado exitosamente");
+
                                      }
               else
               {echo json_encode("el documento debe estar en formato pdf");}
