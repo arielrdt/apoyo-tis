@@ -1,10 +1,8 @@
 <?php
 include("conexionBD.php");
 
-// $query="SELECT * FROM grupo_empresa";
-// $result=mysqli_query($conexionBD, $query);
 
-$consultaIntegranteRespectivo='SELECT * FROM estudiante WHERE NOMBRE_CORTO = "totalSoft" ';
+$consultaIntegranteRespectivo=' SELECT * FROM estudiante WHERE NOMBRE_CORTO = "totalSoft" ';
 $resultadoConsulta=mysqli_query($conexionBD,$consultaIntegranteRespectivo);
 // $filaIntegrante=mysqli_fetch_array($resultadoConsulta);
 
