@@ -23,8 +23,9 @@ else{
 
 
 const validarTitulo=(titulo)=>{
-    let patron = new RegExp("^[a-zA-Zñáéíóú ]+$ ?");
-    return !!patron.test(titulo);}
+    let patron = new RegExp("^[a-z||A-Z||0-9][a-zA-Z_.,:;\t\h\r\n\<br />]+$"); 
+    // return !!patron.test(titulo);
+        return true}
 
 
 const validarDescripcion=(descripcion)=>{
@@ -112,11 +113,18 @@ if(validoParaSubir){
          )
         .then(res=>res.json())
         .then(data=>{
-            if(data=="La convocatoria ha sido publicada exitosamente"){espacioMensaje.innerHTML+='<p class=mensaje-verde>*'+data+'</p>';}
+            console.log(data);
+            if(data!=null){
+                espacioMensaje.innerHTML+='<p class=mensaje-verde>invitacion subida con exito</p>';
+                let archivo=($('#pdf-conv'))[0].files[0];
+                let ubicacion=storage.ref('/invitaciones/'+data);
+                console.log("ubicacion")
+                let tareaSubida=ubicacion.put(archivo);
+                console.log("imagen subida a firebase");
+            }
             else{espacioMensaje.innerHTML+='<p class=mensaje-rojo>*'+data+'</p>';}
                     })
     }
-
 }
 
 asignarSemestresAnio();

@@ -7,12 +7,23 @@
               <img src="../img/logo-lap-h.png"/>
               <p class="navBar-title">MasterTis</p>
             </div>
+         
+            <ul class="navBar-list" id="nav-bar-options">       
 
-            <ul class="navBar-list">       
-              <a class="paginap" href="./paginaPrincipal.html">Pagina Principal</a>
-              <a class="iniSesion" href="./login.html">Iniciar Sesion</a>
-              <a class="cerrarSesion" href="./cerrarSesion.html">Cerrar Sesion</a>
-              
+ 
             </ul>
+
         </nav>
-        
+
+<script >
+const botonesSesion=document.getElementById("nav-bar-options");
+
+fetch('../backend/existeSesionActiva.php',{method:'GET'})
+
+.then(res=>res.json())
+.then(mensaje=>{
+  console.log(mensaje)
+    if(!mensaje){botonesSesion.innerHTML='<a class="paginap" href="./paginaPrincipal.html">Pagina Principal</a>   <a class="itemNav" href="./login.html">iniciar sesion</a>';}
+     else{botonesSesion.innerHTML='<a class="paginap" href="./paginaPrincipal.html">Pagina Principal</a> <a class="itemNav" href="./cerrarSesion.html">cerrar sesion</a>';}
+               })
+</script>

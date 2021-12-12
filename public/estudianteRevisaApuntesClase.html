@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="../styles/style-navbar.css">
   <link rel="stylesheet" href="../styles/style-lista-convocatorias.css">
   <link rel="stylesheet" href="../styles/style-sidebar.css">
+  <link rel="stylesheet" href="../styles/styles-apuntes.css">
   <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 
   <!-- Google fonts -->
@@ -65,44 +66,15 @@ $("#nav-placeholder").load("navbar.html");
           <img src="https://img.icons8.com/ios/100/000000/collaborating-in-circle.png"/>
           <a href="./estudianteRevisaApuntesClase.html" class="sidebar-item">Apuntes</a>
        </li>
+
       </ul>
     </div>
-   
-    <div id="datos-Miempresa">
-    </div>
-
-    <div id="modal-cambio-rol" hidden="true" >
-      <div class="contenido-modal">
-         <div class="cabecera-modal"><h3>Cambiar rol</h3></div>
-             <form id="formulario-cambio-rol">
-                <p>Código sis del alumno:</p>
-                <input type="text" name="codigoSis" id="codigoSis" readonly>
-                <p>Nombre del alumno:</p>
-                <input type="text" name="nombreAlumno" id="nombre" readonly>
-                <p>nuevo rol:</p>
-                  <select name="nuevoRol" >
-                    <option value="estudiante">estudiante</option>
-                    <option value="documentador">documentador</option>
-                  </select>
-                <br>
-                <div id="mensaje"></div>
-                <br>
-                <button type="submit" >Registrar nota</button>
-                <button type="button" id="boton-cerrar-cambio-rol">Cancelar</button>
-             </form>
-      </div>
-  </div>
-
-
-
-
-
+    
+    <div id="apuntes"></div>
 
   </div>
 
-  <script src="../scripts/estudianteCambiarRolMiembroGrupo.js"></script>
-  <script src="../scripts/consultarEstudiantePerteneceAEmpresa.js"></script>
-
+  <script src="../scripts/recuperarApuntes.js"></script>
   <script src="../scripts/verificarSesionEstudiante.js"></script>
 </body>
 </html>

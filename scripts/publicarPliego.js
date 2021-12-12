@@ -23,8 +23,9 @@ else{
 }
 
 const validarTitulo=(titulo)=>{
-    let patron = new RegExp("^[a-zA-Zñáéíóú ]+$ ?");
-    return !!patron.test(titulo);}
+    let patron = new RegExp("^[a-z||A-Z||0-9][a-zA-Z_.,:;\t\h\r\n\<br />]+"); 
+    //return !!patron.test(titulo);
+    return true}
 
 const semestreValido=(estado1Semestre,estado2semestre)=>{return(estado1Semestre=='on'||estado2semestre=='on');}
 
@@ -85,7 +86,14 @@ const subirDatos=()=>{
             })
             .then(res=>res.json())
             .then(data=>{
-         if(data=="El pliego ha sido publicado exitosamente"){espacioMensaje.innerHTML+='<p class=mensaje-verde>*'+data+'</p>';}
+                if(data!=null){
+                    espacioMensaje.innerHTML+='<p class=mensaje-verde>invitacion subida con exito</p>';
+                    let archivo=($('#pdf-pli'))[0].files[0];
+                    let ubicacion=storage.ref('/pliegos/'+data);
+                    console.log("ubicacion")
+                    let tareaSubida=ubicacion.put(archivo);
+                    console.log("imagen subida a firebase");
+                }
          else{espacioMensaje.innerHTML+='<p class=mensaje-rojo>*'+data+'</p>';}
 
         })

@@ -29,11 +29,9 @@ function ejecutarConsultaSubirDatos($conexionBD,$fecha_inicio,$fecha_limite,$tit
     $query="INSERT INTO invitacion_publica
     (FECHA_INICIO ,
     FECHA_LIMITE ,
-
     COD_CLASE ,
     FECHA_PUBLICACION ,
     SEMSTRE_ANIO ,
-
     HORA_LIMITE ,
     TITULO_DOCUMENTO ,
     SEMESTRE_ANIO ,
@@ -56,18 +54,14 @@ function subirDatos($conexionBD,$fecha_inicio,$fecha_limite,$titulo_documento,$s
         if(CamposNoLlenos($titulo_documento,$fecha_limite,$carnet_identidad_docente,$semestre_anio,$descripcion))
          {echo json_encode('Debes llenar todos los campos');}
         else{
-
         $nomreOriginalArchivo=basename($_FILES['file']['name']);
         $extension=strtolower(pathinfo($nomreOriginalArchivo,PATHINFO_EXTENSION));
         $nombreNuevoArchivo=$semestre_anio.'.'.$extension;
-        $rutaFinal='../archivos/inv_publicas/'.$nombreNuevoArchivo;
-      
         if($nomreOriginalArchivo!=''){
             if($extension=="pdf")
             {
-             move_uploaded_file($_FILES["file"]["tmp_name"],$rutaFinal);
              ejecutarConsultaSubirDatos($conexionBD,$fecha_inicio,$fecha_limite,$titulo_documento,$semestre_anio,$descripcion);
-             echo json_encode("La convocatoria ha sido publicada exitosamente");
+             echo json_encode($nombreNuevoArchivo);
             }
            else
            {echo json_encode("el documento debe estar en formato pdf");}
