@@ -20,7 +20,7 @@ function registrarApunte($conexionBD,$cod_estudiante,$se_vio,$se_vera,$fechaSubi
       null 
       )";
     $result=mysqli_query($conexionBD,$query);
-    echo json_encode("Tarea publicada con exito".$result);
+    echo json_encode("¡Apunte registrado!".$result);
 }
 
 registrarApunte($conexionBD,$cod_estudiante,$se_vio,$se_vera,$fechaSubida);

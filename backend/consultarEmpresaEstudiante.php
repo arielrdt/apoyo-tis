@@ -32,7 +32,7 @@ while($filaTabla=mysqli_fetch_array($ejecucionConsulta)){
                    $htmlMiembros.='<tr>   
                    <td>'.$filaTabla['NOMBRE'].' '.$filaTabla['APELLIDO_PATERNO'].' '.$filaTabla['APELLIDO_MATERNO'].'</td> 
                    <td>'.$filaTabla['ROL'].'</td>
-                   <td><button onclick="cargarDatosRol('.$filaTabla['CODIGO_SIS'].','.'`'.$filaTabla['NOMBRE'].' '.$filaTabla['APELLIDO_PATERNO'].' '.$filaTabla['APELLIDO_MATERNO'].'`'.')">asignar nota final</button></td>
+                   <td><button onclick="cargarDatosRol('.$filaTabla['CODIGO_SIS'].','.'`'.$filaTabla['NOMBRE'].' '.$filaTabla['APELLIDO_PATERNO'].' '.$filaTabla['APELLIDO_MATERNO'].'`'.')">asignar rol</button></td>
                    </tr>';
                 }
         else{

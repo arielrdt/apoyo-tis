@@ -8,7 +8,13 @@
   <link rel="stylesheet" href="../styles/style-lista-convocatorias.css">
   <link rel="stylesheet" href="../styles/style-sidebar.css">
   <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-
+  <style>
+    .vl {
+      border-left: 3px solid rgb(66 125 134);
+      margin-right: 100px;
+      height: 600px;
+    }
+    </style>
   <!-- Google fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -72,6 +78,7 @@ $("#nav-placeholder").load("navbar.html");
     </div>
 
     <div id="modal-cambio-rol" hidden="true" >
+      <div class="vl">
       <div class="contenido-modal">
          <div class="cabecera-modal"><h3>Cambiar rol</h3></div>
              <form id="formulario-cambio-rol">
@@ -82,6 +89,7 @@ $("#nav-placeholder").load("navbar.html");
                 <p>nuevo rol:</p>
                   <select name="nuevoRol" >
                     <option value="estudiante">estudiante</option>
+                    <option value="desarrollador">estudiante</option>
                     <option value="documentador">documentador</option>
                   </select>
                 <br>
@@ -89,7 +97,7 @@ $("#nav-placeholder").load("navbar.html");
                 <br>
                 <button type="submit" >Registrar nota</button>
                 <button type="button" id="boton-cerrar-cambio-rol">Cancelar</button>
-             </form>
+             </form></div>
       </div>
   </div>
 

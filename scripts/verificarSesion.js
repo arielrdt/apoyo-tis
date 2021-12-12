@@ -3,6 +3,6 @@
     .then(mensaje=>{
               if(mensaje=='estudiante'){window.location.href ='./listaConvocatorias.html';}
               else{
-               if(mensaje=='none'){window.location.href ='./paginaPrincipal.html';}
+               if(mensaje=='Docente'){window.location.href ='./crearClase.html';}
                  }
 })

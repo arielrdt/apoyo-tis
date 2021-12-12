@@ -22,7 +22,7 @@ ventanaModal.hidden=true;
 
 const agregarFuncionBotones=()=>{
 const botonCerrarCambioRol=document.getElementById('boton-cerrar-cambio-rol');
-botonCerrarCambioRol.addEventListener("click",()=>{cerrarModal();});
+botonCerrarCambioRol.addEventListener("click",()=>{cerrarModalSetRol();});
 
 formularioModalRol.addEventListener("submit",(e)=>{
 e.preventDefault();
