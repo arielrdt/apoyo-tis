@@ -33,8 +33,11 @@ $listaAlumnos.='
 <td>'.$filaTabla['NOMBRE_LARGO'].'</td>
 
 <td>'.$filaTabla['ROL'].'</td>
-<td><button class="GFG">Editar</button></td>
-<td><button class="GFG">Eliminar</button></td>'
+
+<td><button class="GFG" onclick="editarDatos('.$filaTabla['CODIGO_SIS'].','.'`'.$filaTabla['NOMBRE'].' '.$filaTabla['APELLIDO_PATERNO'].' '.$filaTabla['APELLIDO_MATERNO'].''.$filaTabla['ROL'].'`'.')">Editar</button></td>
+
+<td><button class="GFG" onclick="eliminarDatos('.$filaTabla['CODIGO_SIS'].','.'`)">Eliminar</button></td>
+'
 ;
 $listaAlumnos.='
 </tr>';

@@ -30,7 +30,7 @@ $listaAlumnos.='<td>'.$filaTabla['NOTA_EXAMEN_FINAL'].'</td>';
 }
 else{$listaAlumnos.='<td>no calificado</td>';}
 $listaAlumnos.='
-<td><button onclick="cargarDatos('.$filaTabla['CODIGO_SIS'].','.'`'.$filaTabla['NOMBRE'].' '.$filaTabla['APELLIDO_PATERNO'].' '.$filaTabla['APELLIDO_MATERNO'].'`'.')">asignar nota final</button></td>
+<td><button class="GFG" onclick="cargarDatos('.$filaTabla['CODIGO_SIS'].','.'`'.$filaTabla['NOMBRE'].' '.$filaTabla['APELLIDO_PATERNO'].' '.$filaTabla['APELLIDO_MATERNO'].'`'.')">asignar nota final</button></td>
 </tr>';
 }
 $listaAlumnos.='</table>';

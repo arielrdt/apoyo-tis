@@ -3,9 +3,7 @@ const recuperarGruposClaseParaCalificar=()=>{
     .then(res=>res.json())
     .then(data=>{
     const seccionGrupos=document.getElementById('espacio-listado-alumno');
-    seccionGrupos.innerHTML=data;
-    agregarFormularioAlGrupo();
-    
+    seccionGrupos.innerHTML=data;    
 })
     } 
 recuperarGruposClaseParaCalificar();

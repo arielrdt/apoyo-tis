@@ -58,42 +58,19 @@
 </header>
 
 <div id="espacio-listado-alumnos">
-  <!-- si es final del semestre entonces podra subir las notas finale, sino le dira que no puede -->
   </div>
-<div id="modal-nota-semanal" hidden="true">
-    <div class="contenido-modal">
-       <div class="cabecera-modal"><h3>Registrar nota final</h3></div>
-           <form id="formulario-semanal">
-              <p>Código sis del alumno:</p>
-              <input type="text" name="codigoSis" id="codigoSis" readonly>
-              <p>Nombre del alumno:</p>
-              <input type="text" name="nombreAlumno" id="nombre" readonly>
-              <p>Asistencia:</p>
-              <select name="asistencia" >
-                <option value="P">Presente</option>
-                <option value="T">Tarde</option>
-                <option value="A">Ausente</option>
-              </select>                <br>
-              <p>Nota</p>
-              <input type="text" name="nota" id="nota">
-              <br>
-              <div id="mensaje"></div>
-              <br>
-              <button type="submit" >Registrar</button>
-              <button type="button" id="boton-cancelar">Cancelar</button>
-           </form>
-    </div>
-</div>
 
-</div>
+
+      </div>
      
   <div id="espacio-listado-alumno">
 
   </div>
     
+
+
 </div>
-<script src="../scripts/recuperarGruposParaCalificar.js"></script> 
-<script src="../scripts/registrarEvaluacion.js"></script> 
+<script type="module" src="../scripts/obtenerAsistencias.js"></script>
 
  <script src="../scripts/verificarSesionDocente.js"></script>
 

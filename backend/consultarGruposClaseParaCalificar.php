@@ -12,10 +12,10 @@ $listaAlumnos='<h1 style="padding:10px; display: flex; justify-content: center;"
 <td>Nombre del alumno</td>
 <td>Codigo SIS</td>
 <td>Grupo-Empresa</td>
-<td>Presente</td>
+<!--<td>Presente</td>
 <td>Retraso</td>
 <td>Falta</td>
-<td>Nota</td>
+<td>Nota</td>-->
 <td>Opcion</td>
 
 </tr>
@@ -35,13 +35,14 @@ $listaAlumnos.='
 <td>'.$filaTabla['CODIGO_SIS'].'</td>
 
 <td>'.$filaTabla['NOMBRE_LARGO'].'</td>
-<td><input class="input" name="asistenciaPresente" type="checkbox"></td>
-<td><input class="input" name="asistenciaRetraso" type="checkbox"></td>
-<td><input class="input" name="asistenciaFalta" type="checkbox"></td>
-<td><input class="input" name="notaParticipacion" type="number"></td>'
+<!--
+<td><input class="input" name="asistencia" id="asistencia" value="P" type="checkbox"></td>
+<td><input class="input" name="asistencia" id="asistencia" value="T" type="checkbox"></td>
+<td><input class="input" name="asistencia" id="asistencia" value="A" type="checkbox"></td>
+<td><input class="input" name="notaParticipacion" id="notaParticipacion" type="number"></td>-->'
 ;
 $listaAlumnos.='
-<td><button onclick="cargarDatos('.$filaTabla['CODIGO_SIS'].','.'`'.$filaTabla['NOMBRE'].' '.$filaTabla['APELLIDO_PATERNO'].' '.$filaTabla['APELLIDO_MATERNO'].'`'.')">Registrar</button></td>
+<td><button class="GFG" onclick="datosSemanal('.$filaTabla['CODIGO_SIS'].','.'`'.$filaTabla['NOMBRE'].' '.$filaTabla['APELLIDO_PATERNO'].' '.$filaTabla['APELLIDO_MATERNO'].'`'.')">Calificar</button></td>
 </tr>';
 }
 $listaAlumnos.='</table>';
