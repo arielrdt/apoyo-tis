@@ -65,6 +65,7 @@
     border: none;
     border-bottom: 1px solid #222;
     outline: none;
+    font-weight: bold;
 }
 .respuesta-correo {
     text-align: center;
