@@ -1,5 +1,5 @@
-let formularioModal=document.getElementById('formulario-semanal');
-let datosFormularioModal=new FormData(formularioModal);
+let formularioSemanal=document.getElementById('formulario-semanal');
+let datosFormularioSemanal=new FormData(formularioSemanal);
 const ventanaModal=document.getElementById("modal-nota-semanal");
 const campoCodigoSis=document.getElementById("codigoSis");
 const campoNombre=document.getElementById("nombre");
@@ -11,39 +11,48 @@ const mensaje=document.getElementById("mensaje");
 const abrirModal=()=>{ventanaModal.hidden=false;}
 
 const cerrarModal=()=>{
-campoCodigoSis.value="";
-campoNombre.value="";
-ventanaModal.hidden=true;
-}
+    campoCodigoSis.value="";
+    campoNombre.value="";
+    campoNota.value="";
+    ventanaModal.hidden=true;
+
+    }
 
 const datosSemanal=(codigoSis,nombre)=>{
 campoCodigoSis.value=codigoSis;
 campoNombre.value=nombre;
-console.log(codigoSis,nombre);
 abrirModal();
 }
 
 
-const agregarFuncionBotones=()=>{
+const notaValida=(numero)=>{
+    let patron = new RegExp("^[1-9]$|^[1-9][0-9]$|^(100)$");
+    return !!patron.test(numero);}
+
+const agregarFuncion=()=>{
 const botonCancelar=document.getElementById('boton-cancelar');
 botonCancelar.addEventListener("click",()=>{cerrarModal();});
-formularioModal.addEventListener("submit",(e)=>{
+formularioSemanal.addEventListener("submit",(e)=>{
 e.preventDefault();
-actualizarNotaSemanalAlumno();
+if(notaValida(campoNota.value)){actualizarNotaSemanalAlumno();}
+else{
+    mensaje.innerHTML="Ingrese una nota entre 1 y 100";
+}
 });
 
 }
 
 const actualizarNotaSemanalAlumno=()=>{
-    console.log(codigoSis,nombre, campoAsistencia);
-
-formularioModal=document.getElementById('formulario-semanal');
-datosFormularioModal=new FormData(formularioModal);
+formularioSemanal=document.getElementById('formulario-semanal');
+datosFormularioSemanal=new FormData(formularioSemanal);
+console.log(datosFormularioSemanal);
 fetch('../backend/registrarEvaluacionSemanal.php',{
+    
     method:'POST',
-    body:datosFormularioModal})
+    body:datosFormularioSemanal})
     .then(res=>res.json())
     .then(data=>{console.log(data)
-    //window.location.reload();
+    window.location.reload();
     })
 }
+agregarFuncion();

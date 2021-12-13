@@ -2,7 +2,7 @@ const recuperarGruposClaseParaCalificar=()=>{
     fetch('../backend/consultarGruposClaseParaCalificar.php',{method:'GET'})
     .then(res=>res.json())
     .then(data=>{
-    const seccionGrupos=document.getElementById('espacio-listado-alumno');
+    const seccionGrupos=document.getElementById('espacio-listado-semanal');
     seccionGrupos.innerHTML=data;    
 })
     } 
