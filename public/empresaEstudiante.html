@@ -4,9 +4,17 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../styles/style-header.css">
+  <link rel="stylesheet" href="../styles/style-navbar.css">
   <link rel="stylesheet" href="../styles/style-lista-convocatorias.css">
   <link rel="stylesheet" href="../styles/style-sidebar.css">
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+  <style>
+    .vl {
+      border-left: 3px solid rgb(66 125 134);
+      margin-right: 100px;
+      height: 600px;
+    }
+    </style>
   <!-- Google fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,14 +25,26 @@
 </head>
 <body>
   <header>
-    <nav class="navBar">
-        <h1>MasterTis</h1>
-           <ul>              
-            <a class="itemNav" href="../index.html">Pagina principal</a>
-            <a class="itemNav" href="cerrarSesion.html">cerrar sesion</a>
-           </ul>
-        </nav>
-   </header>
+    <!--<nav class="navBar">
+      <h1>MasterTis</h1>
+         <ul>
+          <a class="itemNav" href="../index.html">Pagina principal</a>
+          <a class="itemNav" href="cerrarSesion.html">cerrar sesion</a>
+         </ul>
+    </nav>-->
+
+    <!--Navigation bar-->
+<div id="nav-placeholder">
+
+</div>
+
+<script>
+$(function(){
+$("#nav-placeholder").load("navbar.html");
+});
+</script>
+<!--end of Navigation bar-->
+</header>
 
    <div class="flex-body"> 
 
@@ -42,22 +62,55 @@
             <img src="https://img.icons8.com/ios/100/000000/task.png"/>
             <a href="./tareas.html" class="sidebar-item">Tareas</a>
         </li>
-        <li>
-          <img src="https://img.icons8.com/ios/100/000000/collaborating-in-circle.png"/>
-          <a href="./tareas.html" class="sidebar-item">Ver grupo empresas</a>
-       </li>
+
         <li>
            <img src="https://img.icons8.com/ios/100/000000/collaborating-in-circle.png"/>
            <a href="./empresaEstudiante.html" class="sidebar-item">Mi empresa</a>
         </li>
+        <li>
+          <img src="https://img.icons8.com/ios/100/000000/collaborating-in-circle.png"/>
+          <a href="./estudianteRevisaApuntesClase.html" class="sidebar-item">Apuntes</a>
+       </li>
       </ul>
     </div>
    
     <div id="datos-Miempresa">
     </div>
+
+    <div id="modal-cambio-rol" hidden="true" >
+      <div class="vl">
+      <div class="contenido-modal">
+         <div class="cabecera-modal"><h3>Cambiar rol</h3></div>
+             <form id="formulario-cambio-rol">
+                <p>Código sis del alumno:</p>
+                <input type="text" name="codigoSis" id="codigoSis" readonly>
+                <p>Nombre del alumno:</p>
+                <input type="text" name="nombreAlumno" id="nombre" readonly>
+                <p>nuevo rol:</p>
+                  <select name="nuevoRol" >
+                    <option value="estudiante">estudiante</option>
+                    <option value="desarrollador">desarrollador</option>
+                    <option value="documentador">documentador</option>
+                  </select>
+                <br>
+                <div id="mensaje"></div>
+                <br>
+                <button type="submit" >Registrar nota</button>
+                <button type="button" id="boton-cerrar-cambio-rol">Cancelar</button>
+             </form></div>
+      </div>
   </div>
 
+
+
+
+
+
+  </div>
+
+  <script src="../scripts/estudianteCambiarRolMiembroGrupo.js"></script>
   <script src="../scripts/consultarEstudiantePerteneceAEmpresa.js"></script>
+
   <script src="../scripts/verificarSesionEstudiante.js"></script>
 </body>
 </html>

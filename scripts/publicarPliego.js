@@ -86,7 +86,14 @@ const subirDatos=()=>{
             })
             .then(res=>res.json())
             .then(data=>{
-         if(data=="El pliego ha sido publicado exitosamente"){espacioMensaje.innerHTML+='<p class=mensaje-verde>*'+data+'</p>';}
+                if(data!=null){
+                    espacioMensaje.innerHTML+='<p class=mensaje-verde>invitacion subida con exito</p>';
+                    let archivo=($('#pdf-pli'))[0].files[0];
+                    let ubicacion=storage.ref('/pliegos/'+data);
+                    console.log("ubicacion")
+                    let tareaSubida=ubicacion.put(archivo);
+                    console.log("imagen subida a firebase");
+                }
          else{espacioMensaje.innerHTML+='<p class=mensaje-rojo>*'+data+'</p>';}
 
         })

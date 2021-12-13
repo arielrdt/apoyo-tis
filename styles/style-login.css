@@ -3,17 +3,17 @@
     padding: 0;
     box-sizing: border-box;
     /* color: white; */
-    color: #222;
+    /* color: #222; */
     font-family: 'Montserrat', sans-serif;
-    font-weight: bold;
+    /* font-weight: bold; */
 }
 
-.header {
+/* .header {
     display: flex;
     justify-content: flex-start;
     align-items: center;
     /* background-color: silver; */
-    height: 100px;
+    /* height: 100px;
     width: 100%;
     font-size: 25px;
     background-color: #427d86;
@@ -22,13 +22,14 @@
     font-family: 'Fjalla One', sans-serif;
     margin-left: 40px;
     color: rgb(255, 255, 255);
-}
+/* }  */
 
 .main {
     display: flex;
     justify-content: center;
     align-items: flex-start;
     /* height: 1000px; */
+    font-weight: bold;
 }
 .main-section {
     display: flex;
@@ -64,6 +65,7 @@
     border: none;
     border-bottom: 1px solid #222;
     outline: none;
+    font-weight: bold;
 }
 .respuesta-correo {
     text-align: center;
@@ -90,6 +92,7 @@
     color: white;
 }
 .main-section-form button {
+    font-weight: bold;
     border-radius: 5px;
     margin-top: 60px;
     padding: 0px 10px;

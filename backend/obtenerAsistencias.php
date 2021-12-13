@@ -58,7 +58,6 @@ $respuesta=array_merge(($respuesta),array($infoEstudiante));
 echo json_encode($respuesta);
 }
 
-
 obtenerAsistenciasSemanales($clase,$conexionBD);
 
 ?>

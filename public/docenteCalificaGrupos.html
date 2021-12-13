@@ -1,30 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../styles/style-form.css">
-  <link rel="stylesheet" href="../styles/style-sidebar.css">
-  <link rel="stylesheet" href="../styles/style-makeTasks.css">
-  <link rel="stylesheet" href="../styles/style-groups.css">
-  <link rel="stylesheet" href="../styles/style-modal.css">
-  <link rel="stylesheet" href="../styles/style-navbar.css">
-
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-  <script type="text/javascript" src="https://code.jquery.com/jquery-1.9.1.js"></script>  
-  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <!-- Google fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Shippori+Antique&display=swap" rel="stylesheet">
-   
-    <title>Document</title>
-</head>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/style-form.css">
+    <link rel="stylesheet" href="../styles/style-sidebar.css">
+    <link rel="stylesheet" href="../styles/style-makeTasks.css">
+    <link rel="stylesheet" href="../styles/style-groups.css">
+    <link rel="stylesheet" href="../styles/style-modal.css">
+    
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    
+    <link rel="stylesheet" href="../styles/style-navbar.css">
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Shippori+Antique&display=swap" rel="stylesheet">
+    
+  
+       <title>Document</title>
+  </head>
 <body>
     <header>
         <!--<nav class="navBar">
@@ -59,31 +56,45 @@
   </script>
   <!--end of Navigation bar-->
 </header>
-<!--<div class="flex-body">
-    <div class="sidebar">
-        <h1 class="sidebar-title">Navegación</h1>
-        <ul class="sidebar-list">
-          <li><a href="./crearClase.html" class="sidebar-item">crear una clase para el semestre actual</a></li> 
-           <div class="subir-editar">
-             <li><a href="./formularioConvocatorias.html" class="sidebar-item">subir invitacion publica</a></li>
-             <li><a href="./formularioPliego.html" class="sidebar-item">subir pliego especificaciones</a></li>
-             <li><a href="./crearTarea.html" class="sidebar-item">crear tarea</a></li>
-           </div>
-           <li><a href="./docenteCalificaGrupos.html" class="sidebar-item">calificar grupos</a></li> 
-           <li><a href="./docenteCrearGrupo-Empresa.html" class="sidebar-item">crear un Grupo-Empresa</a></li> 
-           <!--podra editar los grupos de su clase -->
-          <!-- <li><a href="./DocenteRevisaGrupos.html" class="sidebar-item">revisar grupos de la clase</a></li> 
-          <li><a href="./perfil.html" class="sidebar-item">ver mi perfil</a></li>   
-         </ul>-->
-      </div>
+
+<div id="espacio-listado-semanal"style=" align-items: center;padding-left: 35px;   justify-content: center; ">
+  <!-- si es final del semestre entonces podra subir las notas finale, sino le dira que no puede -->
+  </div>
+<div id="modal-nota-semanal" hidden="true">
+    <div class="contenido-modal">
+       <div class="cabecera-modal"><h3>Registrar nota final</h3></div>
+           <form id="formulario-semanal">
+              <p>Código sis del alumno:</p>
+              <input type="text" name="codigoSis" id="codigoSis" readonly>
+              <p>Nombre del alumno:</p>
+              <input type="text" name="nombreAlumno" id="nombre" readonly>
+              <p>Asistencia:</p>
+              <select name="asistencia" >
+                <option value="P">Presente</option>
+                <option value="T">Tarde</option>
+                <option value="A">Ausente</option>
+              </select>                
+              <p>Nota</p>
+              <input type="text" name="nota" id="nota">
+              
+              <div id="mensaje"></div>
+              <button type="submit" >Registrar</button>
+              <button type="button" id="boton-cancelar">Cancelar</button>
+           </form>
+    </div>
+</div>
+
+</div>
      
-  <div id="espacio-botones-seleccion-grupo">
+  <div id="espacio-listado-alumno">
 
   </div>
     
 </div>
 <script src="../scripts/recuperarGruposParaCalificar.js"></script> 
- <script src="../scripts/verificarSesionDocente.js"></script>
+<script src="../scripts/registrarEvaluacion.js"></script> 
+
+<script src="../scripts/verificarSesionDocente.js"></script>
 
 </body>
 </html>

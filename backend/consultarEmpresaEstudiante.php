@@ -2,13 +2,15 @@
 include("conexionBD.php");
 session_start(); 
 $codigoEstudiante=$_SESSION['CODIGO_SIS'];
+
 if(isset($_SESSION['EMPRESA'])){
     $nombreCortoEmpresa=$_SESSION['EMPRESA'];
+    $rolEstudiante=$_SESSION['ROL'];
 }
 else{
 $nombreCortoEmpresa=null;
+$rolEstudiante=null;
 }
-
 
 function EstudianteInscrito($conexionBD,$codigoEstudiante){
     $consultaSQL="SELECT * FROM ESTUDIANTE as e,GRUPO_EMPRESA as g WHERE  e.NOMBRE_CORTO=g.NOMBRE_CORTO and CODIGO_SIS='$codigoEstudiante'";
@@ -17,21 +19,32 @@ function EstudianteInscrito($conexionBD,$codigoEstudiante){
     return(isset($filaResultado['NOMBRE_CORTO']));
 }
 
-function obtenerTablaMiembros($conexionBD,$nombreCortoEmpresa){
+function obtenerTablaMiembros($conexionBD,$nombreCortoEmpresa,$rolEstudiante){
 $htmlMiembros='<table class="tabla-miembros">
-<tr><td>Integrante</td><td>rol</td></tr>';
+<tr><td>Integrante</td><td>rol</td><td>opcion</td></tr>';
 $consultaSQL= $consultaSQL="SELECT distinct * 
                             FROM ESTUDIANTE as e,GRUPO_EMPRESA as g 
                             WHERE e.NOMBRE_CORTO=g.NOMBRE_CORTO 
                                 and g.NOMBRE_CORTO='$nombreCortoEmpresa'";
 $ejecucionConsulta=mysqli_query($conexionBD,$consultaSQL);
 while($filaTabla=mysqli_fetch_array($ejecucionConsulta)){
-    $htmlMiembros.='<tr>   
+      if($filaTabla['ROL']!='representante legal' && $rolEstudiante=='representante legal'){
+                   $htmlMiembros.='<tr>   
                    <td>'.$filaTabla['NOMBRE'].' '.$filaTabla['APELLIDO_PATERNO'].' '.$filaTabla['APELLIDO_MATERNO'].'</td> 
                    <td>'.$filaTabla['ROL'].'</td>
+                   <td><button onclick="cargarDatosRol('.$filaTabla['CODIGO_SIS'].','.'`'.$filaTabla['NOMBRE'].' '.$filaTabla['APELLIDO_PATERNO'].' '.$filaTabla['APELLIDO_MATERNO'].'`'.')">asignar rol</button></td>
                    </tr>';
                 }
+        else{
+            $htmlMiembros.='<tr>   
+            <td>'.$filaTabla['NOMBRE'].' '.$filaTabla['APELLIDO_PATERNO'].' '.$filaTabla['APELLIDO_MATERNO'].'</td> 
+            <td>'.$filaTabla['ROL'].'</td>
+            <td></td>
+            </tr>';
+        }           
 
+
+                }
 
 $htmlMiembros.='</table>';
 
@@ -39,7 +52,9 @@ return($htmlMiembros);
 }
 
 
-function obtenerDatosEmpresaEstudiante($conexionBD,$codigoEstudiante,$nombreCortoEmpresa){
+
+
+function obtenerDatosEmpresaEstudiante($conexionBD,$codigoEstudiante,$nombreCortoEmpresa,$rolEstudiante){
     if(EstudianteInscrito($conexionBD,$codigoEstudiante) && $nombreCortoEmpresa!=null )
     {
 
@@ -56,7 +71,7 @@ function obtenerDatosEmpresaEstudiante($conexionBD,$codigoEstudiante,$nombreCort
                         <h4>Teléfono: <span>'.$filaTabla['TELEFONO'].'<span></h4>
                         <h4>codigo de unión: <span>'.$filaTabla['CODIGO_UNION'].'<span></h4><br><br>
                         '; 
-    $htmlDatosEmpresa.=obtenerTablaMiembros($conexionBD,$nombreCortoEmpresa);
+    $htmlDatosEmpresa.=obtenerTablaMiembros($conexionBD,$nombreCortoEmpresa,$rolEstudiante);
     echo json_encode ($htmlDatosEmpresa);
 
     }
@@ -64,7 +79,7 @@ function obtenerDatosEmpresaEstudiante($conexionBD,$codigoEstudiante,$nombreCort
 
 }
     
-obtenerDatosEmpresaEstudiante($conexionBD,$codigoEstudiante,$nombreCortoEmpresa);
+obtenerDatosEmpresaEstudiante($conexionBD,$codigoEstudiante,$nombreCortoEmpresa,$rolEstudiante);
 
 
 ?>

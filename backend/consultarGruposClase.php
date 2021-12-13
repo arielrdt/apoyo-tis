@@ -1,58 +1,51 @@
 <?php
 include("conexionBD.php");
-session_start(); 
+session_start();
 $carnetDocente=$_SESSION['NUMERO_CARNET_IDENTIDAD_DOCENTE'];
 $semestre=$_SESSION['SEMESTRE'];
+$fechaActual=date("Y-m-d");
 
-function obtenerDatosIntegrantes($datosUnIntegrante){
-$htmlTablaIntegrantes='<table class="tabla-miembros">
-<tr>
-<td>Integrante</td>
+function obtenerAlumnos($conexionBD,$carnetDocente,$semestre, $fechaActual){
+$listaAlumnos='<h1 style="padding:10px; display: flex; justify-content: center;">Asignar calificación semanal</h1> <div style="padding:10px; display: flex; justify-content: center;"> La fecha de hoy es: '.$fechaActual.'</div>
+<table class="tabla-estudiantes">
+<tr class="titulo">  
+<td>Nombre del alumno</td>
+<td>Codigo SIS</td>
+<td>Grupo-Empresa</td>
 <td>Rol</td>
-<td>Editar rol</td>
-<td>Eliminar del grupo</td>
-</tr>';
+<td>Editar Rol</td>
+<td>Eliminar</td>
 
-$htmlTablaIntegrantes.='<tr>
-<td>'.$datosUnIntegrante['NOMBRE'].' '.$datosUnIntegrante['APELLIDO_PATERNO'].' '.$datosUnIntegrante['APELLIDO_MATERNO'].'</td> 
-<td><span>'.$datosUnIntegrante['ROL'].'</span></td>
-<td><button class="GFG">Editar</button></td>
-<td><button class="GFG">Eliminar</button></td>
-</tr>'; 
-
-$htmlTablaIntegrantes.='</table>';
-
-return($htmlTablaIntegrantes);
-}
-
-
-
-function obtenerDatosGrupos($conexionBD,$carnetDocente){
+</tr>
+';
 $consultaSQL="SELECT * 
               from estudiante,grupo_empresa,clase 
-              where estudiante.NOMBRE_CORTO=grupo_empresa.NOMBRE_CORTO 
-              and estudiante.COD_CLASE=clase.COD_CLASE
+              where estudiante.COD_CLASE=clase.COD_CLASE
+              and estudiante.NOMBRE_CORTO=grupo_empresa.NOMBRE_CORTO
               and NUMERO_CARNET_IDENTIDAD_DOCENTE='$carnetDocente'";
 
 $ejecucionConsulta=mysqli_query($conexionBD,$consultaSQL);
-
-$htmlGrupos='<h1 style="padding:10px; display: flex; justify-content: center;">Revisar grupo-empresas</h1><div class="contenedor-tarjeta">';
 while($filaTabla=mysqli_fetch_array($ejecucionConsulta)){
+$listaAlumnos.='
+<tr>  
+<td>'.$filaTabla['NOMBRE'].' '.$filaTabla['APELLIDO_PATERNO'].' '.$filaTabla['APELLIDO_MATERNO'].'</td>
+<td>'.$filaTabla['CODIGO_SIS'].'</td>
+<td>'.$filaTabla['NOMBRE_LARGO'].'</td>
 
-    $htmlGrupos.='<div class="tarjeta-grupo">
-                    <h3>'.$filaTabla['NOMBRE_CORTO'].'</h3>
-                    <span>'.$filaTabla['NOMBRE_LARGO'].'</span> 
-                     
-                    <div id="ventana-modal">
-                    <div class="contenido-modal">'.obtenerDatosIntegrantes($filaTabla).'</div>  
-                    </div>
-                </div>';
+<td>'.$filaTabla['ROL'].'</td>
+
+<td><button class="GFG" onclick="editarDatos('.$filaTabla['CODIGO_SIS'].','.'`'.$filaTabla['NOMBRE'].' '.$filaTabla['APELLIDO_PATERNO'].' '.$filaTabla['APELLIDO_MATERNO'].''.$filaTabla['ROL'].'`'.')">Editar</button></td>
+
+<td><button class="GFG" onclick="eliminarDatos('.$filaTabla['CODIGO_SIS'].','.'`)">Eliminar</button></td>
+'
+;
+$listaAlumnos.='
+</tr>';
 }
-$htmlGrupos.='</div>';
+$listaAlumnos.='</table>';
 
-
-
-echo json_encode($htmlGrupos);
+echo json_encode($listaAlumnos);
 }
-obtenerDatosGrupos($conexionBD,$carnetDocente);
+obtenerAlumnos($conexionBD,$carnetDocente,$semestre,$fechaActual);
+
 ?>

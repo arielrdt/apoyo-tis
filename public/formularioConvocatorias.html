@@ -83,7 +83,7 @@ $(function(){
          <div id="espacio-mensajed">    </div>
 
         <h2>Adjunte el documento de la convocatoria(pdf)</h2>
-        <input class="input-file" type="file" name="file" >
+        <input class="input-file" type="file" name="file" id="pdf-conv" >
          <hr>
          <div id="espacio-mensaje">    </div>
         <hr>
@@ -94,8 +94,17 @@ $(function(){
     </div>
     </div>
 
-    <script src="../scripts/verificarSesionDocente.js"></script>
+
+<!-- firebase storage -->
+<script src="https://www.gstatic.com/firebasejs/7.15.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.15.1/firebase-storage.js"></script>
+<script src="../conexionFirebase/conexionFirebase.js"></script>
+
+
+<script src="../scripts/verificarSesionDocente.js"></script>
 <script src="../scripts/publicarConvocatorias.js"></script>
+
+
 
 
 </body>

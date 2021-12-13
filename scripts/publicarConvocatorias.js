@@ -113,11 +113,18 @@ if(validoParaSubir){
          )
         .then(res=>res.json())
         .then(data=>{
-            if(data=="La convocatoria ha sido publicada exitosamente"){espacioMensaje.innerHTML+='<p class=mensaje-verde>*'+data+'</p>';}
+            console.log(data);
+            if(data!=null){
+                espacioMensaje.innerHTML+='<p class=mensaje-verde>invitacion subida con exito</p>';
+                let archivo=($('#pdf-conv'))[0].files[0];
+                let ubicacion=storage.ref('/invitaciones/'+data);
+                console.log("ubicacion")
+                let tareaSubida=ubicacion.put(archivo);
+                console.log("imagen subida a firebase");
+            }
             else{espacioMensaje.innerHTML+='<p class=mensaje-rojo>*'+data+'</p>';}
                     })
     }
-
 }
 
 asignarSemestresAnio();
