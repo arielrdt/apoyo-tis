@@ -2,10 +2,8 @@ const recuperarGruposClaseParaCalificar=()=>{
     fetch('../backend/consultarGruposClaseParaCalificar.php',{method:'GET'})
     .then(res=>res.json())
     .then(data=>{
-    const seccionGrupos=document.getElementById('espacio-listado-alumno');
-    seccionGrupos.innerHTML=data;
-    agregarFormularioAlGrupo();
-    
+    const seccionGrupos=document.getElementById('espacio-listado-semanal');
+    seccionGrupos.innerHTML=data;    
 })
     } 
 recuperarGruposClaseParaCalificar();

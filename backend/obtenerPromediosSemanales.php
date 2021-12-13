@@ -29,7 +29,6 @@ while($filaTabla=mysqli_fetch_array($ejecucionConsulta))
 $respuesta=array_merge(($respuesta),array($infoEstudiante));
 
 }  
-
 echo json_encode($respuesta);
 }
 

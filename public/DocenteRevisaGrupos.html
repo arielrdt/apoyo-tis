@@ -49,10 +49,38 @@ $(function(){
       </header>
 
 
-  <div id="espacio-botones-seleccion-grupo">
+  <div id="espacio-botones-seleccion-grupo"style=" align-items: center;padding-left: 35px;   justify-content: center; ">
+  </div>
+
+    <div id="modal-rol" hidden="true">
+      <div class="contenido-modal">
+         <div class="cabecera-modal"><h3>Editar Rol del alumno</h3></div>
+             <form id="formulario-modalrol">
+                <p>Código sis del alumno:</p>
+                <input type="text" name="codigoSis" id="codigoSis" readonly>
+                <p>Nombre del alumno:</p>
+                <input type="text" name="nombreAlumno" id="nombre" readonly>
+                <p>Rol</p>
+                <select name="nuevoRol" >
+                <option value="representante">Representante legal</option>
+                <option value="estudiante">Estudiante</option>
+                <option value="documentador">Documentador</option>
+              </select>                <br>
+                <div id="mensaje"></div>
+                <br>
+                <button type="submit" >Registrar</button>
+                <button type="button" id="boton-cancelar">Cancelar</button>
+             </form>
+      </div>
+  </div>
+</div>
+
+
   </div>
       
 <script src="../scripts/recuperarGruposClase.js"></script>
+<script src="../scripts/editarEliminarRol.js"></script>
+
 <script src="../scripts/verificarSesionDocente.js"></script>
 
 
