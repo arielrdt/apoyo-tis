@@ -10,7 +10,7 @@ $consulta="SELECT estudiante.CODIGO_SIS, NOMBRE,APELLIDO_PATERNO,APELLIDO_MATERN
 from estudiante,participacion
 where estudiante.CODIGO_SIS=participacion.CODIGO_SIS
 and COD_CLASE='$clase'
-order by(estudiante.CODIGO_SIS)";
+group by(participacion.CODIGO_SIS)";
 $ejecucionConsulta=mysqli_query($conexionBD,$consulta);
 
 while($filaTabla=mysqli_fetch_array($ejecucionConsulta))
