@@ -43,7 +43,7 @@ while ($filaGrupo=mysqli_fetch_array($result)) {
         <div class="main-clase-card">
             <div class="main-card-title">
                 <img class="main-card-image" src="https://i.postimg.cc/D0qqChkv/linux-avatar.jpg" alt="">
-                <p class="main-card-name">'.$filaGrupo['NOMBRE_LARGO'].'</p>
+                <p class="main-card-name">'.$filaGrupo['NOMBRE_CORTO'].'-'.$filaGrupo['NOMBRE_LARGO'].'</p>
             </div>
             <div class="main-card-list activo">
                 <h3>Integrantes</h3>
