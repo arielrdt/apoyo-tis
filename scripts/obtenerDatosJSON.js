@@ -11,8 +11,8 @@ export function obtenerAsistencias() {
             +'<td><div class="codSis">'+estudiante.cod_sis+'</div></td>'
             +'<td><div class="codSis">'+estudiante.grupo+'</div></td>'
             +'<td><div class="tarde">'+estudiante.presentes+'</div></td>'
-            +'<td><div class="tarde">'+estudiante.tardes+'</div></td>'
-            +'<td><div class="tarde">'+estudiante.ausentes+'</div></td></tr></table>'});
+            +'<td><div class="tarde"style="color:orange">'+estudiante.tardes+'</div></td>'
+            +'<td><div class="tarde" style="color:red">'+estudiante.ausentes+'</div></td></tr></table>'});
              const espacioDeAsistencias = document.getElementById("asistencia-alumno");
              espacioDeAsistencias.innerHTML=(html);
             return html;
