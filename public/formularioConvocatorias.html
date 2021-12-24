@@ -42,44 +42,30 @@ $(function(){
 </script>
 <!--end of Navigation bar-->
     </header>
-    <!-- 
-    <div class="flex-body"> 
-    <div class="sidebar">
-      <h1 class="sidebar-title">Navegación</h1>
-         <ul class="sidebar-list">
-          <li><a href="./crearClase.html" class="sidebar-item">crear una clase para el semestre actual</a></li> 
-          <div class="subir-editar">
-          <li><a href="./formularioConvocatorias.html" class="sidebar-item">subir invitacion publica</a></li>
-          <li><a href="./formularioPliego.html" class="sidebar-item">subir pliego especificaciones</a></li>
-          </div>
-          <li><a href="./perfil.html" class="sidebar-item">ver mi perfil</a></li>   
-         </ul>
-    </div>-->
 
-    <div class="div-formulario">
-      <h1 class="formulario-publicar">PUBLICAR CONVOCATORIA</h1>
+
+    <div id="div-btn-editar-invi" hidden="true">
+       <h2 class="mensaje-rojo">ya se publico una invitacion para este semestre</h2>
+       <button type="button" id="btn-editar-invi" > editar </button>
+    </div>
+
+    <div class="div-formulario" id="div-formulario-invi" hidden="true" >
+      <h1 class="formulario-publicar" >PUBLICAR CONVOCATORIA</h1>
       <form id="formulario" class="formulario">
         
         <h2>Título de la Convocatoria</h2>
-        <input class="input-titulo" name="titulo" type="text" placeholder="Intoduzca el título">
+        <input class="input-titulo" name="titulo" id="titulo-invi" type="text" placeholder="Intoduzca el título">
          <div id="espacio-mensajet">    </div>
 
         <h2>Fecha Limite de presentación de propuesta</h2>
-        <input class="input-date-fin" type="date" name="fechaFin">
-         <div id="espacio-mensajef">    </div>
+        <input class="input-date-fin" type="date" id="limite-invi" name="fechaFin">
+         <div id="espacioMensajFe">    </div>
 
-        <h2>Seleccione el semestre</h2>
-        <div class="input-semestre">
-          <input type="checkbox" name="semestre1" id="opcion1" onclick="mensaje(1)">
-          <span id="1erSemestre"></span>
-           <br><br>
-          <input type="checkbox" name="semestre2" id="opcion2" onclick="mensaje(2)">
-          <span id="2doSemestre"></span>
-        </div> 
-          <div id="espacio-mensajes">    </div>
+         <h2>semestre actual</h2>
+         <div id="semestre-invi"> </div>
 
         <h2>Descripcion de la convocatoria</h2>
-        <textarea class="input-description" name="descripcion" cols="30" rows="10"></textarea>
+        <textarea class="input-description" name="descripcion" id="desc-invi" cols="30" rows="10"></textarea>
          <div id="espacio-mensajed">    </div>
 
         <h2>Adjunte el documento de la convocatoria(pdf)</h2>
@@ -92,7 +78,8 @@ $(function(){
       </form>
 <br><br><br>
     </div>
-    </div>
+
+
 
 
 <!-- firebase storage -->
@@ -100,11 +87,9 @@ $(function(){
 <script src="https://www.gstatic.com/firebasejs/7.15.1/firebase-storage.js"></script>
 <script src="../conexionFirebase/conexionFirebase.js"></script>
 
-
+<script src="../scripts/existeInvitacion.js"></script>
 <script src="../scripts/verificarSesionDocente.js"></script>
 <script src="../scripts/publicarConvocatorias.js"></script>
-
-
 
 
 </body>

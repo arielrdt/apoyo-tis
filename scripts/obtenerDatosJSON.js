@@ -4,7 +4,7 @@ export function obtenerAsistencias() {
     solicitud.onload=function(){
         if(solicitud.status==200){
             let json=JSON.parse(solicitud.responseText);
-            console.log(json);
+            
             var html=""; 
             json.map(estudiante=>{html=html+'<table class="tabla-estudiantes"><tr class="titulo"><td>Nombre del alumno</td><td>Codigo SIS</td><td>Grupo</td><td>Presentes</td><td>Tardes</td><td>Ausentes</td></tr>'+
             '<tr><td><div class="estudiante">'+estudiante.nombre+'</div></td>' 
@@ -25,6 +25,10 @@ export function obtenerAsistencias() {
     solicitud.send();
     }
 
+function asignarEstado(notaPromedio,notaFinal) {
+    if(notaPromedio>50||notaFinal>50){return "aprobado";}
+    else{return "reprobado";}
+}
 
     export function obtenerPromediosSemanales() {
         let solicitud=new XMLHttpRequest();
@@ -32,17 +36,20 @@ export function obtenerAsistencias() {
         solicitud.onload=function(){
             if(solicitud.status==200){
                 let json=JSON.parse(solicitud.responseText);
-                console.log(json);
+                
             var html=""; 
-            json.map(estudiante=>{html=html+'<table class="tabla-estudiantes"><tr class="titulo"><td>Nombre del alumno</td><td>Codigo SIS</td><td>Promedio</td></tr>'
+            json.map(estudiante=>{html=html+'<table class="tabla-estudiantes"><tr class="titulo"><td>Nombre del alumno</td><td>Codigo SIS</td><td>Promedio</td><td>nota final</td><td>estado</td></tr>'
                 +'<tr><td><div class="estudiante">'+estudiante.nombre+'</div></td>'+
             '<td><div class="estudiante">'+estudiante.cod_sis+'</div></td>'+
-            '<td><div class="estudiante">'+estudiante.promedioNotas+'</div></td></tr></table>'
+            '<td><div class="estudiante">'+estudiante.promedioNotas+'</div></td>'+
+            '<td><div class="estudiante">'+estudiante.notaFinal+'</div></td>'+
+            '<td><div class="estudiante">'+asignarEstado(estudiante.promedioNotas,estudiante.notaFinal)
+            +'</div></td></tr></table>'
         });
            
              const espacioDeAsistencias = document.getElementById("notas-alumno");
              espacioDeAsistencias.innerHTML=(html);
-            console.log(html);
+           
             return html;
             }
             else{

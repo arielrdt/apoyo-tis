@@ -6,7 +6,7 @@ $clase=$_SESSION['COD_CLASE'];
 function obtenerPromediosSemanales($clase,$conexionBD){
 $respuesta=array();
 
-$consulta="SELECT estudiante.CODIGO_SIS, NOMBRE,APELLIDO_PATERNO,APELLIDO_MATERNO,NOMBRE_CORTO,avg(nota_participacion) as promedio
+$consulta="SELECT estudiante.CODIGO_SIS, NOMBRE,APELLIDO_PATERNO,APELLIDO_MATERNO,NOMBRE_CORTO,avg(nota_participacion) as promedio,NOTA_EXAMEN_FINAL
 from estudiante,participacion
 where estudiante.CODIGO_SIS=participacion.CODIGO_SIS
 and COD_CLASE='$clase'
@@ -19,11 +19,13 @@ while($filaTabla=mysqli_fetch_array($ejecucionConsulta))
     $nombre=$filaTabla['NOMBRE'].' '.$filaTabla['APELLIDO_PATERNO'].' '.$filaTabla['APELLIDO_MATERNO'];
     $empresa=$filaTabla['NOMBRE_CORTO'];
     $promedioNotas=$filaTabla['promedio'];
+    $notaFinal=$filaTabla['NOTA_EXAMEN_FINAL'];
          $infoEstudiante=array(
           'cod_sis'=>$codigo,
           'nombre'=>$nombre,
           'grupo'=>$empresa,
           'promedioNotas'=>$promedioNotas,
+          'notaFinal'=>$notaFinal
            );
 
 $respuesta=array_merge(($respuesta),array($infoEstudiante));

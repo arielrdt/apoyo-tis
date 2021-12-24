@@ -11,12 +11,16 @@
 }
 
 .formulario {
+    height: 700px;
+    padding-top: 0px;
+    margin-top: 0px;
+    
     display: flex;
     flex-direction: column;
     justify-content: center;
     /* align-items: center; */
     padding: 30px;
-    height: 1000px;
+   
     width: 70%;
     /* background-color: rgba(65, 105, 225, 0.445); */
     border-radius: 20px;

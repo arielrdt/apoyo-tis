@@ -54,26 +54,24 @@ $(function(){
           <li><a href="./perfil.html" class="sidebar-item">ver mi perfil</a></li>    
          </ul>
     </div>-->
-    <div class="div-formulario">
+    <div id="div-btn-editar-plie" hidden="true" >
+        <h2>ya se publico un pliego para este semestre</h2>
+         <button id="btn-editar-plie" type="button" >editar pliego</button>
+    </div>
+
+
+    <div class="div-formulario" id="div-formulario-plie" hidden="true">
       <h1>PUBLICAR PLIEGO DE ESPECIFICACIONES</h1>
       <form id="formulario" class="formulario">
        
         <h2>Pliego de especificaciones</h2>
-        <input class="input-titulo" name="titulo" type="text" placeholder="Intoduzca el título">
-          <div id="espacio-mensajet"> </div>
+        <input class="input-titulo" name="titulo" id="titulo-plie" type="text" placeholder="Intoduzca el título">
+          <div id="espacio-mensaje"> </div>
 
-        <h2>Seleccione el semestre</h2>
-        <div class="input-semestre">
-          <input type="checkbox" name="semestre1" id="opcion1" onclick="mensaje(1)">
-          <span id="1erSemestre"></span>
-          <!-- <br><br>S -->
-          <input type="checkbox" name="semestre2" id="opcion2" onclick="mensaje(2)">
-          <span id="2doSemestre"></span>
-        </div>
-            <div id="espacio-mensajes"> </div>
+        <div id="semestre-plie"> </div>
 
         <h2>Descripcion del Pliego</h2>
-        <textarea class="input-description" name="descripcion" cols="30" rows="10"></textarea>
+        <textarea class="input-description" name="descripcion" id="desc-plie" cols="30" rows="10"></textarea>
         <div id="espacio-mensajed"> </div>
 
         <h2>Adjunte el documento del Pliego(pdf)</h2>
@@ -93,6 +91,7 @@ $(function(){
 <script src="https://www.gstatic.com/firebasejs/7.15.1/firebase-storage.js"></script>
 <script src="../conexionFirebase/conexionFirebase.js"></script>
 
+<script src="../scripts/existePliego.js"></script>
 <script src="../scripts/verificarSesionDocente.js"></script>
 <script src="../scripts/publicarPliego.js"></script>
 

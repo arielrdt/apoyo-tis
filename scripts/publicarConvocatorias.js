@@ -1,26 +1,18 @@
 let formulario=document.getElementById('formulario');
-let semestre1=document.getElementById('1erSemestre');
-let semestre2=document.getElementById('2doSemestre');
+let semestreAnioActual=document.getElementById("semestre-invi");
 let anio=(new Date).getFullYear();
+let mes=(new Date).getMonth();
 let espacioMensaje=document.getElementById('espacio-mensaje');
 let espacioMensajeT=document.getElementById('espacio-mensajet');
 let espacioMensajeF=document.getElementById('espacio-mensajef');
 let espacioMensajeS=document.getElementById('espacio-mensajes');
 let espacioMensajeD=document.getElementById('espacio-mensajed');
 
+
 const asignarSemestresAnio=()=>{
-semestre1.innerHTML="1-"+anio;
-semestre2.innerHTML="2-"+anio;  }
-
-
-const mensaje=(val)=>{
-let opcion1semestre=document.getElementById('opcion1');
-let opcion2semestre=document.getElementById('opcion2');
-if(val===1){opcion2semestre.checked=false;}
-else{
-    if(val===2){opcion1semestre.checked=false;}}
-                      }
-
+    if(anio<6){semestreAnioActual.innerHTML="1-"+anio;}
+    else{semestreAnioActual.innerHTML="2-"+anio;}
+  }
 
 const validarTitulo=(titulo)=>{
     let patron = new RegExp("^[a-z||A-Z||0-9][a-zA-Z_.,:;\t\h\r\n\<br />]+$"); 
@@ -48,11 +40,6 @@ const validarMinimaFechaLimite=(fechaL)=>{
     }
 
 
-
-
-const semestreValido=(estado1Semestre,estado2semestre)=>{
-return(estado1Semestre=='on'||estado2semestre=='on');
-}
 
 const validarFechaLimite=(fechaL)=>{
 return (fechaL!='');}
@@ -100,9 +87,7 @@ if(validarMinimaFechaLimite(datosFormulario.get('fechaFin'))){
     validoParaSubir=false;    
     espacioMensajFe.innerHTML+='<p class=mensaje-rojo>*La fecha limite debe ser mayor a la actual </p>';}
 
-if(!semestreValido(datosFormulario.get('semestre1'),datosFormulario.get('semestre2'))){
-  validoParaSubir=false;    
-   espacioMensajeS.innerHTML+='<p class=mensaje-rojo>*Debe seleccionar un semestre </p>';}
+
 
 
 if(validoParaSubir){
@@ -115,7 +100,7 @@ if(validoParaSubir){
         .then(data=>{
             console.log(data);
             if(data!=null){
-                espacioMensaje.innerHTML+='<p class=mensaje-verde>invitacion subida con exito</p>';
+                espacioMensaje.innerHTML+='<p class=mensaje-verde>'+data+'</p>';
                 let archivo=($('#pdf-conv'))[0].files[0];
                 let ubicacion=storage.ref('/invitaciones/'+data);
                 console.log("ubicacion")

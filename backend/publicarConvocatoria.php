@@ -5,14 +5,17 @@ $fecha_inicio=date("Y-m-d");
 $fecha_limite=$_POST['fechaFin'];
 $carnet_identidad_docente="1231321412";
 $descripcion=$_POST['descripcion'];
+$mes=(int)date("m");
+$anio=date("Y");
 $semestre_anio='';
 $codigo="1234567";
-
-
-if(isset($_POST['semestre1'])){$semestre_anio=('1-'. date("Y"));}
-else{
-if(isset($_POST['semestre2'])){$semestre_anio=('2-'. date("Y"));}
+if($mes<6){
+    $semestre_anio=('1-'. date("Y"));
 }
+else{
+    $semestre_anio=('1-'. date("Y"));
+}
+echo json_encode($mes);
 
 function NoExisteUnaInviEnMismoSemestre($conexionBD,$semestre_anio){
 $consultaSQL='SELECT * FROM INVITACION_PUBLICA WHERE SEMESTRE_ANIO="'.$semestre_anio.'"';
@@ -23,7 +26,7 @@ return !(isset($filaResultado['SEMESTRE_ANIO']));
 
 function CamposNoLlenos($titulo_documento,$fecha_limite,$carnet_identidad_docente,$semestre_anio,$descripcion){
 return($titulo_documento==='' || $fecha_limite==='' ||  
-$descripcion==='' || $semestre_anio==='');}
+$descripcion==='');}
 
 function ejecutarConsultaSubirDatos($conexionBD,$fecha_inicio,$fecha_limite,$titulo_documento,$semestre_anio,$descripcion){
     $query="INSERT INTO invitacion_publica
@@ -61,7 +64,7 @@ function subirDatos($conexionBD,$fecha_inicio,$fecha_limite,$titulo_documento,$s
             if($extension=="pdf")
             {
              ejecutarConsultaSubirDatos($conexionBD,$fecha_inicio,$fecha_limite,$titulo_documento,$semestre_anio,$descripcion);
-             echo json_encode($nombreNuevoArchivo);
+             echo json_encode("subida son exito");
             }
            else
            {echo json_encode("el documento debe estar en formato pdf");}
@@ -69,7 +72,18 @@ function subirDatos($conexionBD,$fecha_inicio,$fecha_limite,$titulo_documento,$s
            else{echo json_encode("debe adjuntar un documento");}
         }
     }
-    else{echo json_encode("ya se publico una invitacion publica para el semestre ingresado");}
+    else{
+        $query="UPDATE invitacion_publica
+            SET
+            FECHA_INICIO='$fecha_inicio',
+            FECHA_LIMITE='$fecha_limite',
+            TITULO_DOCUMENTO='$titulo_documento',
+            DESCRIPCION='$descripcion'
+            WHERE SEMESTRE_ANIO='$semestre_anio'";
+
+            $result=mysqli_query($conexionBD,$query);
+            echo json_encode("ya se publico una invitacion publica para el semestre ingresado");
+    }
 }
 subirDatos($conexionBD,$fecha_inicio,$fecha_limite,$titulo_documento,$semestre_anio,$descripcion,$codigo,$carnet_identidad_docente);
 
