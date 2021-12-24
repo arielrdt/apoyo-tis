@@ -14,9 +14,7 @@ else{
 $consultaSQL="SELECT TITULO_DOCUMENTO,SEMESTRE_ANIO,DESCRIPCION,FECHA_LIMITE
 from invitacion_publica
 WHERE SEMESTRE_ANIO='$semestre_anio';
-"
-
-;
+";
 
 $ejecucionConsulta=mysqli_query($conexionBD,$consultaSQL);
 $fila=mysqli_fetch_array($ejecucionConsulta);

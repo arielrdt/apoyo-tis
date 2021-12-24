@@ -9,7 +9,6 @@ let espacioMensajeS=document.getElementById('espacio-mensajes');
 let espacioMensajeD=document.getElementById('espacio-mensajed');
 let semestreAnioSistema='';
 function obtenerGestionSistema(){
-
     if(mes<6){semestreAnioSistema="1-"+anio;}
     else{semestreAnioSistema="2-"+anio;}
     console.log(semestreAnioSistema)
@@ -93,8 +92,6 @@ if(validarMinimaFechaLimite(datosFormulario.get('fechaFin'))){
     console.log('asdasdasdas')
     validoParaSubir=false;    
     espacioMensajFe.innerHTML+='<p class=mensaje-rojo>*La fecha limite debe ser mayor a la actual </p>';}
-
-
 
 
 if(validoParaSubir){

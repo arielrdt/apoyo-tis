@@ -1,26 +1,27 @@
 let formulario=document.getElementById('formulario');
 let semestre1=document.getElementById('1erSemestre');
 let semestre2=document.getElementById('2doSemestre');
+let semestreAnioActual=document.getElementById("semestre-plie");
 let anio=(new Date).getFullYear();
+let mes=(new Date).getMonth();
 let espacioMensaje=document.getElementById('espacio-mensaje');
 let espacioMensajeT=document.getElementById('espacio-mensajet');
 let espacioMensajeS=document.getElementById('espacio-mensajes');
 let espacioMensajeD=document.getElementById('espacio-mensajed');
+let semestreAnioSistema='';
+function obtenerGestionSistema(){
+    if(mes<6){semestreAnioSistema="1-"+anio;}
+    else{semestreAnioSistema="2-"+anio;}
+    console.log(semestreAnioSistema)
+}
+obtenerGestionSistema();
+
 
 const asignarSemestresAnio=()=>{
-semestre1.innerHTML="1-"+anio;
-semestre2.innerHTML="2-"+anio;
-}
+    if(mes<6){semestreAnioActual.innerHTML="1-"+anio;}
+    else{semestreAnioActual.innerHTML="2-"+anio;}
+  }
 
-
-const mensaje=(val)=>{
-let opcion1semestre=document.getElementById('opcion1');
-let opcion2semestre=document.getElementById('opcion2');
-if(val===1){opcion2semestre.checked=false;}
-else{
-    if(val===2){opcion1semestre.checked=false;}
-    }
-}
 
 const validarTitulo=(titulo)=>{
     let patron = new RegExp("^[a-z||A-Z||0-9][a-zA-Z_.,:;\t\h\r\n\<br />]+"); 
@@ -45,38 +46,26 @@ const subirDatos=()=>{
     let validoParaSubir=true;
     espacioMensaje.innerHTML="";    
 
-    let fecha=document.getElementById('');
-
-
+  
     if(datosFormulario.get('titulo')=='')
     {validoParaSubir=false;
-    espacioMensajeT.innerHTML+='<p class=mensaje-rojo>*Llenar todos los campos</p>';
+    espacioMensajeT.innerHTML='<p class=mensaje-rojo>*Llenar todos los campos</p>';
     }
 
     if(datosFormulario.get('descripcion')=='')
     {validoParaSubir=false;
-    espacioMensajeD.innerHTML+='<p class=mensaje-rojo>*La decripcion no puede estar vacia</p>';
+    espacioMensajeD.innerHTML='<p class=mensaje-rojo>*La decripcion no puede estar vacia</p>';
     }
 
-    if(!validarTitulo(datosFormulario.get('titulo')))
-    {validoParaSubir=false; 
-    espacioMensajeT.innerHTML+='<p class=mensaje-rojo>*El titulo no puede contener caracteres especiales, ni numeros</p>' }    
-
-    if(!validarDescripcion(datosFormulario.get('descripcion')))
-    {validoParaSubir=false;
-     espacioMensajeD.innerHTML+='<p class=mensaje-rojo>*La decripcion no puede contener caracteres especiales</p>';}
-       
     if(!validarTamanioTitulo(datosFormulario.get('titulo')))
     {validoParaSubir=false;
-     espacioMensajeT.innerHTML+='<p class=mensaje-rojo>*El titulo debe contener entre 5 y 35 caracteres</p>';}
+     espacioMensajeT.innerHTML='<p class=mensaje-rojo>*El titulo debe contener entre 5 y 35 caracteres</p>';}
 
     if(!validarTamanioDescripcion(datosFormulario.get('descripcion')))
     {validoParaSubir=false;    
-     espacioMensajeD.innerHTML+='<p class=mensaje-rojo>*La descripcion debe contener entre 100 y 500 caracteres</p>';}
+     espacioMensajeD.innerHTML='<p class=mensaje-rojo>*La descripcion debe contener entre 100 y 500 caracteres</p>';}
 
-    if(!semestreValido(datosFormulario.get('semestre1'),datosFormulario.get('semestre2'))){
-    validoParaSubir=false;    
-    espacioMensajeS.innerHTML+='<p class=mensaje-rojo>*Debe seleccionar un semestre </p>';}
+
 
 
     if(validoParaSubir){
@@ -87,12 +76,11 @@ const subirDatos=()=>{
             .then(res=>res.json())
             .then(data=>{
                 if(data!=null){
-                    espacioMensaje.innerHTML+='<p class=mensaje-verde>invitacion subida con exito</p>';
+                    
+                    espacioMensaje.innerHTML+='<p class=mensaje-verde>'+data+'</p>';
                     let archivo=($('#pdf-pli'))[0].files[0];
-                    let ubicacion=storage.ref('/pliegos/'+data);
-                    console.log("ubicacion")
+                    let ubicacion=storage.ref('/pliegos/'+semestreAnioSistema+'.pdf');
                     let tareaSubida=ubicacion.put(archivo);
-                    console.log("imagen subida a firebase");
                 }
          else{espacioMensaje.innerHTML+='<p class=mensaje-rojo>*'+data+'</p>';}
 

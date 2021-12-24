@@ -4,12 +4,16 @@ $titulo_documento=$_POST['titulo'];
 $fecha_publicacion=date("Y-m-d");
 $carnet_identidad_docente="1231321412";
 $descripcion=$_POST['descripcion'];
-$semestre_anio='';
 $codigo="1234567";
-
-if(isset($_POST['semestre1'])){$semestre_anio=('1-'. date("Y"));}
+$semestre_anio='';
+$mes=(int)date("m");
+$anio=(int)date("Y");
+$semestre_anio='';
+if($mes<6){
+    $semestre_anio=('1-'. date("Y"));
+}
 else{
-if(isset($_POST['semestre2'])){$semestre_anio=('2-'. date("Y"));}
+    $semestre_anio=('2-'. date("Y"));
 }
 
  
@@ -73,7 +77,17 @@ function subirDatos($conexionBD,$fecha_publicacion,$titulo_documento,$semestre_a
         }
     }
     
-    else{echo json_encode("ya se publico el pliego de especificaciones para la invitacion del semestre ingresado");}
+    else{
+        $query="UPDATE pliego_especificaciones
+        SET
+        FECHA_PUBLICACION='$fecha_publicacion',
+        TITULO_DOCUMENTO='$titulo_documento',
+        DESCRIPCION='$descripcion'
+        WHERE SEMSTRE_ANIO='$semestre_anio'";
+
+        $result=mysqli_query($conexionBD,$query);
+        echo json_encode("invitacion actualizada");
+    }
 }
 
 

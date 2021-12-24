@@ -41,33 +41,21 @@ $(function(){
 </script>
 <!--end of Navigation bar-->
     </header>
-    <!-- 
-    <div class="flex-body">
-    <div class="sidebar">
-      <h1 class="sidebar-title">Navegación</h1>
-         <ul class="sidebar-list">
-          <li><a href="./crearClase.html" class="sidebar-item">crear una clase para el semestre actual</a></li> 
-          <div class="subir-editar">
-          <li><a href="./formularioConvocatorias.html" class="sidebar-item">subir invitacion publica</a></li>
-          <li><a href="./formularioPliego.html" class="sidebar-item">subir pliego especificaciones</a></li>
-          </div>
-          <li><a href="./perfil.html" class="sidebar-item">ver mi perfil</a></li>    
-         </ul>
-    </div>-->
+
     <div id="div-btn-editar-plie" hidden="true" >
-        <h2>ya se publico un pliego para este semestre</h2>
-         <button id="btn-editar-plie" type="button" >editar pliego</button>
+        <h2 class="mensaje-rojo">ya se publico un pliego para este semestre</h2>
+         <button id="btn-editar-plie" type="button" >Aceptar</button>
     </div>
 
-
-    <div class="div-formulario" id="div-formulario-plie" hidden="true">
+    <div id="div-formulario-plie" class="div-formulario"  hidden="true">
       <h1>PUBLICAR PLIEGO DE ESPECIFICACIONES</h1>
       <form id="formulario" class="formulario">
        
         <h2>Pliego de especificaciones</h2>
         <input class="input-titulo" name="titulo" id="titulo-plie" type="text" placeholder="Intoduzca el título">
-          <div id="espacio-mensaje"> </div>
+          <div id="espacio-mensajet"> </div>
 
+        <h2>semestre actual</h2>  
         <div id="semestre-plie"> </div>
 
         <h2>Descripcion del Pliego</h2>
