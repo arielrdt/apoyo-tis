@@ -5,17 +5,19 @@ $fecha_inicio=date("Y-m-d");
 $fecha_limite=$_POST['fechaFin'];
 $carnet_identidad_docente="1231321412";
 $descripcion=$_POST['descripcion'];
+
 $mes=(int)date("m");
-$anio=date("Y");
+$anio=(int)date("Y");
 $semestre_anio='';
 $codigo="1234567";
+
 if($mes<6){
     $semestre_anio=('1-'. date("Y"));
 }
 else{
-    $semestre_anio=('1-'. date("Y"));
+    $semestre_anio=('2-'. date("Y"));
 }
-echo json_encode($mes);
+
 
 function NoExisteUnaInviEnMismoSemestre($conexionBD,$semestre_anio){
 $consultaSQL='SELECT * FROM INVITACION_PUBLICA WHERE SEMESTRE_ANIO="'.$semestre_anio.'"';
@@ -82,7 +84,7 @@ function subirDatos($conexionBD,$fecha_inicio,$fecha_limite,$titulo_documento,$s
             WHERE SEMESTRE_ANIO='$semestre_anio'";
 
             $result=mysqli_query($conexionBD,$query);
-            echo json_encode("ya se publico una invitacion publica para el semestre ingresado");
+            echo json_encode("invitacion actualizada");
     }
 }
 subirDatos($conexionBD,$fecha_inicio,$fecha_limite,$titulo_documento,$semestre_anio,$descripcion,$codigo,$carnet_identidad_docente);
