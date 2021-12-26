@@ -30,7 +30,9 @@ function subirDatos($conexionBD,$nombre_corto,$nombre_largo,$sociedad,$fecha,$te
                   TELEFONO,
                   DIRECCION,	
                   CORREO_ELECTRONICO,	
-                  CODIGO_UNION)
+                  CODIGO_UNION,
+                  limiteMiembros
+                  )
                   VALUES 
                 ('$nombre_corto',
                 '$nombre_largo',
@@ -39,7 +41,9 @@ function subirDatos($conexionBD,$nombre_corto,$nombre_largo,$sociedad,$fecha,$te
                 '$telefono',
                 '$direccion',
                 '$correo',
-                '$codigoUnion')";
+                '$codigoUnion',
+                '5'
+                )";
                 $result=mysqli_query($conexionBD,$query);
           echo json_encode('empresa registrada exitosamente, el codigo de unión es:'.$codigoUnion);
         }

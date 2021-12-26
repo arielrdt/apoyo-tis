@@ -43,8 +43,11 @@ while ($filaGrupo=mysqli_fetch_array($result)) {
         <div class="main-clase-card">
             <div class="main-card-title">
                 <img class="main-card-image" src="https://i.postimg.cc/D0qqChkv/linux-avatar.jpg" alt="">
-                <p class="main-card-name">'.$filaGrupo['NOMBRE_CORTO'].'-'.$filaGrupo['NOMBRE_LARGO'].' Codigo: '.$filaGrupo['CODIGO_UNION'].'</p>
+                <p class="main-card-name">'.$filaGrupo['NOMBRE_CORTO'].'-'.$filaGrupo['NOMBRE_LARGO'].' Codigo: '.$filaGrupo['CODIGO_UNION'].'
+                </p>
+
             </div>
+           <h5>Número máximo de itegrantes:'.$filaGrupo['limiteMiembros'].'</h5>
             <div class="main-card-list activo">
                 <h3>Integrantes</h3>
                 <ul id="main-section-list" class="main-section-list">

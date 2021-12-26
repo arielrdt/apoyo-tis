@@ -22,7 +22,8 @@ function crearEmpresa($conexionBD,$nombre_corto,$nombre_largo,$sociedad,$fecha,$
         TELEFONO,
         DIRECCION,	
         CORREO_ELECTRONICO,	
-        CODIGO_UNION)
+        CODIGO_UNION,
+        limiteMiembros)
       VALUES 
      ('$nombre_corto',
      '$nombre_largo',
@@ -31,7 +32,9 @@ function crearEmpresa($conexionBD,$nombre_corto,$nombre_largo,$sociedad,$fecha,$
      '$telefono',
      '$direccion',
      '$correo',
-     '$codigoUnion')";
+     '$codigoUnion',
+      '5'
+     )";
      $result=mysqli_query($conexionBD,$query);
 }
 

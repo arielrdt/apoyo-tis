@@ -9,32 +9,27 @@ function obtenerAlumnos($conexionBD,$carnetDocente,$semestre, $fechaActual){
 $listaAlumnos='<h1 style="padding:10px; display: flex; justify-content: center;">Grupos de la clase</h1> <div style="padding:10px; display: flex; justify-content: center;"> La fecha de hoy es: '.$fechaActual.'</div>
 <table class="tabla-estudiantes">
 <tr class="titulo">  
-<td>Nombre del alumno</td>
-<td>Codigo SIS</td>
 <td>Grupo-Empresa</td>
-<td>Rol</td>
-
-<td>Editar Rol</td>
+<td>limite miembros</td>
+<td>cambiar limite de miembros</td>
 </tr>
 ';
-$consultaSQL="SELECT * 
+$consultaSQL="SELECT distinct(grupo_empresa.NOMBRE_CORTO) ,grupo_empresa.NOMBRE_LARGO,grupo_empresa.limiteMiembros
               from estudiante,grupo_empresa,clase 
               where estudiante.COD_CLASE=clase.COD_CLASE
               and estudiante.NOMBRE_CORTO=grupo_empresa.NOMBRE_CORTO
-              and NUMERO_CARNET_IDENTIDAD_DOCENTE='$carnetDocente'";
+              and NUMERO_CARNET_IDENTIDAD_DOCENTE='$carnetDocente'
+              order by (grupo_empresa.NOMBRE_CORTO)
+              ";
 
 $ejecucionConsulta=mysqli_query($conexionBD,$consultaSQL);
 while($filaTabla=mysqli_fetch_array($ejecucionConsulta)){
+$empresa=$filaTabla['NOMBRE_CORTO'];
 $listaAlumnos.='
 <tr>  
-<td>'.$filaTabla['NOMBRE'].' '.$filaTabla['APELLIDO_PATERNO'].' '.$filaTabla['APELLIDO_MATERNO'].'</td>
-<td>'.$filaTabla['CODIGO_SIS'].'</td>
 <td>'.$filaTabla['NOMBRE_LARGO'].'('.$filaTabla['NOMBRE_CORTO'].')</td>
-
-<td>'.$filaTabla['ROL'].'</td>
-
-<td><button class="GFG" onclick="editarDatos('.$filaTabla['CODIGO_SIS'].','.'`'.$filaTabla['NOMBRE'].' '.$filaTabla['APELLIDO_PATERNO'].' '.$filaTabla['APELLIDO_MATERNO'].''.$filaTabla['ROL'].'`'.')">Editar</button></td>
-
+<td>'.$filaTabla['limiteMiembros'].'</td>
+<td><button class="GFG" onclick="editarDatos('.'`'.$empresa.'`'.')">Editar</button></td>
 '
 ;
 $listaAlumnos.='

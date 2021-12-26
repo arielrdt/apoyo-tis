@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../styles/style-form.css">
+  <link rel="stylesheet" href="../styles/style-sidebar.css">
+  <link rel="stylesheet" href="../styles/style-makeTasks.css">
+  <link rel="stylesheet" href="../styles/style-groups.css">
+  <link rel="stylesheet" href="../styles/style-modal.css">
+
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+  
+  <link rel="stylesheet" href="../styles/style-navbar.css">
+  <!-- Google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Shippori+Antique&display=swap" rel="stylesheet">
+   
+    <title>Document</title>
+</head>
+<body>
+    <header>
+          <!--Navigation bar-->
+<div id="nav-placeholder">
+
+</div>
+
+<script>
+$(function(){
+  $("#nav-placeholder").load("navbar.html");
+});
+</script>
+<!--end of Navigation bar-->
+
+<!--Navigation bar-->
+<div id="sidebd-placeholder">
+ 
+</div>
+
+<script>
+$(function(){
+  $("#sidebd-placeholder").load("sidebarDocente.html");
+});
+</script>
+<!--end of Navigation bar-->
+      </header>
+
+
+  <div id="espacio-botones-seleccion-grupo"style=" align-items: center;padding-left: 35px;   justify-content: center; ">
+  </div>
+
+    <div id="modal-rol-cant" hidden="true">
+      <div class="contenido-modal">
+         <div class="cabecera-modal"><h3>Editar Rol del alumno</h3></div>
+             <form id="formulario-cambiar-limite-miembros">
+                <p>Nombre del grupo:</p>
+                <input type="text" name="nombreGrupo" id="nombreGrupo" readonly>
+                <p>CANTIDAD</p>
+                <select name="nuevaCantidad" >
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>                <br>
+                <div id="mensaje-cambio"></div>
+                <br>
+                <button type="submit" >cambiar</button>
+                <button type="button" id="boton-cancelar-cant">Cancelar</button>
+             </form>
+      </div>
+  </div>
+</div>
+
+
+  </div>
+  <script src="../scripts/cambiarNumeroMiembros.js"></script>      
+<script src="../scripts/recuperarCantidadMiembros.js"></script>
+
+
+<script src="../scripts/verificarSesionDocente.js"></script>
+
+
+</div>
+</body>
+</html>

@@ -3,7 +3,7 @@ include("conexionBD.php");
 session_start(); 
 $codigo=$_POST['codigo'];
 $codigo_sis=$_SESSION['CODIGO_SIS'];
-//$semestre
+
 
 function ExisteEmpresa($codigo,$conexionBD){
 $consultaSQL="SELECT * FROM GRUPO_EMPRESA WHERE CODIGO_UNION='$codigo'";
@@ -13,13 +13,13 @@ return(isset($resultado['CODIGO_UNION']));
 }
 
 function hayEspacio($codigo,$conexionBD){
-    $consultaSQL="SELECT COUNT(distinct NOMBRE) AS NUM_INTEGRANTES
+    $consultaSQL="SELECT COUNT(distinct NOMBRE) AS NUM_INTEGRANTES,GRUPO_EMPRESA.limiteMiembros
     FROM ESTUDIANTE,GRUPO_EMPRESA 
     WHERE ESTUDIANTE.NOMBRE_CORTO=GRUPO_EMPRESA.NOMBRE_CORTO
     AND CODIGO_UNION='$codigo'";
     $ejecucionConsulta=mysqli_query($conexionBD,$consultaSQL);
     $resultado=mysqli_fetch_array($ejecucionConsulta);
-    return($resultado['NUM_INTEGRANTES']<5 && $resultado['NUM_INTEGRANTES']>=0 );
+    return($resultado['NUM_INTEGRANTES']<$resultado['limiteMiembros'] && $resultado['NUM_INTEGRANTES']>=0 );
 }
 
 
