@@ -10,12 +10,13 @@
     color: red;
 }
 
-#div-btn-editar-invi{
+#div-btn-editar-invi,#div-btn-editar-plie{
 margin-left: 50px;
 border: #f3efef solid 1px;
 text-align: center;
 background-color: rgb(247, 246, 242);
 }
+
 
 .formulario {
     height: 700px;
