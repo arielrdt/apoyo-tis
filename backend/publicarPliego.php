@@ -86,7 +86,7 @@ function subirDatos($conexionBD,$fecha_publicacion,$titulo_documento,$semestre_a
         WHERE SEMSTRE_ANIO='$semestre_anio'";
 
         $result=mysqli_query($conexionBD,$query);
-        echo json_encode("invitacion actualizada");
+        echo json_encode("pliego actualizado");
     }
 }
 

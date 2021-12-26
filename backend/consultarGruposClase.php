@@ -6,7 +6,7 @@ $semestre=$_SESSION['SEMESTRE'];
 $fechaActual=date("Y-m-d");
 
 function obtenerAlumnos($conexionBD,$carnetDocente,$semestre, $fechaActual){
-$listaAlumnos='<h1 style="padding:10px; display: flex; justify-content: center;">Asignar calificación semanal</h1> <div style="padding:10px; display: flex; justify-content: center;"> La fecha de hoy es: '.$fechaActual.'</div>
+$listaAlumnos='<h1 style="padding:10px; display: flex; justify-content: center;">Grupos de la clase</h1> <div style="padding:10px; display: flex; justify-content: center;"> La fecha de hoy es: '.$fechaActual.'</div>
 <table class="tabla-estudiantes">
 <tr class="titulo">  
 <td>Nombre del alumno</td>

@@ -7,7 +7,7 @@ function obtenerApuntes($conexionBD,$clase)
 {
 $htmlApuntes='<div class="apuntes">';
 
-$consulta="SELECT grupo_empresa.NOMBRE_CORTO,apunte.fecha_apunte,apunte.seVio,apunte.veremos
+$consulta="SELECT grupo_empresa.NOMBRE_CORTO,grupo_empresa.NOMBRE_LARGO,apunte.fecha_apunte,apunte.seVio,apunte.veremos
 from apunte,grupo_empresa,estudiante
 where apunte.CODIGO_SIS=estudiante.CODIGO_SIS
 and grupo_empresa.NOMBRE_CORTO=estudiante.NOMBRE_CORTO 
@@ -18,7 +18,7 @@ $ejecucionConsulta=mysqli_query($conexionBD,$consulta);
 while($filaTabla=mysqli_fetch_array($ejecucionConsulta))
 { 
 $htmlApuntes.='<div class="contenido-apunte">
-<h2>GRUPO:'.$filaTabla['NOMBRE_CORTO'].'</h2>
+<h2>GRUPO:'.$filaTabla['NOMBRE_LARGO'].' ('.$filaTabla['NOMBRE_CORTO'].') </h2>
 <h2>Fecha:'.$filaTabla['fecha_apunte'].'</h2>
 <h3>Esta semana se vio:</h3>
 <span>'.$filaTabla['seVio'].'</span>
