@@ -65,8 +65,8 @@ function subirDatos($conexionBD,$fecha_publicacion,$titulo_documento,$semestre_a
             if($extension=="pdf"){
                 
                 ejecutarConsultaSubirDatos($conexionBD,$titulo_documento,$semestre_anio,$descripcion,$fecha_publicacion);
-                echo json_encode($nombreNuevoArchivo);
-                //echo json_encode("el pliego ha sido publicado exitosamente");
+                //echo json_encode($nombreNuevoArchivo);
+                echo json_encode("el pliego ha sido publicado exitosamente");
 
                                      }
               else

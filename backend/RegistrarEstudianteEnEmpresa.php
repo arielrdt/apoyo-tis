@@ -19,7 +19,9 @@ function hayEspacio($codigo,$conexionBD){
     AND CODIGO_UNION='$codigo'";
     $ejecucionConsulta=mysqli_query($conexionBD,$consultaSQL);
     $resultado=mysqli_fetch_array($ejecucionConsulta);
-    return($resultado['NUM_INTEGRANTES']<$resultado['limiteMiembros'] && $resultado['NUM_INTEGRANTES']>=0 );
+    if($resultado['NUM_INTEGRANTES']==0){return true;}
+    else{
+    return ($resultado['NUM_INTEGRANTES']<$resultado['limiteMiembros'] && $resultado['NUM_INTEGRANTES']>=0);}
 }
 
 

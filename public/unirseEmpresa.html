@@ -1,29 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../styles/style-header.css">
-    <link rel="stylesheet" href="../styles/style-lista-convocatorias.css">
-    <link rel="stylesheet" href="../styles/style-sidebar.css">
-    <!-- Google fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Shippori+Antique&display=swap" rel="stylesheet">
-    <title>TIS</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../styles/style-navbar.css">
+  <link rel="stylesheet" href="../styles/style-lista-convocatorias.css">
+  <link rel="stylesheet" href="../styles/style-sidebar.css">
+  <link rel="stylesheet" href="../styles/style-lista-tareas.css">
+  <link rel="stylesheet" href="../styles/style-join-group.css">
+  <!-- Google fonts -->
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Shippori+Antique&display=swap" rel="stylesheet">
+  <title>TIS</title>
 </head>
 <body>  
-    <header>
-        <nav class="navBar">
-          <h1>MasterTis</h1>
-             <ul>
-              <a class="itemNav" href="../index.html">Pagina principal</a>
-              <a class="itemNav" href="cerrarSesion.html">cerrar sesion</a>
-             </ul>
-        </nav>
+  <header>
+
+<!--Navigation bar-->
+<div id="nav-placeholder">
+
+</div>
+
+<script>
+$(function(){
+$("#nav-placeholder").load("navbar.html");
+});
+</script>
+<!--end of Navigation bar-->
     </header>
 
     <main class="flex-body">
@@ -56,6 +65,7 @@
       <form id="formularioUnionEmpresa" class="formulario">
         <h2>Introduzca el codigo del grupo-empresa al que desea unirse</h2>
         <input class="input-titulo" name="codigo" type="text" placeholder="Intoduzca el codigo">
+        <div id="mensaje-union-grupo"></div>
         <button  type="submit" name="botonUnionEmpresa">Unirse al grupo</button>
       </form>
 
