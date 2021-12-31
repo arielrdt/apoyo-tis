@@ -21,7 +21,7 @@ $ejecucionConsulta=mysqli_query($conexionBD,$consultaSQL);
 $fila=mysqli_fetch_array($ejecucionConsulta);
 if(isset($fila['TITULO_DOCUMENTO'])){
      $JSONInvitacion=array(
-      'titulo'=>$fila['TITULO_DOCUMENTO'],
+      'titulo'=>$fila['TITULO_PLIEGO'],
       'semestre'=>$fila['SEMSTRE_ANIO'],
       'descripcion'=>$fila['DESCRIPCION']
        );

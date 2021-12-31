@@ -36,27 +36,29 @@ function camposNoLlenos($titulo_documento,$semestre_anio,$descripcion){
 
 
 function ejecutarConsultaSubirDatos($conexionBD,$titulo_documento,$semestre_anio,$descripcion,$fecha_publicacion,$cod_clase){
-    $query="INSERT INTO pliego_especificaciones
+  $codPliego=$titulo_documento.$semestre_anio.$fecha_publicacion;
+  $query="INSERT INTO pliego_especificaciones
     (SEMSTRE_ANIO,
     FECHA_PUBLICACION,
-
     TITULO_DOCUMENTO,
     DESCRIPCION,
-    COD_CLASE
+    COD_CLASE,
+    TITULO_PLIEGO
     ) VALUES 
     (
     '$semestre_anio',
     '$fecha_publicacion',
 
-    '$titulo_documento',
+    '$codPliego',
     '$descripcion',
-    '$cod_clase'
+    '$cod_clase',
+    '$titulo_documento'
      )";
     $result=mysqli_query($conexionBD,$query);
 }
 
 function subirDatos($conexionBD,$fecha_publicacion,$titulo_documento,$semestre_anio,$descripcion,$codigo,$carnet_identidad_docente,$cod_clase){
-    if(true){
+    if(NoExisteUnaInviEnMismoSemestre($conexionBD,$semestre_anio,$cod_clase)){
         if(camposNoLlenos($titulo_documento,$semestre_anio,$descripcion))
          {echo json_encode('Debes llenar todos los campos');}
         else{
@@ -87,7 +89,7 @@ function subirDatos($conexionBD,$fecha_publicacion,$titulo_documento,$semestre_a
         $query="UPDATE pliego_especificaciones
         SET
         FECHA_PUBLICACION='$fecha_publicacion',
-        TITULO_DOCUMENTO='$titulo_documento',
+        TITULO_PLIEGO='$titulo_documento',
         DESCRIPCION='$descripcion'
         WHERE SEMSTRE_ANIO='$semestre_anio'
         AND COD_CLASE='$cod_clase'
