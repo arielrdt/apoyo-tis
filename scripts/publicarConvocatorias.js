@@ -107,7 +107,7 @@ if(validoParaSubir){
                 console.log(semestreAnioSistema);
                 espacioMensaje.innerHTML+='<p class=mensaje-verde>'+data+'</p>';
                 let archivo=($('#pdf-conv'))[0].files[0];
-                let ubicacion=storage.ref('/invitaciones/'+semestreAnioSistema+"/"+datosFormulario.get("titulo")+'.pdf');
+                let ubicacion=storage.ref('/invitaciones/'+datosFormulario.get("titulo")+"-"+semestreAnioSistema+'.pdf');
                 console.log("ubicacion")
                 let tareaSubida=ubicacion.put(archivo);
                 console.log("imagen subida a firebase");
