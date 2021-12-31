@@ -81,7 +81,7 @@ const subirDatos=()=>{
                     
                     espacioMensaje.innerHTML+='<p class=mensaje-verde>'+data+'</p>';
                     let archivo=($('#pdf-pli'))[0].files[0];
-                    let ubicacion=storage.ref('/invitaciones/'+datosFormulario.get("titulo")+"-"+semestreAnioSistema+'.pdf');
+                    let ubicacion=storage.ref('/pliegos/'+datosFormulario.get("titulo")+"-"+semestreAnioSistema+'.pdf');
                     let tareaSubida=ubicacion.put(archivo);
                 }
          else{espacioMensaje.innerHTML+='<p class=mensaje-rojo>*'+data+'</p>';}
