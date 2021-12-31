@@ -38,7 +38,7 @@ $salida.='
                     </div>
                     <p class="card-description">'.$filaInvitacion['DESCRIPCION'].'</p>
 
-                    <a target="_blank" href="https://firebasestorage.googleapis.com/v0/b/tis2021.appspot.com/o/invitaciones%2F'.$filaInvitacion['SEMESTRE_ANIO'].'.pdf?alt=media&token=75b1d469-3233-47ff-8e43-8cb087c55a74"> ver PDF de la invitacion publica</a>
+                    <a target="_blank" href="https://firebasestorage.googleapis.com/v0/b/tis2021.appspot.com/o/invitaciones%2F'.$filaInvitacion['SEMESTRE_ANIO'].'/'.$filaInvitacion['TITULO_DOCUMENTO'].'.pdf?alt=media&token=75b1d469-3233-47ff-8e43-8cb087c55a74"> ver PDF de la invitacion publica</a>
                     
                     <br>
                     <hr>
@@ -56,7 +56,7 @@ $salida.='
             <h4> Título: '.$filaPliego['TITULO_DOCUMENTO'].'</h4>
         </div>
         <p class="card-description">'.$filaPliego['DESCRIPCION'].'</p>
-        <a target="_blank" href="https://firebasestorage.googleapis.com/v0/b/tis2021.appspot.com/o/pliegos%2F'.$filaPliego['SEMSTRE_ANIO'].'.pdf?alt=media&token=46543fa2-b51e-406a-a4d4-0e63290e2e40 
+        <a target="_blank" href="https://firebasestorage.googleapis.com/v0/b/tis2021.appspot.com/o/pliegos%2F'.$filaPliego['SEMSTRE_ANIO'].'/'.$filaPliego['TITULO_PLIEGO'].'.pdf?alt=media&token=46543fa2-b51e-406a-a4d4-0e63290e2e40 
       ">ver PDF pliego de especificaciones</a>
     </div>
     </div>
