@@ -1,11 +1,12 @@
 <?php
 include("conexionBD.php");
+session_start(); 
+$cod_clase=$_SESSION['COD_CLASE'];
 $titulo_documento=$_POST['titulo'];
 $fecha_inicio=date("Y-m-d");
 $fecha_limite=$_POST['fechaFin'];
 $carnet_identidad_docente="1231321412";
 $descripcion=$_POST['descripcion'];
-
 $mes=(int)date("m");
 $anio=(int)date("Y");
 $semestre_anio='';
@@ -19,8 +20,12 @@ else{
 }
 
 
-function NoExisteUnaInviEnMismoSemestre($conexionBD,$semestre_anio){
-$consultaSQL='SELECT * FROM INVITACION_PUBLICA WHERE SEMESTRE_ANIO="'.$semestre_anio.'"';
+function NoExisteUnaInviEnMismoSemestre($conexionBD,$semestre_anio,$cod_clase){
+$consultaSQL="SELECT * 
+              FROM INVITACION_PUBLICA 
+              WHERE SEMESTRE_ANIO='$semestre_anio' 
+              AND  COD_CLASE='$cod_clase' ";
+
 $resultadoConsulta=mysqli_query($conexionBD,$consultaSQL);
 $filaResultado=mysqli_fetch_array($resultadoConsulta);
 return !(isset($filaResultado['SEMESTRE_ANIO']));
@@ -30,7 +35,7 @@ function CamposNoLlenos($titulo_documento,$fecha_limite,$carnet_identidad_docent
 return($titulo_documento==='' || $fecha_limite==='' ||  
 $descripcion==='');}
 
-function ejecutarConsultaSubirDatos($conexionBD,$fecha_inicio,$fecha_limite,$titulo_documento,$semestre_anio,$descripcion){
+function ejecutarConsultaSubirDatos($conexionBD,$fecha_inicio,$fecha_limite,$titulo_documento,$semestre_anio,$descripcion,$cod_clase){
     $query="INSERT INTO invitacion_publica
     (FECHA_INICIO ,
     FECHA_LIMITE ,
@@ -42,9 +47,9 @@ function ejecutarConsultaSubirDatos($conexionBD,$fecha_inicio,$fecha_limite,$tit
     SEMESTRE_ANIO ,
     DESCRIPCION) 
     VALUES 
-    ('$fecha_inicio' ,
-     '$fecha_limite' ,
-    NULL ,
+    ('$fecha_inicio',
+     '$fecha_limite',
+    '$cod_clase',
     NULL ,
     NULL ,
     NULL ,
@@ -54,8 +59,8 @@ function ejecutarConsultaSubirDatos($conexionBD,$fecha_inicio,$fecha_limite,$tit
     $result=mysqli_query($conexionBD,$query);
 }
 
-function subirDatos($conexionBD,$fecha_inicio,$fecha_limite,$titulo_documento,$semestre_anio,$descripcion,$codigo,$carnet_identidad_docente){
-    if(NoExisteUnaInviEnMismoSemestre($conexionBD,$semestre_anio)){
+function subirDatos($conexionBD,$fecha_inicio,$fecha_limite,$titulo_documento,$semestre_anio,$descripcion,$codigo,$carnet_identidad_docente,$cod_clase){
+    if(NoExisteUnaInviEnMismoSemestre($conexionBD,$semestre_anio,$cod_clase)){
         if(CamposNoLlenos($titulo_documento,$fecha_limite,$carnet_identidad_docente,$semestre_anio,$descripcion))
          {echo json_encode('Debes llenar todos los campos');}
         else{
@@ -65,7 +70,7 @@ function subirDatos($conexionBD,$fecha_inicio,$fecha_limite,$titulo_documento,$s
         if($nomreOriginalArchivo!=''){
             if($extension=="pdf")
             {
-             ejecutarConsultaSubirDatos($conexionBD,$fecha_inicio,$fecha_limite,$titulo_documento,$semestre_anio,$descripcion);
+             ejecutarConsultaSubirDatos($conexionBD,$fecha_inicio,$fecha_limite,$titulo_documento,$semestre_anio,$descripcion,$cod_clase);
              echo json_encode("subida son exito");
             }
            else
@@ -81,12 +86,14 @@ function subirDatos($conexionBD,$fecha_inicio,$fecha_limite,$titulo_documento,$s
             FECHA_LIMITE='$fecha_limite',
             TITULO_DOCUMENTO='$titulo_documento',
             DESCRIPCION='$descripcion'
-            WHERE SEMESTRE_ANIO='$semestre_anio'";
+            WHERE SEMESTRE_ANIO='$semestre_anio'
+            AND COD_CLASE='$cod_clase'
+            ";
 
             $result=mysqli_query($conexionBD,$query);
             echo json_encode("invitacion actualizada");
     }
 }
-subirDatos($conexionBD,$fecha_inicio,$fecha_limite,$titulo_documento,$semestre_anio,$descripcion,$codigo,$carnet_identidad_docente);
+subirDatos($conexionBD,$fecha_inicio,$fecha_limite,$titulo_documento,$semestre_anio,$descripcion,$codigo,$carnet_identidad_docente,$cod_clase);
 
 ?>

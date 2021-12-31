@@ -1,12 +1,15 @@
 <?php
 include("conexionBD.php");
-
-$query="SELECT * FROM invitacion_publica";
+session_start(); 
+$cod_clase=$_SESSION['COD_CLASE'];
+$query="SELECT * FROM invitacion_publica WHERE COD_CLASE='$cod_clase'";
 $result=mysqli_query($conexionBD,$query);
-
 $salida='';
 while ($filaInvitacion=mysqli_fetch_array($result)){
-$consultaPliegoRespectivo='SELECT * FROM PLIEGO_ESPECIFICACIONES WHERE SEMSTRE_ANIO ="'.$filaInvitacion['SEMESTRE_ANIO'].'"';
+$consultaPliegoRespectivo="SELECT * 
+FROM PLIEGO_ESPECIFICACIONES 
+WHERE COD_CLASE='$cod_clase'";
+
 $resultadoConsulta=mysqli_query($conexionBD,$consultaPliegoRespectivo);
 $filaPliego=mysqli_fetch_array($resultadoConsulta);
 

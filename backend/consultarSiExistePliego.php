@@ -1,6 +1,7 @@
 <?php
 include("conexionBD.php");
 session_start();
+$cod_clase_actual=$_SESSION['COD_CLASE'];
 $mes=(int)date("m");
 $anio=(int)date("Y");
 $semestre_anio='';
@@ -12,8 +13,9 @@ else{
 }
 
 $consultaSQL="SELECT TITULO_DOCUMENTO,SEMSTRE_ANIO,DESCRIPCION 
-from pliego_especificaciones
-WHERE SEMSTRE_ANIO='$semestre_anio'";
+FROM pliego_especificaciones
+WHERE SEMSTRE_ANIO='$semestre_anio'
+AND COD_CLASE='$cod_clase_actual'";
 
 $ejecucionConsulta=mysqli_query($conexionBD,$consultaSQL);
 $fila=mysqli_fetch_array($ejecucionConsulta);

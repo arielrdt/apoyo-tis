@@ -1,6 +1,7 @@
 <?php
 include("conexionBD.php");
 session_start();
+$cod_clase=$_SESSION['COD_CLASE'];
 $mes=(int)date("m");
 $anio=(int)date("Y");
 $semestre_anio='';
@@ -13,8 +14,8 @@ else{
 
 $consultaSQL="SELECT TITULO_DOCUMENTO,SEMESTRE_ANIO,DESCRIPCION,FECHA_LIMITE
 from invitacion_publica
-WHERE SEMESTRE_ANIO='$semestre_anio';
-";
+WHERE SEMESTRE_ANIO='$semestre_anio'
+AND COD_CLASE='$cod_clase'";
 
 $ejecucionConsulta=mysqli_query($conexionBD,$consultaSQL);
 $fila=mysqli_fetch_array($ejecucionConsulta);

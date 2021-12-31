@@ -43,6 +43,7 @@ const validarTamanioDescripcion=(descripcion)=>{return (descripcion.length<501);
 const subirDatos=()=>{
 
     let datosFormulario=new FormData(formulario);
+    
     let validoParaSubir=true;
     espacioMensaje.innerHTML="";    
 
@@ -69,6 +70,7 @@ const subirDatos=()=>{
 
 
     if(validoParaSubir){
+             
             fetch('../backend/publicarPliego.php',{
             method:'POST',
             body:datosFormulario
