@@ -12,14 +12,14 @@ else{
     $semestre_anio=('2-'.$anio);
 }
 
-$consultaSQL="SELECT TITULO_DOCUMENTO,SEMSTRE_ANIO,DESCRIPCION 
+$consultaSQL="SELECT *
 FROM pliego_especificaciones
 WHERE SEMSTRE_ANIO='$semestre_anio'
 AND COD_CLASE='$cod_clase_actual'";
 
 $ejecucionConsulta=mysqli_query($conexionBD,$consultaSQL);
 $fila=mysqli_fetch_array($ejecucionConsulta);
-if(isset($fila['TITULO_DOCUMENTO'])){
+if(isset($fila['TITULO_PLIEGO'])){
      $JSONInvitacion=array(
       'titulo'=>$fila['TITULO_PLIEGO'],
       'semestre'=>$fila['SEMSTRE_ANIO'],

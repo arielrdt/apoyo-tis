@@ -53,7 +53,7 @@ $salida.='
     <div class="main-section-post-info-content-pliego">
         <h3>Pliego de especificaciones</h3>
         <div class="card-title">
-            <h4> Título: '.$filaPliego['TITULO_DOCUMENTO'].'</h4>
+            <h4> Título: '.$filaPliego['TITULO_PLIEGO'].'</h4>
         </div>
         <p class="card-description">'.$filaPliego['DESCRIPCION'].'</p>
         <a target="_blank" href="https://firebasestorage.googleapis.com/v0/b/tis2021.appspot.com/o/pliegos%2F'.$filaPliego['SEMSTRE_ANIO'].'/'.$filaPliego['TITULO_PLIEGO'].'.pdf?alt=media&token=46543fa2-b51e-406a-a4d4-0e63290e2e40 
