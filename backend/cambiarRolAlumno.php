@@ -1,8 +1,9 @@
 <?php
-//importar la base de datos
-//iniciar la sesion
-//se recibe el codigo sis del alumno y el nuevo rol que tendra
+//@param conexionBD:se importa la base de datos
+//@param codigoAlumno:el codigo sis del alumno
+//@param rol:el nuevo rol
 include("conexionBD.php");
+//recuperar la sesion
 session_start(); 
 $codigoAlumno=$_POST['codigoSis'];
 $rol=$_POST['nuevoRol'];

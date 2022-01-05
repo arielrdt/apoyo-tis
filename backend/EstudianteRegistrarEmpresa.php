@@ -1,6 +1,5 @@
 <?php
-//@param conexionB:se importa la base de datos
-//se recupera la sesion actual iniciada
+//@param conexionBD:se importa la base de datos
 //@param nombre_corto:nombre corto de la nueva empresa
 //@param nombre_largo: nombre largo de la nueva empresa
 //@param sociedad: tipo de sociedad de la nueva empresa
@@ -9,6 +8,7 @@
 //@param correo: correo de la empresa
 //@param fecha: fecha de creacion de la empresa
 include("conexionBD.php");
+//se recupera la sesion actual iniciada
 session_start(); 
 $codigoEstudiante=$_SESSION['CODIGO_SIS'];
 $nombre_corto=$_POST['nombreCortoEmpresa'];

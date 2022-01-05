@@ -1,26 +1,24 @@
 <?php
-//se importa la base de datos
+//@param conexionBD:se importa la base de datos
+
 include("conexionBD.php");
 // consulta de todos los grupo empresas
 $query="SELECT * FROM grupo_empresa";
 $result=mysqli_query($conexionBD, $query);
-
+//@param salida: String con el codigo html de las tablas de grupos con los integrantes
 $salida='';
 
 //de cada nombre corto en una fila retornada de la base de datos
 //se recupera los integrantes de la misma
 while ($filaGrupo=mysqli_fetch_array($result)) {
-    //consulta para recuperar los miembros de la empresa
+//consulta para recuperar los datos miembros de la empresa
     $queryEst='SELECT * FROM estudiante WHERE NOMBRE_CORTO="'.$filaGrupo['NOMBRE_CORTO'].'" ';
     $resultEst=mysqli_query($conexionBD, $queryEst);
     
-
+//@param salidaEst:string con el codigo html de la tabla de miebros 
     $salidaEst='';
-    //se crea la tabla de miebros en un html almacenado en el string salidaEST
-    //que sera esportado al front end
-    //de cada miembro, se agregan los datos a la tabla de miembros
-    //de la empresa a la que pertenece
 
+    //de cada miembri del
     while ($filaEst=mysqli_fetch_array($resultEst)) {
         if(isset($filaEst['NOMBRE_CORTO'])){
             //si hay miembros se indica sus nombres completos y roles

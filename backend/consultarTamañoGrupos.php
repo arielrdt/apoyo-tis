@@ -1,11 +1,11 @@
 <?php
-//se importa la base de datos
-//se recupera la sesion actual iniciada
+//@param conexionBD:se importa la base de datos
 //@param carnetDocente: se recupera el carnet del docente que inicio
 //sesion
 //@param semestre:se recupera el semestre actual
 //@param fechaActual:se recupera la fecha actual
 include("conexionBD.php");
+//se recupera la sesion actual iniciada
 session_start();
 $carnetDocente=$_SESSION['NUMERO_CARNET_IDENTIDAD_DOCENTE'];
 $semestre=$_SESSION['SEMESTRE'];

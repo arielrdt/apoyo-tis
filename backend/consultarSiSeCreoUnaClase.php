@@ -1,9 +1,10 @@
 <?php
+//@param conexionBD:se importa la base de datos
+//@param semestre_actual:se calcula el semetre en base al mes y año actuales 
+//@param mes=mes actual
+//@param anio=año actual
 include("conexionBD.php");
-//se importa la base de datos
 //se recupera la sesion actual iniciada
-//@param semestre_actual:se calcula el semetre en base al mes
-// y año actuales 
 session_start();
 $semestreActual;
 $mes=date("m");

@@ -1,10 +1,10 @@
 <?php
 include("conexionBD.php");
 //@param conexionDB:se importa la base de datos
-//se recupera la sesion actual iniciada
 //@param clase:clase a la que pertenece el estudiante
 //@param cod_estudiante:codigo sis del estudiante 
 //@param rolEstudiante: rol del estudiante en la empresa
+//se recupera la sesion actual iniciada
 session_start(); 
 $clase=$_SESSION['COD_CLASE'];
 $cod_estudiante=$_SESSION['CODIGO_SIS'];

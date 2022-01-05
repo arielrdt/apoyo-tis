@@ -1,14 +1,12 @@
 <?php
-//se importa la base de datos
-//se recupera la sesion actual iniciada
-//se recupera el codigo de la clase en la que esta inscrito el alumno 
-//o esta trabajando el docente
+//@param conexionBD:se importa la base de datos
+//@param cod_clase:codigo de clase de la sesion iniciada
 include("conexionBD.php");
+//se recupera la sesion actual iniciada
 session_start(); 
 $cod_clase=$_SESSION['COD_CLASE'];
 
 //se ejecuta la consulta para recuperar la invitacion publica de la clase
-
 $query="SELECT * FROM invitacion_publica WHERE COD_CLASE='$cod_clase'";
 $result=mysqli_query($conexionBD,$query);
 $salida='';

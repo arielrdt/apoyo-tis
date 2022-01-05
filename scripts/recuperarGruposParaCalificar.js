@@ -1,29 +1,15 @@
+//funcion para realizar la peticion de la variable string con el codigo html de la tabla de grupos
 const recuperarGruposClaseParaCalificar=()=>{
+    //se referencia al archivo con la funcion de recuperar los grupos
     fetch('../backend/consultarGruposClaseParaCalificar.php',{method:'GET'})
+    //se espera la promesa
     .then(res=>res.json())
+    //se captura y se insertan los datos 
     .then(data=>{
+    //@param seccionGrupos=div del documento para agregar los grupos
     const seccionGrupos=document.getElementById('espacio-listado-semanal');
     seccionGrupos.innerHTML=data;    
 })
     } 
 recuperarGruposClaseParaCalificar();
 
-/*
-const agregarFormularioAlGrupo=()=>{
-    const formularioRegistrarEvaluacion=document.getElementById('formulario-evaluacion-estudiante0');
-
-    const subirEvaluacionEstudiante=()=>{
-        const datosFormularioEvaluacion=new FormData(formularioRegistrarEvaluacion);
-        let validoParaSubir=true;
-        if(validoParaSubir){
-        fetch('../backend/registrarEvaluacionSemanal.php',{
-                method:'POST',
-                body:datosFormularioEvaluacion})
-                    .then(res=>res.json())
-                    .then(data=>{console.log(data)})
-                             }
-     }
-    
-     formularioRegistrarEvaluacion.addEventListener('submit',(e)=>{subirEvaluacionEstudiante(); e.preventDefault(); });
-    }
-*/

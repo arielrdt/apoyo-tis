@@ -1,12 +1,12 @@
 <?php
 include("conexionBD.php");
-//@param conexionDB:se importa la base de datos
-//se recupera la sesion actual iniciada
+//@param conexionBD:se importa la base de datos
 //@param correoElectronico:correo del docente o estudiante
 //@param contrasena: contraseña 
 //@param semestre: se calcula mediante el mes y año actual
 //@param mes: mes actual
 //@param anio: año actual
+//se recupera la sesion actual iniciada
 session_start();
 $correoElectronico = $_POST['correo'];
 $contrasena = $_POST['password']; 

@@ -1,13 +1,14 @@
 <?php
-// se incluye la conexion a la base de datos
-//se recibe el grupo que desea cambiarse desde el formulario
-//se recibe la cantidad de miembros a cambiar desde el formulario
+//@param conexionBD:se importa la base de datos
+//@param grupo:se recibe el grupo que desea cambiarse desde el formulario
+//@param nuevaCantidad:se recibe la cantidad de miembros a cambiar desde el formulario
 include("conexionBD.php");
+//se recupera la sesion actual iniciada
 session_start(); 
 $grupo=$_POST['nombreGrupo'];
 $nuevaCantidad=$_POST['nuevaCantidad'];
 
-//se comprueba que el cambio es valido si la cantidad de miembros nueva 
+//funcion para comprobar que el cambio es valido si la cantidad de miembros nueva 
 //para el grupo ingresado es mayor o  igual al numero de miembros
 function cambioValido($conexionBD,$grupo,$nuevaCantidad){
     $query="SELECT COUNT(distinct NOMBRE) AS NUM_INTEGRANTES,GRUPO_EMPRESA.limiteMiembros
@@ -24,8 +25,8 @@ function cambioValido($conexionBD,$grupo,$nuevaCantidad){
     else{return false;}
 
 }
-//ejecucion de la consulta para ralizar el cambio de miembros del grupo
-//solo si el nuevo numero de integrantes es valido
+//funcion para cambiar el numero de miembros del grupo
+//solo si el nuevo numero de integrantes es mayor o igual a la cantidad actual
 function cambiarNumeroIntegrantes($conexionBD,$grupo,$nuevaCantidad){
        if(cambioValido($conexionBD,$grupo,$nuevaCantidad)){
                         $query="UPDATE grupo_empresa

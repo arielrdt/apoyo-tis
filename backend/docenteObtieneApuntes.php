@@ -1,8 +1,8 @@
 <?php
-//@param conexionB:se importa la base de datos
-//se recupera la sesion actual iniciada
+//@param conexionBD:se importa la base de datos
 //@param clase: clase que visita el docente que inicio sesion
 include("conexionBD.php");
+//se recupera la sesion actual iniciada
 session_start(); 
 $clase=$_SESSION['COD_CLASE'];
 

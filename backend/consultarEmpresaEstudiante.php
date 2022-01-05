@@ -1,8 +1,8 @@
 <?php
-//se importa la base de datos
-//se recupera la sesion actual iniciada
-//se recupera el codigo sis del alumno guardado al iniciar sesion
+//@param conexionBD:se importa la base de datos
+//@param codigoEstudiante:el codigo sis del alumno
 include("conexionBD.php");
+//recuperar la sesion
 session_start(); 
 $codigoEstudiante=$_SESSION['CODIGO_SIS'];
 
@@ -18,6 +18,7 @@ $rolEstudiante=null;
 }
 
 //funcion para consultar si el estudiante pertenece a un grupo empresa
+//mediante la consulta a la tabla ESTUDIANTE Y GRUPO_EMPRESA
 function EstudianteInscrito($conexionBD,$codigoEstudiante){
     $consultaSQL="SELECT * FROM ESTUDIANTE as e,GRUPO_EMPRESA as g WHERE  e.NOMBRE_CORTO=g.NOMBRE_CORTO and CODIGO_SIS='$codigoEstudiante'";
     $resultadoConsulta=mysqli_query($conexionBD,$consultaSQL);
@@ -26,7 +27,6 @@ function EstudianteInscrito($conexionBD,$codigoEstudiante){
 }
 
 //funcion para obtener todos los miembros del grupo al que pertenece el estudiante
-
 function obtenerTablaMiembros($conexionBD,$nombreCortoEmpresa,$rolEstudiante){
 //se arma una tabla con un string 
 //con el codigo html a ser exportado al front end

@@ -1,12 +1,11 @@
 <?php
-//se importa la base de datos
-//se recupera la sesion actual iniciada
+//@param conexionBD:se importa la base de datos
 //@param cod_clase: se recupera el codigo de la clase en la que
 //el alumno esta registrado
 include("conexionBD.php");
+//se recupera la sesion actual iniciada
 session_start(); 
 $cod_clase=$_SESSION['COD_CLASE'];
-
 //funcion para retornar las tareas de la clase en la que esta inscrito
 //el elumno
 function tareasDeClase($cod_clase,$conexionBD){

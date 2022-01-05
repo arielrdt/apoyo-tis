@@ -1,20 +1,16 @@
 <?php
-//se importa la base de datos
-//se recupera la sesion actual iniciada
-//se recupera el carnet del docente, de su sesion iniciada
-//se recupera el semestre de su sesion iniciada
-//se recupera la fecha actual
+//@param conexionBD:se importa la base de datos
+//@param carnetDocente:el numero de carnet del docente
+//@param semestre: semestre actual
+//@param fechaActual: fecha actual
 include("conexionBD.php");
+//recuperar la sesion
 session_start();
 $carnetDocente=$_SESSION['NUMERO_CARNET_IDENTIDAD_DOCENTE'];
 $semestre=$_SESSION['SEMESTRE'];
 $fechaActual=date("Y-m-d");
-
-//se recupera los alumnos, por grupo empresa
-//@param conexionBD la conexion a base de datos
-//@param carnetDocente el carnet String
-//@param fechaActual la fecha actual String
-
+//funcion para recuperar los alumnos de la clase del docente, por grupo empresa
+//en la tabla de ESTUDIANTE, GRUPO_EMPRESA y CLASE
 function obtenerAlumnos($conexionBD,$carnetDocente,$semestre, $fechaActual){
 //se arma la tabla html con los alumnos(listaAlumnos) 
 //como string para ser exportado al front end

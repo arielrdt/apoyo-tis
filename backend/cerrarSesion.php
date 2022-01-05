@@ -1,8 +1,7 @@
 <?php
-//recuperar la conexion con la base de datos
-//recupera la sesion actual activa
-// destruccion de los datos de la sesion activa
+//@param conexionBD:se importa la base de datos
 include("conexionBD.php");
+//recuperar la sesion
 session_start(); 
 session_destroy();
 ?>
