@@ -1,4 +1,9 @@
 <?php
+//se importa la base de datos
+//se recupera la sesion actual iniciada
+//@param cod_clase:se recupera el codigo de la clase en la que ingreso el docente
+//@param semestre_anio:se calcula el semestre en base al mes y año actuales
+
 include("conexionBD.php");
 session_start();
 $cod_clase_actual=$_SESSION['COD_CLASE'];
@@ -11,14 +16,15 @@ if($mes<6){
 else{
     $semestre_anio=('2-'.$anio);
 }
-
+//conuslta para recuperar los pliegos del semestre actual
+//y clase correspondiente
 $consultaSQL="SELECT *
 FROM pliego_especificaciones
 WHERE SEMSTRE_ANIO='$semestre_anio'
 AND COD_CLASE='$cod_clase_actual'";
-
 $ejecucionConsulta=mysqli_query($conexionBD,$consultaSQL);
 $fila=mysqli_fetch_array($ejecucionConsulta);
+//si existe un pliego ,retornar sus datos en formato JSON
 if(isset($fila['TITULO_PLIEGO'])){
      $JSONInvitacion=array(
       'titulo'=>$fila['TITULO_PLIEGO'],
@@ -28,6 +34,7 @@ if(isset($fila['TITULO_PLIEGO'])){
        echo json_encode($JSONInvitacion);
      }
 else{
+    //sino retornar null
      echo json_encode(null);
 }
 

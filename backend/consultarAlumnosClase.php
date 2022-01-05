@@ -1,10 +1,17 @@
 <?php
+//se importa la base de datos
+//se recupera la sesion actual iniciada
+//se recupera el carnet del docente de la sesion iniciada y e semestre
+
 include("conexionBD.php");
 session_start();
 $carnetDocente=$_SESSION['NUMERO_CARNET_IDENTIDAD_DOCENTE'];
 $semestre=$_SESSION['SEMESTRE'];
 
+//se obtiene los alumnos del docente con sesion iniciada
 function obtenerAlumnos($conexionBD,$carnetDocente,$semestre){
+//se arma la tabla que contendra los alumnos como codigo html en u
+//string que sera exportado al front end
 $listaAlumnos='<h3>LISTA DE ALUMNOS</h3><table class="tabla-estudiantes">
 <tr class="titulo">  
 <td>Nombre del alumno</td>
@@ -13,14 +20,24 @@ $listaAlumnos='<h3>LISTA DE ALUMNOS</h3><table class="tabla-estudiantes">
 <td>Opción</td>
 </tr>
 ';
+
+//ejecucion de la consulta para obtener los alumnos inscritos a la clase
+//del docente
 $consultaSQL="SELECT * 
               from estudiante,clase 
               where estudiante.COD_CLASE=clase.COD_CLASE
               and clase.SEMESTRE='$semestre'
               and NUMERO_CARNET_IDENTIDAD_DOCENTE='$carnetDocente'";
 
+
 $ejecucionConsulta=mysqli_query($conexionBD,$consultaSQL);
+
+//se recorre las filas de la tabla de resultados
+//se
 while($filaTabla=mysqli_fetch_array($ejecucionConsulta)){
+//por cada resultado se arma una fila con el nombre completo
+//codigo sis y nota final si existe, del alumno
+//tambien se agrega el boton de calificar    
 $listaAlumnos.='
 <tr>  
 <td>'.$filaTabla['NOMBRE'].' '.$filaTabla['APELLIDO_PATERNO'].' '.$filaTabla['APELLIDO_MATERNO'].'</td>
