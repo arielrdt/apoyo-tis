@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!--meta para que la pagina sea compatible en todos los dispositivos-->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Estilos del formulario -->
     <link rel="stylesheet" href="../styles/style-lista-convocatorias.css">
     <link rel="stylesheet" href="../styles/style-sidebar.css">
     <link rel="stylesheet" href="../styles/style-navbar.css">
-
-    <!-- Google fonts -->
+    
+    <!--Script para la carga del navbar, sidebar, footer -->
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <!-- Google fonts -->
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,7 +23,7 @@
 </head>
 <body>  
     <header>
-
+<!--Navigation bar -->
 <div id="nav-placeholder">
 
 </div>
@@ -30,7 +33,8 @@ $(function(){
   $("#nav-placeholder").load("navbar.html");
 });
 </script>
-
+<!-- end of Navigation bar-->
+<!--side bar docente -->
 <div id="sidebd-placeholder">
 </div>
 <script>
@@ -38,13 +42,13 @@ $(function(){
   $("#sidebd-placeholder").load("sidebarDocente.html");
 });
 </script>
+<!-- fin side bar docente-->
 </header>
-
-
     <main class="flex-body">
+      <!--espacio para la carga de pliegos e invitaciones -->
       <div id="contenedor-tarjetas"></div>
     </main>
-
+<!-- carga de scripts-->
   <script src="../scripts/recuperarConvocatorias.js"></script>
   <script src="../scripts/verificarSesionDocente.js"></script>
 </body>

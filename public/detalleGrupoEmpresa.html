@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!--meta para que la pagina sea compatible en todos los dispositivos-->
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--Estilos de la pagina -->
   <link rel="stylesheet" href="../styles/style-form.css">
   <link rel="stylesheet" href="../styles/style-sidebar.css">
-  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
   <link rel="stylesheet" href="../styles/style-navbar.css">
   <link rel="stylesheet" href="../styles/style-detalleGrupoEmpresa.css">
+  <!-- script para la carga del navbar, sidebar, footer-->
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+  
   <!-- Google fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,7 +33,7 @@
         </script>
         <!--end of Navigation bar-->
         
-        <!--Navigation bar-->
+        <!--sidebar docente-->
         <div id="sidebd-placeholder">
         </div>
         
@@ -38,24 +42,20 @@
             $("#sidebd-placeholder").load("sidebarDocente.html");
         });
         </script>
+        <!-- fin sidebar docente-->
     </header>
-
+<!--main con los estilos de la pagina -->
     <main class="main">
         <h2 class="main-title">Grupo empresa Payasoft</h2>
         <section class="main-section">
             <h3>Integrantes</h3>
+            <!--Espacio para la carga de los integrantes -->
             <ul id="main-section-list" class="main-section-list">
-                <!-- <li class="student-content">
-                    <div class="student-content-photo-and-name">
-                        <img class="student-content-img" src="https://i.postimg.cc/D0qqChkv/linux-avatar.jpg" alt="">
-                        <p class="student-content-name">Carlos Cosme Coca</p>
-                    </div>
-                    <p class="student-content-rol">Developer</p>
-                </li> -->
+                
             </ul>
         </section>
     </main>
-
+<!-- footer-->
     <footer>
         <div id="footer-placeholder">
 
@@ -67,7 +67,9 @@
         });
         </script>
     </footer>
+    <!-- Fin del footer-->
 </body>
+<!--Carga de los scripts -->
 <script src="../scripts/recuperarIntegranteGrupo.js"></script>
 <script src="../scripts/verificarSesionDocente.js"></script>
 </html>

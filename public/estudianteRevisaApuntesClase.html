@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!--meta para que la pagina sea compatible en todos los dispositivos-->
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--Estilos de la pagina-->
   <link rel="stylesheet" href="../styles/style-navbar.css">
   <link rel="stylesheet" href="../styles/style-lista-convocatorias.css">
   <link rel="stylesheet" href="../styles/style-sidebar.css">
   <link rel="stylesheet" href="../styles/styles-apuntes.css">
+  <!-- Script para la carga del navbar, sidebar, footer-->
   <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 
   <!-- Google fonts -->
@@ -20,13 +23,7 @@
 </head>
 <body>
   <header>
-    <!--<nav class="navBar">
-      <h1>MasterTis</h1>
-         <ul>
-          <a class="itemNav" href="../index.html">Pagina principal</a>
-          <a class="itemNav" href="cerrarSesion.html">cerrar sesion</a>
-         </ul>
-    </nav>-->
+   
 
     <!--Navigation bar-->
 <div id="nav-placeholder">
@@ -40,7 +37,7 @@ $("#nav-placeholder").load("navbar.html");
 </script>
 <!--end of Navigation bar-->
 </header>
-
+<!--sidebar estudiante-->
    <div class="flex-body"> 
 
     <div class="sidebar">
@@ -69,11 +66,13 @@ $("#nav-placeholder").load("navbar.html");
 
       </ul>
     </div>
-    
+    <!--fin sidebar estudiante-->
+    <!--espacio para la carga de apuntes, solo se cargara los 
+      apuntes del grupo del estudiante con sesion iniciada-->
     <div id="apuntes"></div>
 
   </div>
-
+<!--carga de scripts-->
   <script src="../scripts/recuperarApuntes.js"></script>
   <script src="../scripts/verificarSesionEstudiante.js"></script>
 </body>

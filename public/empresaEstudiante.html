@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!--meta para que la pagina sea compatible en todos los dispositivos-->
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../styles/style-navbar.css">
+  <!--Estilos del formulario -->
+  <linkoogle fonts rel="stylesheet" href="../styles/style-navbar.css">
   <link rel="stylesheet" href="../styles/style-lista-convocatorias.css">
   <link rel="stylesheet" href="../styles/style-sidebar.css">
-  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
   <style>
     .vl {
       border-left: 3px solid rgb(66 125 134);
@@ -15,6 +16,8 @@
       height: 600px;
     }
     </style>
+    <!-- Script para la carga del navbar, sidebar, footer-->
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
   <!-- Google fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,14 +28,6 @@
 </head>
 <body>
   <header>
-    <!--<nav class="navBar">
-      <h1>MasterTis</h1>
-         <ul>
-          <a class="itemNav" href="../index.html">Pagina principal</a>
-          <a class="itemNav" href="cerrarSesion.html">cerrar sesion</a>
-         </ul>
-    </nav>-->
-
     <!--Navigation bar-->
 <div id="nav-placeholder">
 
@@ -45,7 +40,7 @@ $("#nav-placeholder").load("navbar.html");
 </script>
 <!--end of Navigation bar-->
 </header>
-
+<!-- sidebar alumno-->
    <div class="flex-body"> 
 
     <div class="sidebar">
@@ -73,14 +68,18 @@ $("#nav-placeholder").load("navbar.html");
        </li>
       </ul>
     </div>
-   
+   <!--fin sidebar alumno -->
+   <!-- espacio para la carga de los datos de la empresa a la que pertenece estudiante-->
     <div id="datos-Miempresa">
     </div>
-
+<!--inicio del modal oculto -->
+ <!-- el modal solo sera visible para el respresentante legal-->
+  <!-- solo el representante legal tiene permisos para cambiar roles-->
     <div id="modal-cambio-rol" hidden="true" >
       <div class="vl">
       <div class="contenido-modal">
          <div class="cabecera-modal"><h3>Cambiar rol</h3></div>
+         <!--inicio del formulario dentro del modal -->
              <form id="formulario-cambio-rol">
                 <p>Código sis del alumno:</p>
                 <input type="text" name="codigoSis" id="codigoSis" readonly>
@@ -93,6 +92,7 @@ $("#nav-placeholder").load("navbar.html");
                     <option value="documentador">documentador</option>
                   </select>
                 <br>
+                <!-- mensaje en caso de algun error en los campos del formulario-->
                 <div id="mensaje"></div>
                 <br>
                 <button type="submit" >Registrar nota</button>
@@ -100,14 +100,9 @@ $("#nav-placeholder").load("navbar.html");
              </form></div>
       </div>
   </div>
+</div>
 
-
-
-
-
-
-  </div>
-
+<!-- carga de scripts-->
   <script src="../scripts/estudianteCambiarRolMiembroGrupo.js"></script>
   <script src="../scripts/consultarEstudiantePerteneceAEmpresa.js"></script>
 

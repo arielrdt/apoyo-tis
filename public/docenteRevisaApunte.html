@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!--meta para que la pagina sea compatible en todos los dispositivos-->
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--Estilos del formulario -->
   <link rel="stylesheet" href="../styles/style-navbar.css">
   <link rel="stylesheet" href="../styles/style-lista-convocatorias.css">
   <link rel="stylesheet" href="../styles/style-sidebar.css">
   <link rel="stylesheet" href="../styles/styles-apuntes.css">
+  <!--Script para la carga del navbar, sidebar, footer -->
   <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 
   <!-- Google fonts -->
@@ -20,16 +23,18 @@
 </head>
 <body>
   <header>
-
+<!--Navigation bar -->
 <div id="nav-placeholder">
 
 </div>
 
 <script>
 $(function(){
-$("#nav-placeholder").load("navbar.html");
+  $("#nav-placeholder").load("navbar.html");
 });
 </script>
+<!-- end of Navigation bar-->
+<!--side bar docente -->
 <div id="sidebd-placeholder">
 </div>
 <script>
@@ -37,13 +42,13 @@ $(function(){
   $("#sidebd-placeholder").load("sidebarDocente.html");
 });
 </script>
+<!-- fin side bar docente-->
 </header>
-
    <div class="flex-body"> 
-    
+    <!-- Espacio para la carga de los apuntes de los grupos del docente-->
     <div id="apuntesGrupos"></div>
   </div>
-
+<!-- carga de scripts-->
   <script src="../scripts/recuperarApunteDocente.js"></script>
   <script src="../scripts/verificarSesionDocente.js"></script>
 </body>

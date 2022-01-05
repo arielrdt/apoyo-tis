@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!--Estilos de los botones de la pagina-->
   <style>
     .GFG {
         background-color: #07889b;
@@ -27,21 +28,21 @@
       transform: translate(-50%, -50%);
     }
 </style>
-
-
+<!--meta para que la pagina sea compatible en todos los dispositivos-->
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--Estilos de la pagina-->
   <link rel="stylesheet" href="../styles/style-form.css">
+  <link rel="stylesheet" href="../styles/style-navbar.css">
   <link rel="stylesheet" href="../styles/style-sidebar.css">
-  <!-- <link rel="stylesheet" href="../styles/style-makeTasks.css">
   <!-- Google fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Shippori+Antique&display=swap" rel="stylesheet">
+      <!-- Script para la carga del navbar, sidebar, footer-->
   <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-  <link rel="stylesheet" href="../styles/style-navbar.css">
     <title>Document</title>
 
 
@@ -60,7 +61,7 @@ $(function(){
 </script>
 <!--end of Navigation bar-->
 
-<!--Navigation bar-->
+<!--sidebar docente-->
 <div id="sidebd-placeholder">
 
 </div>
@@ -70,33 +71,18 @@ $(function(){
   $("#sidebd-placeholder").load("sidebarDocente.html");
 });
 </script>
-<!--end of Navigation bar-->
+<!--fin sidebar docente-->
       </header>
-
-
-<!--<div class="flex-body">
-    <div class="sidebar">
-        <h1 class="sidebar-title">Navegación</h1>
-        <ul class="sidebar-list">
-          <li><a href="./crearClase.html" class="sidebar-item">crear una clase para el semestre actual</a></li> 
-           <div class="subir-editar">
-             <li><a href="./formularioConvocatorias.html" class="sidebar-item">subir invitacion publica</a></li>
-             <li><a href="./formularioPliego.html" class="sidebar-item">subir pliego especificaciones</a></li>
-             <li><a href="./crearTarea.html" class="sidebar-item">crear tarea</a></li>
-           </div>
-           <li><a href="./docenteCalificaGrupos.html" class="sidebar-item">calificar grupos</a></li> 
-           <li><a href="./docenteCrearGrupo-Empresa.html" class="sidebar-item">crear un Grupo-Empresa</a></li> 
-           <!--podra editar los grupos de su clase -->
-         <!--  <li><a href="./DocenteRevisaGrupos.html" class="sidebar-item">revisar grupos de la clase</a></li> 
-          <li><a href="./perfil.html" class="sidebar-item">ver mi perfil</a></li>   
-         </ul>
-      </div>-->
+<!--div con estilos de la pagina-->
       <div class="container">
         <div class="center">
+          <!--opciones para la vista del reporte-->
    <div class="options">
+     <!--envia al reporte de estudiantes aprobados -->
     <a  href="../backend/reporteEstudiantesA.php">
       <button class="GFG">Reporte de Estudiantes Aprobados</button>
       </a>
+      <!--envia el reporte de estudiantes reprobados-->
     <a  href="../backend/reporteEstudiantesR.php">
       <button class="GFG"> Reporte de Estudiantes Reprobados</button>
      </a>
@@ -104,6 +90,7 @@ $(function(){
 </div>
 </div>
 </div>
+<!--carga de scripts-->
 <script src="../scripts/verificarSesionDocente.js"></script>
 
 

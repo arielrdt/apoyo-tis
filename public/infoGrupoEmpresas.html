@@ -1,21 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!--meta para que la pagina sea compatible en todos los dispositivos-->
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--Estilos de la pagina-->
   <link rel="stylesheet" href="../styles/style-form.css">
   <link rel="stylesheet" href="../styles/style-sidebar.css">
-  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
   <link rel="stylesheet" href="../styles/style-navbar.css">
   <link rel="stylesheet" href="../styles/style-infoGrupoEmpresas.css">
   <link rel="stylesheet" href="../styles/style-detalleGrupoEmpresa.css">
+  <!-- Carga de scripts-->
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+  <script defer src="../scripts/listaEstudiantes.js"></script>
   <!-- Google fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Shippori+Antique&display=swap" rel="stylesheet">
-  <script defer src="../scripts/listaEstudiantes.js"></script>
+  
     <title>Grupo Empresas</title>
 </head>
 <body>
@@ -31,30 +35,26 @@
         </script>
         <!--end of Navigation bar-->
         
-        <!--Navigation bar-->
+          <!--sidebar docente-->
         <div id="sidebd-placeholder">
+
         </div>
-        
+
         <script>
         $(function(){
-            $("#sidebd-placeholder").load("sidebarDocente.html");
+        $("#sidebd-placeholder").load("sidebarDocente.html");
         });
         </script>
+        <!--fin sidebar docente-->
     </header>
 
     <main class="main">
         <h2 class="main-title">Grupo Empresas</h2>
+        <!--Espacio para la carga de las listas con la informacion de las empresas-->
         <section id="main-section" class="main-section">
-            <!-- <h2 class="main-section-title-group">Flores Villarroel Corina</h2>
-            <div class="main-section-group">
-                <a class="main-clase-card" href="./detalleGrupoEmpresa.html">
-                    <img src="https://i.postimg.cc/D0qqChkv/linux-avatar.jpg" alt="">
-                    <p class="main-card-name">Paya Software</p>
-                </a>
-            </div> -->
         </section>
     </main>
-
+<!--inicio del footer-->
     <footer>
         <div id="footer-placeholder">
 
@@ -66,6 +66,8 @@
         });
         </script>
     </footer>
+    <!--fin de footer-->
+    <!--Carga de scripts-->
     <script src="../scripts/verificarSesionDocente.js"></script>   
     <script src="../scripts/recuperarGrupoEmpresas.js"></script>
 </body>

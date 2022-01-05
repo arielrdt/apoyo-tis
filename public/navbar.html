@@ -1,25 +1,25 @@
-        <nav class="navBar">
-            <div class="navBar-logo-and-title">
-              <!-- <img src="https://i.postimg.cc/Cxn1GNj7/96782cb637ec4be985f0fd29d2f6b93c-3.png"> -->
-              <!-- <img src="../img/logo.png" alt=""> -->
-              <!-- <img src="https://img.icons8.com/office/80/000000/working-with-a-laptop.png"/> -->
-              <img src="../img/logo-lap-m.png"/>
-              <img src="../img/logo-lap-h.png"/>
-              <p class="navBar-title">MasterTis</p>
-            </div>
-         
-            <ul class="navBar-list" id="nav-bar-options">       
+<!--Navbar-->        
+  <nav class="navBar">
+    <!--Carga de imagenes para el navbar-->
+      <div class="navBar-logo-and-title">
+       <img src="../img/logo-lap-m.png"/>
+      <img src="../img/logo-lap-h.png"/>
+       <p class="navBar-title">MasterTis</p>
+       </div>
+      <!--Espacio para la carga de botones dinamicos del navbar-->
+      <ul class="navBar-list" id="nav-bar-options">       
 
  
-            </ul>
+      </ul>
 
         </nav>
-
+<!--Script para cargar los botones del navbar-->
 <script >
 const botonesSesion=document.getElementById("nav-bar-options");
 
 fetch('../backend/existeSesionActiva.php',{method:'GET'})
-
+//Si existe una sesion activa envia los botones Pagina principal y cerrar sesion
+//Si no envia Pagina principal e inicio de sesion
 .then(res=>res.json())
 .then(mensaje=>{
   console.log(mensaje)

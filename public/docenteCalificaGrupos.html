@@ -1,37 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!--meta para que la pagina sea compatible en todos los dispositivos-->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Estilos de la pagina-->
     <link rel="stylesheet" href="../styles/style-form.css">
     <link rel="stylesheet" href="../styles/style-sidebar.css">
     <link rel="stylesheet" href="../styles/style-makeTasks.css">
     <link rel="stylesheet" href="../styles/style-groups.css">
     <link rel="stylesheet" href="../styles/style-modal.css">
-    
-    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-    
     <link rel="stylesheet" href="../styles/style-navbar.css">
+    <!--Script para la carga del navbar, sidebar, footer -->
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <!-- Google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Shippori+Antique&display=swap" rel="stylesheet">
     
-  
        <title>Document</title>
   </head>
 <body>
     <header>
-        <!--<nav class="navBar">
-          <h1>APOYO A LA EMPRESA TIS</h1>
-             <ul>              
-              <a class="itemNav" href="../index.html">Pagina principal</a>
-              <a class="itemNav" href="cerrarSesion.html">cerrar sesion</a>
-             </ul>
-          </nav>
-      </header>-->
+       
   <!--Navigation bar-->
   <div id="nav-placeholder">
 
@@ -44,7 +37,7 @@
   </script>
   <!--end of Navigation bar-->
   
-  <!--Navigation bar-->
+  <!--sidebar docente-->
   <div id="sidebd-placeholder">
   
   </div>
@@ -54,15 +47,18 @@
     $("#sidebd-placeholder").load("sidebarDocente.html");
   });
   </script>
-  <!--end of Navigation bar-->
+  <!--fin del sidebar docente-->
 </header>
-
+<!--div con estilos-->
 <div id="espacio-listado-semanal"style=" align-items: center;padding-left: 35px;   justify-content: center; ">
   <!-- si es final del semestre entonces podra subir las notas finale, sino le dira que no puede -->
   </div>
+  <!-- inicio del modal oculto-->
 <div id="modal-nota-semanal" hidden="true">
+  <!-- div estilos del modal-->
     <div class="contenido-modal">
        <div class="cabecera-modal"><h3>Registrar nota final</h3></div>
+       <!-- inicio del formulario dentro el modal-->
            <form id="formulario-semanal">
               <p>Código sis del alumno:</p>
               <input type="text" name="codigoSis" id="codigoSis" readonly>
@@ -76,8 +72,9 @@
               </select>                
               <p>Nota</p>
               <input type="text" name="nota" id="nota">
-              
+              <!--espacio del mensaje en caso de error en el formulario -->
               <div id="mensaje"></div>
+              <!--botones de envio de datos -->
               <button type="submit" >Registrar</button>
               <button type="button" id="boton-cancelar">Cancelar</button>
            </form>
@@ -85,15 +82,15 @@
 </div>
 
 </div>
-     
+  <!-- Espacio para la carga de la lista de alumnos en la materia-->
   <div id="espacio-listado-alumno">
 
   </div>
     
 </div>
+<!-- Carga de scripts-->
 <script src="../scripts/recuperarGruposParaCalificar.js"></script> 
 <script src="../scripts/registrarEvaluacion.js"></script> 
-
 <script src="../scripts/verificarSesionDocente.js"></script>
 
 </body>

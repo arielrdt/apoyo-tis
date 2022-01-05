@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!--meta para que la pagina sea compatible en todos los dispositivos-->
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Estilos de la pagina-->
   <link rel="stylesheet" href="../styles/style-form.css">
   <link rel="stylesheet" href="../styles/style-sidebar.css">
   <link rel="stylesheet" href="../styles/style-makeTasks.css">
   <link rel="stylesheet" href="../styles/style-groups.css">
   <link rel="stylesheet" href="../styles/style-modal.css">
-  
+  <link rel="stylesheet" href="../styles/style-navbar.css">
+  <!--Script para la carga del navbar, sidebar, footer -->
   <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
   
-  <link rel="stylesheet" href="../styles/style-navbar.css">
   <!-- Google fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -36,7 +38,7 @@ $("#nav-placeholder").load("navbar.html");
 </script>
 <!--end of Navigation bar-->
 
-<!--Navigation bar-->
+<!--sidebar docente-->
 <div id="sidebd-placeholder">
 
 </div>
@@ -46,17 +48,19 @@ $(function(){
 $("#sidebd-placeholder").load("sidebarDocente.html");
 });
 </script>
-<!--end of Navigation bar-->
+<!--fin sidebar docente-->
 </header>
 
-
+<!-- Espacio para la carga de la lista de alumnos-->
 <div id="espacio-listado-alumnos">
 <!-- si es final del semestre entonces podra subir las notas finale, sino le dira que no puede -->
 </div>
-
+<!--inicio del modal oculto -->
 <div id="modal-notas-finales" hidden="true">
+  <!-- div con estilos del modal-->
     <div class="contenido-modal">
        <div class="cabecera-modal"><h3>Registrar nota final</h3></div>
+       <!-- inicio del formulario dentro del modal-->
            <form id="formulario-modal">
               <p>Código sis del alumno:</p>
               <input type="text" name="codigoSis" id="codigoSis" readonly>
@@ -65,8 +69,10 @@ $("#sidebd-placeholder").load("sidebarDocente.html");
               <p>nota final</p>
               <input type="text" name="nota" id="nota">
               <br>
+              <!-- espacio para el mensaje en caso de error en algun campo del formulario-->
               <div id="mensaje"></div>
               <br>
+              <!--boton de envio de datos en el formulario  -->
               <button type="submit" >Registrar nota</button>
               <button type="button" id="boton-cancelar">Cancelar</button>
            </form>
@@ -75,6 +81,7 @@ $("#sidebd-placeholder").load("sidebarDocente.html");
 
 
 </div>
+<!--Carga de scripts -->
 <script src="../scripts/verificarSesionDocente.js"></script>
 <script src="../scripts/asignarNotasFinales.js"></script>
 <script src="../scripts/recuperarAlumnosNotasFinales.js"></script>

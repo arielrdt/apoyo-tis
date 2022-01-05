@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
+  <!--meta para que la pagina sea compatible en todos los dispositivos-->
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--Estilos de la pagina-->
   <link rel="stylesheet" href="../styles/style-lista-convocatorias.css">
   <link rel="stylesheet" href="../styles/style-sidebar.css">
+  <link rel="stylesheet" href="../styles/style-navbar.css">
+  <!--Script para cargar en navbar-->
   <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-      <link rel="stylesheet" href="../styles/style-navbar.css">
   <!-- Google fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,29 +21,23 @@
 </head>
 <body>
   <header>
-    <!--<nav class="navBar">
-      <h1>MasterTis</h1>
-         <ul>
-          <a class="itemNav" href="../index.html">Pagina principal</a>
-          <a class="itemNav" href="cerrarSesion.html">cerrar sesion</a>
-         </ul>
-    </nav>-->
-
-    <!--Navigation bar-->
+ <!--Inicio del navbar -->
+   
 <div id="nav-placeholder">
 
 </div>
+<!-- Scrpit para cargar el archivo navbar.html-->
 
 <script>
 $(function(){
 $("#nav-placeholder").load("navbar.html");
 });
 </script>
-<!--end of Navigation bar-->
+<!--fin del nav bar-->
 </header>
     <div class="flex-body"> 
       <div class="sidebar">
-        <!-- <h2 class="sidebar-title">Navegación</h2> -->
+<!--Inicio del sidebar del estudiante-->
         <ul class="sidebar-list">
           <li>
             <img src="https://img.icons8.com/ios/50/000000/name--v1.png"/>
@@ -66,9 +62,13 @@ $("#nav-placeholder").load("navbar.html");
        </li>
     
         </ul>
+        <!--Fin del sidebar del estudiante-->
       </div>
+      <!--Inicio de la vista de apuntes-->
          <div class="div-formulario">
            <h1 class="formulario-publicar">CREAR APUNTE</h1>
+            <!--Inicio del formulario de creacion de apuntes-->
+            <!--Solo el documentador puede crear apuntes, los otros integrantes solo pueden verlos-->
             <form id="formulario-apuntes" class="formulario">
              <h2>En clase se vio:</h2>
              <textarea class="input-description" name="sevio" cols="30" rows="3"></textarea>
@@ -77,15 +77,16 @@ $("#nav-placeholder").load("navbar.html");
             <br>     
             <button type="submit" name="botonFormulario">guardar apunte</button>
            </form>
-
+            <!--Espacio donde se cargan los apuntes ya creados-->
            <div id="espacio-mensaje-apunte"></div>
            <br><br>
          </div>
 
 </div> 
+<!--Carga el archivo subirApunte-->
 <script src="../scripts/subirApunte.js"></script>
+<!--Carga el archivo verificarSesion-->
 <script src="../scripts/verificarSesionEstudiante.js"></script>
-
 
 </body>
 </html>

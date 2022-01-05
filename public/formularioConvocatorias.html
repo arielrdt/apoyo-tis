@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!--meta para que la pagina sea compatible en todos los dispositivos-->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Estilos de la pagina-->
     <link rel="stylesheet" href="../styles/style-form.css">
     <link rel="stylesheet" href="../styles/style-sidebar.css">
+    <link rel="stylesheet" href="../styles/style-navbar.css">
     <!-- Google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="stylesheet" href="../styles/style-navbar.css">
-
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
     <title>Publicar Convocatoria</title>
+<!-- Script para la carga del navbar, sidebar, footer-->
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 
 </head>
@@ -30,7 +32,7 @@ $(function(){
 </script>
 <!--end of Navigation bar-->
 
-<!--Navigation bar-->
+<!--sidebar docente-->
 <div id="sidebd-placeholder">
 
 </div>
@@ -40,10 +42,10 @@ $(function(){
   $("#sidebd-placeholder").load("sidebarDocente.html");
 });
 </script>
-<!--end of Navigation bar-->
+<!--fin sidebar docente-->
     </header>
 
-
+<!--Mensaje que aparece en caso de que ya exista un archivo pulicado-->
     <div id="div-btn-editar-invi" hidden="true">
        <h2 class="mensaje-rojo" class="aviso">ya se publico una invitacion para este semestre, se modificara el contenido de la invitacion actual</h2>
        <button type="button" id="btn-editar-invi" > Aceptar </button>
@@ -51,6 +53,7 @@ $(function(){
 
     <div class="div-formulario" id="div-formulario-invi" hidden="true" >
       <h1 class="formulario-publicar" >PUBLICAR CONVOCATORIA</h1>
+      <!--inicio formulario-->
       <form id="formulario" class="formulario">
         
         <h2>Título de la Convocatoria</h2>
@@ -71,6 +74,7 @@ $(function(){
         <h2>Adjunte el documento de la convocatoria(pdf)</h2>
         <input class="input-file" type="file" name="file" id="pdf-conv" >
          <hr>
+         <!--espacio para un mensaje de error en caso de que los datos del formulario sean erroneos-->
          <div id="espacio-mensaje">    </div>
         <hr>
 
@@ -86,7 +90,7 @@ $(function(){
 <script src="https://www.gstatic.com/firebasejs/7.15.1/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.15.1/firebase-storage.js"></script>
 <script src="../conexionFirebase/conexionFirebase.js"></script>
-
+<!--Carga de scripts-->
 <script src="../scripts/existeInvitacion.js"></script>
 <script src="../scripts/verificarSesionDocente.js"></script>
 <script src="../scripts/publicarConvocatorias.js"></script>

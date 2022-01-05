@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+      <!--meta para que la pagina sea compatible en todos los dispositivos-->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Estilos del formulario-->
     <link rel="stylesheet" href="../styles/style-form.css">
     <link rel="stylesheet" href="../styles/style-sidebar.css">
     <link rel="stylesheet" href="../styles/style-makeTasks.css">
     <link rel="stylesheet" href="../styles/style-groups.css">
     <link rel="stylesheet" href="../styles/style-modal.css">
-    
+    <!--Script para la carga del navbar, sidebar, footer  -->
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     
     <link rel="stylesheet" href="../styles/style-navbar.css">
@@ -24,14 +26,7 @@
   </head>
 <body>
     <header>
-        <!--<nav class="navBar">
-          <h1>APOYO A LA EMPRESA TIS</h1>
-             <ul>              
-              <a class="itemNav" href="../index.html">Pagina principal</a>
-              <a class="itemNav" href="cerrarSesion.html">cerrar sesion</a>
-             </ul>
-          </nav>
-      </header>-->
+        
   <!--Navigation bar-->
   <div id="nav-placeholder">
 
@@ -44,7 +39,7 @@
   </script>
   <!--end of Navigation bar-->
   
-  <!--Navigation bar-->
+  <!--sidebar docente-->
   <div id="sidebd-placeholder">
   
   </div>
@@ -54,22 +49,22 @@
     $("#sidebd-placeholder").load("sidebarDocente.html");
   });
   </script>
-  <!--end of Navigation bar-->
+  <!--fin sidebar docente-->
 </header>
-
-     <h3>Resumen de Asistencias Por Alumno</h3>
+  <h3>Resumen de Asistencias Por Alumno</h3>
+  <!-- div con estilos-->
+  <!-- espacio para la carga de la lista del resumen de asistencias de los alumnos-->
   <div id="asistencia-alumno"style=" align-items: center;padding-left: 35px;   justify-content: center; ">
   </div>
 
   <h3>Resumen de Promedio de Notas por Alumno</h3>
+  <!-- div con estilos-->
+  <!-- espacio para la carga de la lista del resumen de notas de los alumnos-->
   <div id="notas-alumno"style=" align-items: center;padding-left: 35px;   justify-content: center; ">
-
   </div> 
 
-
-
+<!-- carga de scripts-->
 <script type="module" src="../scripts/obtenerAsistencias.js"></script>
-
  <script src="../scripts/verificarSesionDocente.js"></script>
 
 </body>

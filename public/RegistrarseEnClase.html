@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!--meta para que la pagina sea compatible en todos los dispositivos-->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=\, initial-scale=1.0">
+    <!--Estilos de la pagina-->
     <link rel="stylesheet" href="../styles/style-header.css">
     <link rel="stylesheet" href="../styles/style-form.css">
     <link rel="stylesheet" href="../styles/style-sidebar.css">
@@ -35,6 +37,7 @@ $(function(){
       </header>
 
       <div class="div-formulario">
+        <!--inicio del formulario de registro estudiante-->
         <form id="formulario" class="formulario">
         <h1>REGISTRAR CUENTA DE ESTUDIANTE</h1> 
           <h2>Nombre</h2>
@@ -72,14 +75,15 @@ $(function(){
           <h2>Codigo de la clase</h2>
           <input class="input-titulo" name="codigoClase" type="text">
          <hr>
+         <!--espacio para un mensaje de error en caso de un dato erroneo en el formulario-->
         <div id="espacio-mensaje"> </div>
         <hr>
-  
+          <!--boton de envio del formulario-->
           <button type="submit" name="botonFormulario" >Registrarse</button>
         </form>
   <br><br><br>
       </div>
-
+<!--carga de datos del script-->
 <script src="../scripts/registrarEstudiante.js"></script>
 
 

@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!--meta para que la pagina sea compatible en todos los dispositivos-->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Estilos de la pagina-->
     <link rel="stylesheet" href="../styles/style-navbar.css">
     <link rel="stylesheet" href="../styles/style-form.css">
     <!-- Google fonts -->
@@ -11,6 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
     <title>Publicar Pliego</title>
+    <!-- Script para la carga del navbar, sidebar, footer-->
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 </head>
 <body>
@@ -29,7 +32,7 @@ $(function(){
 <!--end of Navigation bar-->
 </header> 
 
-        <!--Navigation bar-->
+        <!--sidebar docente-->
 <div id="sidebd-placeholder">
 
 </div>
@@ -39,9 +42,9 @@ $(function(){
   $("#sidebd-placeholder").load("sidebarDocente.html");
 });
 </script>
-<!--end of Navigation bar-->
+<!--fin sidebar docente-->
     </header>
-
+<!--Mensaje que aparece en caso de que ya exista un archivo pulicado-->
     <div id="div-btn-editar-plie" hidden="true" >
         <h2 class="mensaje-rojo" class="aviso">ya se publico un pliego para este semestre, se modificara el contenido del pliego actual</h2>
          <button id="btn-editar-plie" type="button" >Aceptar</button>
@@ -49,8 +52,8 @@ $(function(){
 
     <div id="div-formulario-plie" class="div-formulario"  hidden="true">
       <h1>PUBLICAR PLIEGO DE ESPECIFICACIONES</h1>
-      <form id="formulario" class="formulario">
-       
+      <!--inicio formulario-->
+      <form id="formulario" class="formulario">       
         <h2>Pliego de especificaciones</h2>
         <input class="input-titulo" name="titulo" id="titulo-plie" type="text" placeholder="Intoduzca el título">
           <div id="espacio-mensajet"> </div>
@@ -65,6 +68,7 @@ $(function(){
         <h2>Adjunte el documento del Pliego(pdf)</h2>
         <input class="input-file" type="file" name="file" id="pdf-pli" >
         <hr>
+        <!--espacio para un mensaje de error en caso de que los datos del formulario sean erroneos-->
             <div id="espacio-mensaje"> </div>
         <hr>
 
@@ -78,7 +82,7 @@ $(function(){
 <script src="https://www.gstatic.com/firebasejs/7.15.1/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.15.1/firebase-storage.js"></script>
 <script src="../conexionFirebase/conexionFirebase.js"></script>
-
+<!--Carga de scripts-->
 <script src="../scripts/existePliego.js"></script>
 <script src="../scripts/verificarSesionDocente.js"></script>
 <script src="../scripts/publicarPliego.js"></script>

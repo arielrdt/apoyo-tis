@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!--meta para que la pagina sea compatible en todos los dispositivos-->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Estilos de la pagina-->
     <link rel="stylesheet" href="../styles/style-login.css">
     <link rel="stylesheet" href="../styles/style-navbar.css">
 
@@ -14,7 +16,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet"> 
-        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <!-- Script para la carga del navbar-->    
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 
     <title>Login</title>
 </head>
@@ -31,34 +34,27 @@ $(function(){
 });
 </script>
 <!--end of Navigation bar-->
-        <!-- <nav class="navBar"> -->
-            <!-- <h1>APOYO A LA EMPRESA TIS</h1>
-               <ul>
-                <a class="itemNav" href="../index.html">Pagina principal</a>
-                <!-- <a class="itemNav" href="./formularioConvocatorias.html"> Publicar Convocatorias</a> -->
-                <!-- <a class="itemNav" href="./formularioPliego.html"> Publicar Pliego</a> -->
-                <!-- <a class="itemNav" href="./listaConvocatorias.html"> Lista de Convocatorias</a> -->
-              <!-- <a class="itemNav" href="./RegistrarseEnClase.html">registrarse</a> -->
-              <!-- <a class="itemNav" href="./crearClase.html">crearClase</a> -->
-              <!-- <a class="itemNav" href="./login.html">iniciar sesion</a> -->
-               <!-- </ul> -->
-            <!-- </nav> -->
+        
     </header>
     <main class="main">
         <section class="main-section">
+          <!--inicio del formulario-->
             <form action="" class="main-section-form" id="form">
                 <p class="titulo-iniciar-sesion">Iniciar Sesión</p>
                 <label for="correo">Correo electrónico</label>
                 <input type="text" name="correo" class="main-section-form-input">
+                <!--espacio para el mensaje en caso de que el correo no exista-->
                 <div id="respuesta-correo">
                     
                 </div>
                 <label for="password">Contraseña</label>
                 <input type="password" name="password" class="main-section-form-input">
+                <!--espacio para el mensaje en caso de que la contrase;a sea incorecta-->
                 <div id="respuesta-password">
                     
                 </div>
                 <button type="submit">Ingresar</button>
+                <!--botones para el envio al registro de un estudiante-->
                 <label for="" id="main-section-form-registrarse">¿No tienes una cuenta? <a href="./RegistrarseEnClase.html">Regístrate</a></label>
             </form>
         </section>
@@ -67,13 +63,7 @@ $(function(){
 <div id="footer-placeholder">
 
 </div>
-<!-- >
-<script>
-$(function(){
-  $("#footer-placeholder").load("footer.html");
-});
-</script>-->
-
+<!--carga de scripts-->
     <script src="../scripts/login.js"></script>
 </body>
 

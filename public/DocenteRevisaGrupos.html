@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!--meta para que la pagina sea compatible en todos los dispositivos-->
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--Estilos del formulario -->
   <link rel="stylesheet" href="../styles/style-form.css">
   <link rel="stylesheet" href="../styles/style-sidebar.css">
   <link rel="stylesheet" href="../styles/style-makeTasks.css">
   <link rel="stylesheet" href="../styles/style-groups.css">
   <link rel="stylesheet" href="../styles/style-modal.css">
-
-  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-  
   <link rel="stylesheet" href="../styles/style-navbar.css">
+  <!--Script para la carga del navbar, sidebar, footer -->
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
   <!-- Google fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -35,7 +36,7 @@ $(function(){
 </script>
 <!--end of Navigation bar-->
 
-<!--Navigation bar-->
+<!--sidebar docente-->
 <div id="sidebd-placeholder">
  
 </div>
@@ -45,16 +46,17 @@ $(function(){
   $("#sidebd-placeholder").load("sidebarDocente.html");
 });
 </script>
-<!--end of Navigation bar-->
+<!--fin sidebar docente-->
       </header>
 
-
+<!-- Espacio para la carga de la lista de grupos-->
   <div id="espacio-botones-seleccion-grupo"style=" align-items: center;padding-left: 35px;   justify-content: center; ">
   </div>
-
+<!-- inicio del modal oculto-->
     <div id="modal-rol" hidden="true">
       <div class="contenido-modal">
          <div class="cabecera-modal"><h3>Editar Rol del alumno</h3></div>
+         <!-- inicio del formulario dentro del modal-->
              <form id="formulario-modalrol">
                 <p>Código sis del alumno:</p>
                 <input type="text" name="codigoSis" id="codigoSis" readonly>
@@ -66,6 +68,7 @@ $(function(){
                 <option value="estudiante">Estudiante</option>
                 <option value="documentador">Documentador</option>
               </select>                <br>
+              <!-- espacio para un mensaje en caso de un dato erroneo en el formulario-->
                 <div id="mensaje"></div>
                 <br>
                 <button type="submit" >Registrar</button>
@@ -77,7 +80,7 @@ $(function(){
 
 
   </div>
-      
+      <!-- carga de scripts-->
 <script src="../scripts/recuperarGruposClase.js"></script>
 <script src="../scripts/editarEliminarRol.js"></script>
 

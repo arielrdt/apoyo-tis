@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!--meta para que la pagina sea compatible en todos los dispositivos-->
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Estilos del formulario-->
   <link rel="stylesheet" href="../styles/style-form.css">
   <link rel="stylesheet" href="../styles/style-sidebar.css">
   <link rel="stylesheet" href="../styles/style-makeTasks.css">
   <link rel="stylesheet" href="../styles/style-groups.css">
   <link rel="stylesheet" href="../styles/style-modal.css">
-
+  <link rel="stylesheet" href="../styles/style-navbar.css"> 
+  <!-- Script para la carga del navbar, sidebar, footer-->
   <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
   
-  <link rel="stylesheet" href="../styles/style-navbar.css">
   <!-- Google fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -35,7 +37,7 @@ $(function(){
 </script>
 <!--end of Navigation bar-->
 
-<!--Navigation bar-->
+<!--sidebar docente-->
 <div id="sidebd-placeholder">
  
 </div>
@@ -45,16 +47,17 @@ $(function(){
   $("#sidebd-placeholder").load("sidebarDocente.html");
 });
 </script>
-<!--end of Navigation bar-->
+<!--fin sidebar docente-->
       </header>
 
-
+<!--espacio de carga lista de grupos -->
   <div id="espacio-botones-seleccion-grupo"style=" align-items: center;padding-left: 35px;   justify-content: center; ">
   </div>
-
+<!--incio del modal oculto -->
     <div id="modal-rol-cant" hidden="true">
       <div class="contenido-modal">
          <div class="cabecera-modal"><h3>Editar Rol del alumno</h3></div>
+         <!-- inicio del formulario dentro del modal-->
              <form id="formulario-cambiar-limite-miembros">
                 <p>Nombre del grupo:</p>
                 <input type="text" name="nombreGrupo" id="nombreGrupo" readonly>
@@ -66,6 +69,7 @@ $(function(){
                 <option value="4">4</option>
                 <option value="5">5</option>
               </select>                <br>
+              <!--espacio del mensaje en caso de error de algun campo en el formulario  -->
                 <div id="mensaje-cambio"></div>
                 <br>
                 <button type="submit" >cambiar</button>
@@ -77,10 +81,9 @@ $(function(){
 
 
   </div>
+  <!-- Carga de scripts-->
   <script src="../scripts/cambiarNumeroMiembros.js"></script>      
 <script src="../scripts/recuperarCantidadMiembros.js"></script>
-
-
 <script src="../scripts/verificarSesionDocente.js"></script>
 
 

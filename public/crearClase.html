@@ -1,20 +1,21 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!--meta para que la pagina sea compatible en todos los dispositivos-->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Estilos de la pagina-->
     <link rel="stylesheet" href="../styles/style-navbar.css">
     <link rel="stylesheet" href="../styles/style-sidebar.css">
-    
     <!-- Google fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Shippori+Antique&display=swap" rel="stylesheet">
-    <title>Document</title>
-        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+  <title>Document</title>
+  <!--script para cargar el navbar de la pagina-->
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 
 </head>
 <body>
@@ -29,10 +30,10 @@ $(function(){
   $("#nav-placeholder").load("navbar.html");
 });
 </script>
-<!--end of Navigation bar-->
+<!--final del Navigation bar-->
 </header>
 
-    <!--Navigation bar-->
+    <!--Side bar docente-->
 <div id="side-placeholder">
 
 </div>
@@ -42,9 +43,10 @@ $(function(){
   $("#side-placeholder").load("sidebarDocente.html");
 });
 </script>
-<!--end of Navigation bar-->
-
+<!--final del Side bar docente-->
+<!--Estilos de los elementos dentro el div-->
       <div style="padding:10px; display: flex; justify-content: center;" class="div-formulario">
+        <!--Inicio del formulario para crear clase-->
         <form id="formulario" class="formulario">
            <h1>Crear nueva clase</h1>
            <br>
@@ -54,9 +56,10 @@ $(function(){
         </form>
       </div>
     </div>
+    <!--Carga de scripts-->
     <script src="../scripts/recuperarSemestreClase.js"></script>
     <script src="../scripts/verificarSesionDocente.js"></script>
-<script src="../scripts/generarCodigoDeClases.js"></script>
+    <script src="../scripts/generarCodigoDeClases.js"></script>
 
 </body>
 

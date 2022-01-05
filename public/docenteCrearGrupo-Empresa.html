@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!--meta para que la pagina sea compatible en todos los dispositivos-->
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--Estilos del formulario -->
   <link rel="stylesheet" href="../styles/style-form.css">
   <link rel="stylesheet" href="../styles/style-sidebar.css">
-  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
   <link rel="stylesheet" href="../styles/style-navbar.css">
+  <!-- Script para la carga del navbar, sidebar, footer-->
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
   <!-- Google fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,7 +32,7 @@
   </script>
   <!--end of Navigation bar-->
   
-  <!--Navigation bar-->
+  <!--sidebar docente-->
   <div id="sidebd-placeholder">
   
   </div>
@@ -39,28 +42,11 @@
     $("#sidebd-placeholder").load("sidebarDocente.html");
   });
   </script>
-  <!--end of Navigation bar-->
+  <!--fin sidebar docente-->
     </header>
-   <!-- <div class="flex-body"> 
-      <div class="sidebar">
-        <h1 class="sidebar-title">Navegación</h1>
-        <ul class="sidebar-list">
-          <li><a href="./crearClase.html" class="sidebar-item">crear una clase para el semestre actual</a></li> 
-           <div class="subir-editar">
-             <li><a href="./formularioConvocatorias.html" class="sidebar-item">subir invitacion publica</a></li>
-             <li><a href="./formularioPliego.html" class="sidebar-item">subir pliego especificaciones</a></li>
-             <li><a href="./crearTarea.html" class="sidebar-item">crear tarea</a></li>
-           </div>
-           <li><a href="./docenteCalificaGrupos.html" class="sidebar-item">calificar grupos</a></li> 
-           <li><a href="./docenteCrearGrupo-Empresa.html" class="sidebar-item">crear un Grupo-Empresa</a></li> 
-           <!--podra editar los grupos de su clase -->
-          <!-- <li><a href="./DocenteRevisaGrupos.html" class="sidebar-item">revisar grupos de la clase</a></li> 
-          <li><a href="./perfil.html" class="sidebar-item">ver mi perfil</a></li>   
-         </ul>
-      </div>-->
-      
- 
-      <div class="div-formulario">  
+   <!-- div con estilos de la pagina-->
+      <div class="div-formulario">
+        <!--inicio del formulario  -->  
         <form id="formularioCrearEmpresaDocente" class="formulario">
           <h1>CREAR NUEVO GRUPO-EMPRESA</h1>
           <h2>Nombre Corto*:</h2>                                                                   
@@ -76,11 +62,13 @@
           <h2>Correo de la empresa*:</h2>    
             <input class="input-titulo" name="correoEmpresa" type="email" placeholder="Intoduzca el correo de la empresa"> 
           <hr>
+          <!--espacio para un mensaje en caso de error en algun campo del formulario -->
           <div id="espacio-mensaje">
             <br>
           
           </div> 
           <hr> 
+          <!-- espacio para un mensaje en caso de exito al subir el formulario-->
           <div id="mensaje"></div>
           <hr>
           <button name="botonFormulario" >Registrar empresa</button>                                                                                         
@@ -92,6 +80,7 @@
         </div>
       </div>
     </div>
+    <!-- carga de scrpits-->
  <script src="../scripts/DocenteRegistrarEmpresa.js"></script>
  <script src="../scripts/verificarSesionDocente.js"></script>
 </body>
