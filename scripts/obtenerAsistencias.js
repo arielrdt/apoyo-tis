@@ -1,3 +1,4 @@
+//llama a las funciones del archivo obtenerDatosJSON 
 import {
   obtenerAsistencias,
   obtenerPromediosSemanales,
