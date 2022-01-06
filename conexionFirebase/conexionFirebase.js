@@ -1,3 +1,4 @@
+//variables de configuracion y referencia a la base de datos
 const firebaseConfig = {
     apiKey: "AIzaSyCVWMira20oFGUbVdw_mGnx_2NcoaCEx6A",
     authDomain: "tis2021.firebaseapp.com",
