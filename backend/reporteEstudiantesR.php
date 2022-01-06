@@ -1,11 +1,12 @@
 <?php
+//se importa la conexion con la base de datos y la libreria fpdt(para la generacion de reportes)
     require '../librerias/fpdf/fpdf.php';
     require '../backend/conexionBD.php';
-
+//consulta de los estudiante con nota final menor a 50
     $sql = "SELECT CODIGO_SIS, NOMBRE_CORTO, NOMBRE, APELLIDO_PATERNO, APELLIDO_MATERNO, CARRERA, NOTA_EXAMEN_FINAL 
             FROM estudiante WHERE NOTA_EXAMEN_FINAL<=50 ORDER BY NOMBRE_CORTO";
     $resultado = $conexionBD->query($sql);
-
+//creacion de la estructura del reporte
     $pdf = new FPDF("P", "mm", "LETTER");
     $pdf->AddPage();
     $pdf->SetFont("Arial", "", "10");
@@ -17,7 +18,7 @@
     $pdf->Cell(30, 5, "Apellido Matero", 1, 0, "L");
     $pdf->Cell(30, 5, "Carrera", 1, 0, "L");
     $pdf->Cell(10, 5, "Nota", 1, 1, "L");
-
+//llenado de las tabla de reporte
     while($row = $resultado->fetch_assoc()){
         $pdf->Cell(20, 5, $row["CODIGO_SIS"], 1, 0, "L");
         $pdf->Cell(30, 5, $row["NOMBRE_CORTO"], 1, 0, "L");
