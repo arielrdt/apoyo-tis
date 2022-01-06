@@ -1,10 +1,18 @@
 <?php
+//@param conexionBD:se importa la base de datos
+//@param cod_clase:codigo de clase de la sesion iniciada
 include("conexionBD.php");
+//se recupera la sesion actual iniciada
 session_start(); 
 $cod_clase=$_SESSION['COD_CLASE'];
+
+//se ejecuta la consulta para recuperar la invitacion publica de la clase
 $query="SELECT * FROM invitacion_publica WHERE COD_CLASE='$cod_clase'";
 $result=mysqli_query($conexionBD,$query);
 $salida='';
+
+//por cada invitacion devuelta de la base de datos 
+//se cargara su pliego, si existe
 while ($filaInvitacion=mysqli_fetch_array($result)){
 $consultaPliegoRespectivo="SELECT * 
 FROM PLIEGO_ESPECIFICACIONES 
@@ -13,7 +21,22 @@ WHERE COD_CLASE='$cod_clase'";
 $resultadoConsulta=mysqli_query($conexionBD,$consultaPliegoRespectivo);
 $filaPliego=mysqli_fetch_array($resultadoConsulta);
 
+//se concatena en un string como codigo html, que sera exportado al frontend
+//donde se recuperara el titulo de la invitacion
+//debajo la fecha de publicacion
+//debajo la fecha limite
+//debajo la descripcion del documento 
+// y debajo el enlace al documento desde firebase en la carpeta invitaciones
+//el nombre de referencia del documento de firebase:
+// es la union del titulo y su semestre respectivo
 
+//tambien se recuperara el titulo del pliego
+//debajo la fecha de publicacion
+//debajo la fecha limite
+//debajo la descripcion del documento 
+// y debajo el enlace al documento desde firebase en la carpeta pliegos
+//el nombre de referencia del documento de firebase:
+// es la union del titulo y su semestre respectivo
 $salida.='
     <div class="card">
             

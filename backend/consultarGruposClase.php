@@ -1,11 +1,19 @@
 <?php
+//@param conexionBD:se importa la base de datos
+//@param carnetDocente:el numero de carnet del docente
+//@param semestre: semestre actual
+//@param fechaActual: fecha actual
 include("conexionBD.php");
+//recuperar la sesion
 session_start();
 $carnetDocente=$_SESSION['NUMERO_CARNET_IDENTIDAD_DOCENTE'];
 $semestre=$_SESSION['SEMESTRE'];
 $fechaActual=date("Y-m-d");
-
+//funcion para recuperar los alumnos de la clase del docente, por grupo empresa
+//en la tabla de ESTUDIANTE, GRUPO_EMPRESA y CLASE
 function obtenerAlumnos($conexionBD,$carnetDocente,$semestre, $fechaActual){
+//se arma la tabla html con los alumnos(listaAlumnos) 
+//como string para ser exportado al front end
 $listaAlumnos='<h1 style="padding:10px; display: flex; justify-content: center;">Grupos de la clase</h1> <div style="padding:10px; display: flex; justify-content: center;"> La fecha de hoy es: '.$fechaActual.'</div>
 <table class="tabla-estudiantes">
 <tr class="titulo">  
@@ -17,6 +25,8 @@ $listaAlumnos='<h1 style="padding:10px; display: flex; justify-content: center;"
 <td>Editar Rol</td>
 </tr>
 ';
+
+//consulta de los alumnos del docente
 $consultaSQL="SELECT * 
               from estudiante,grupo_empresa,clase 
               where estudiante.COD_CLASE=clase.COD_CLASE
@@ -24,6 +34,10 @@ $consultaSQL="SELECT *
               and NUMERO_CARNET_IDENTIDAD_DOCENTE='$carnetDocente'";
 
 $ejecucionConsulta=mysqli_query($conexionBD,$consultaSQL);
+
+//por cada fila de resultado retornada de la BD 
+//se concatena una fila a la ListaAlumnos con el nombre,rol y la empresa
+//a la que pertenece el alumno
 while($filaTabla=mysqli_fetch_array($ejecucionConsulta)){
 $listaAlumnos.='
 <tr>  

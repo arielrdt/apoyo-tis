@@ -1,4 +1,11 @@
 <?php
+//@param conexionB:se importa la base de datos
+//se recupera la sesion actual iniciada
+//@param detalle: descripcion de la tarea
+//@param fechaLimite:fecha limite de respuestas
+//@param horaLimite:hora limite de respuestas
+//@param codClase: clase del docente
+//@param fechaSubida: fecha actual de subida
 include("conexionBD.php");
 session_start(); 
 $detalle=$_POST['descripcion'];
@@ -7,6 +14,8 @@ $horaLimite=$_POST['horaLimite'];
 $codClase=$_SESSION['COD_CLASE'];
 $fechaSubida=date("Y-m-d");
 
+//funcion para crear la tarea de tipo::"formacion grupos"
+//en la tabla TAREA 
 function crearTareaFormarGrupos($conexionBD,$detalle,$fechaLimite,$horaLimite,$fechaSubida,$codClase){
     $query="INSERT INTO TAREA
     (FECHA_SUBIDA,

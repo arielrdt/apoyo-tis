@@ -1,17 +1,23 @@
 <?php
+//@param conexionBD:se importa la base de datos
+//se recupera la sesion actual iniciada
+//@param codigo: codigo de la clase del estudiante
+//@param codigoSis:codigo sis del estudiante
+
 include("conexionBD.php");
 session_start(); 
 $codigo=$_POST['codigo'];
 $codigo_sis=$_SESSION['CODIGO_SIS'];
 
-
+//funcion para comprabar que la empresa existe en la base de datos
 function ExisteEmpresa($codigo,$conexionBD){
 $consultaSQL="SELECT * FROM GRUPO_EMPRESA WHERE CODIGO_UNION='$codigo'";
 $ejecucionConsulta=mysqli_query($conexionBD,$consultaSQL);
 $resultado=mysqli_fetch_array($ejecucionConsulta);
 return(isset($resultado['CODIGO_UNION']));
 }
-
+//funcion para comprobar que haya espacion en el grupo,
+//haciendo la consulta a los datos del grupo en la base de datos
 function hayEspacio($codigo,$conexionBD){
     $consultaSQL="SELECT COUNT(distinct NOMBRE) AS NUM_INTEGRANTES,GRUPO_EMPRESA.limiteMiembros
     FROM ESTUDIANTE,GRUPO_EMPRESA 
@@ -24,7 +30,8 @@ function hayEspacio($codigo,$conexionBD){
     return ($resultado['NUM_INTEGRANTES']<$resultado['limiteMiembros'] && $resultado['NUM_INTEGRANTES']>=0);}
 }
 
-
+//funcion con el proceso para agregar al estudiante a la empresa
+//si hay espacio y la empresa existe
 function agregarEstudianteEmpresa($codigo,$conexionBD,$codigo_sis){
 if(ExisteEmpresa($codigo,$conexionBD)){
     if (hayEspacio($codigo,$conexionBD)){

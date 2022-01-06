@@ -1,11 +1,20 @@
 <?php
+//@ param conexionBD conexion a la base de datos
+//@ param carnetDocente carnet del docente con sesion iniciada
+//@ param  semestre semestre actual
+//@ param fechaActual fecha actual
 include("conexionBD.php");
+//recuperar la sesion
 session_start();
 $carnetDocente=$_SESSION['NUMERO_CARNET_IDENTIDAD_DOCENTE'];
 $semestre=$_SESSION['SEMESTRE'];
 $fechaActual=date("Y-m-d");
 
+//funcion para obtener los alumnos de la clase del docente consultando datos
+//en la tabla de ESTUDIANTE, GRUPO_EMPRESA y CLASE
 function obtenerAlumnos($conexionBD,$carnetDocente,$semestre, $fechaActual){
+//se arma la tabla html con los alumnos(listaAlumnos) 
+//como string para ser exportado al front end
 $listaAlumnos='<h1 style="padding:10px; display: flex; justify-content: center;">Asignar calificación semanal</h1> <div style="padding:10px; display: flex; justify-content: center;"> La fecha de hoy es: '.$fechaActual.'</div>
 <table class="tabla-estudiantes">
 <tr class="titulo">  
@@ -20,6 +29,8 @@ $listaAlumnos='<h1 style="padding:10px; display: flex; justify-content: center;"
 
 </tr>
 ';
+//consulta de los alumnos de la clase del docente correspondienetes 
+//al semestre actual
 $consultaSQL="SELECT * 
               from estudiante,grupo_empresa,clase 
               where estudiante.COD_CLASE=clase.COD_CLASE
@@ -28,6 +39,8 @@ $consultaSQL="SELECT *
               and NUMERO_CARNET_IDENTIDAD_DOCENTE='$carnetDocente'";
 
 $ejecucionConsulta=mysqli_query($conexionBD,$consultaSQL);
+//de cada alumno se obtiene su nombre,cod sis y empresa a la que pertenece
+//y un boton para calificarlo
 while($filaTabla=mysqli_fetch_array($ejecucionConsulta)){
 $listaAlumnos.='
 <tr>  
